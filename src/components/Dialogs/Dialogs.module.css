@@ -1,0 +1,51 @@
+.messages {
+    display: flex;
+    position: sticky;
+    flex-direction: column;
+    top: 0;
+    width: -webkit-fill-available;
+    padding: 0.5em;
+    background-color: #b0dec9;
+    align-self: flex-start;
+    height: 75vh;
+}
+
+.dialogs {
+    display: flex;
+    flex-direction: row;
+    background-color: #90c3d2;
+}
+
+h3 {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid;
+    width: -webkit-fill-available;
+    padding-bottom: 0.83em;
+}
+
+
+/* Contacts */
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: center;
+}
+
+.contacts_items {
+    flex-direction: column;
+}
+
+.contacts_wrapper {
+    display: flex;
+    width: -webkit-fill-available;
+    /* min-width: 150px; */
+    justify-content: items;
+}
+
+.active {
+    color: white;
+    background-color: green;
+}

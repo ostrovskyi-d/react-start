@@ -1,0 +1,32 @@
+h2,
+.contacts_items {
+    display: flex;
+}
+
+h2 {
+    justify-content: center;
+    border-bottom: 1px solid;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    padding-block-start: 0;
+    margin-inline-start: 0;
+    padding-bottom: 0.83em;
+    margin: 0 0.3em;
+}
+
+.contact {
+    display: flex;
+    padding: 1em;
+    margin: 0.5em;
+    font-weight: 700;
+    /* border: 1px solid; */
+}
+
+.contact a {
+    text-decoration: none;
+    color: rgb(41, 41, 41);
+}
+
+.contact li {
+    list-style: circle;
+}
