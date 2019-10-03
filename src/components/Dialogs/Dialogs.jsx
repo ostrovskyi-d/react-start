@@ -3,20 +3,23 @@ import s from "./Dialogs.module.css";
 import Message from "./Message/Message";
 import Contact from "./Contact/Contact";
 
-const Dialogs = props => {
-
-    let contacts = props.contactsData.map(c => (<Contact id={c.id} name={c.name} />));
-    let messages = props.messageData.map(m => (<Message time={m.time} id={m.id} text={m.text} />));
+const Dialogs = (props)=> {
+    
+    let contacts = props.state.dialogsPage.contactsData.map(c => (<Contact imgSrc={c.imgSrc} id={c.id} name={c.name} />));
+    let messages = props.state.dialogsPage.messagesData.map(m => (<Message time={m.time} id={m.id} text={m.text} />));
+    
     return (
         <div className={s.dialogs}>
             <section className={s.contacts}>
                 <h3>CONTACTS</h3>
-                <div className={s.contacts_items}>{contacts}</div>
+                <div className={s.contacts_items}>
+                    {contacts}
+                </div>
             </section>
 
-            <div className={s.messages}>
+            <section className={s.messages}>
                 {messages}
-            </div>
+            </section>
         </div>
     );
 };

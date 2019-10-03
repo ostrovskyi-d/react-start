@@ -5,9 +5,9 @@
     top: 0;
     width: -webkit-fill-available;
     padding: 0.5em;
-    background-color: #b0dec9;
+    background-color: #e0fff1;
     align-self: flex-start;
-    height: 75vh;
+    
 }
 
 .dialogs {
@@ -36,6 +36,7 @@ h3 {
 
 .contacts_items {
     flex-direction: column;
+    width: 90%;
 }
 
 .contacts_wrapper {

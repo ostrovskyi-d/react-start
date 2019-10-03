@@ -25,6 +25,7 @@ aside menu ul li.item {
     display: flex;
     width: -webkit-fill-available;
     color: white;
+    cursor: pointer;
     
 }
 aside menu ul li:last-child{
@@ -33,6 +34,7 @@ aside menu ul li:last-child{
 aside menu ul li.item a {
     display: flex;
     font-weight: 200;
+    
     color: inherit;
     width: -webkit-fill-available;
     padding: 1em;
