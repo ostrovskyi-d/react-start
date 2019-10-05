@@ -6,13 +6,11 @@ import './Profile.module.css'
 
 
 const Profile = (props) => {
-    
     return (
         <main>
             <ProfileInfo />
             <MyPosts 
-                updatePostText = {props.updatePostText}
-                addPost = {props.addPost}
+                dispatch={props.dispatch}
                 state = {props.state}
             />
             
