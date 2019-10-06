@@ -13,6 +13,7 @@ import {BrowserRouter, Route} from 'react-router-dom'
 
 
 const App = (props) => {
+<<<<<<< HEAD
     let ProfilePage =
         <Profile
             // store={props.store}
@@ -22,6 +23,17 @@ const App = (props) => {
         <DialogsContainer
             // store={props.store}
         />;
+=======
+
+    let ProfilePage =
+        <Profile
+            state={props.state}
+            dispatch={props.dispatch}
+        />;
+
+
+
+>>>>>>> 35501aee448360699b37b9e0a06a091486800594
 
     return (
         <BrowserRouter>
@@ -36,7 +48,14 @@ const App = (props) => {
 
                     <Route
                         path="/dialogs"
+<<<<<<< HEAD
                         render={() => DialogsPageContainer}
+=======
+                        render={() => <Dialogs
+                            state={props.state}
+                            dispatch={props.dispatch}
+                        />}
+>>>>>>> 35501aee448360699b37b9e0a06a091486800594
                     />
 
                     <Route

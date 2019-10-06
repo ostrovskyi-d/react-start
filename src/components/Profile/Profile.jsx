@@ -5,6 +5,7 @@ import './Profile.module.css'
 
 
 const Profile = (props) => {
+<<<<<<< HEAD
 
 
     return (
@@ -14,6 +15,16 @@ const Profile = (props) => {
                     // store={props.store}
                 />
 
+=======
+    return (
+        <main>
+            <ProfileInfo />
+            <MyPosts 
+                dispatch={props.dispatch}
+                state = {props.state}
+            />
+            
+>>>>>>> 35501aee448360699b37b9e0a06a091486800594
         </main>
     )
 };

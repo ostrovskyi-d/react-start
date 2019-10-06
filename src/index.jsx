@@ -16,7 +16,12 @@ let rerenderEntireTree = () => {
             <BrowserRouter>
                 <StoreContext.Provider value={store}>
                 <App
+<<<<<<< HEAD
                     // store={store}
+=======
+                    state={store.getState()}
+                    dispatch={store.dispatch.bind(store)}
+>>>>>>> 35501aee448360699b37b9e0a06a091486800594
                 />
                 </StoreContext.Provider>
             </BrowserRouter>,

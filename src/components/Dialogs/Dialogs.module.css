@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+=======
+.messages {
+    display: flex;
+    flex-direction: column;
+    height: 580px;
+    width: -webkit-fill-available;
+    padding: 0.5em;
+    background-color: #e0fff1;
+    align-self: flex-start;
+    
+}
+
+>>>>>>> 35501aee448360699b37b9e0a06a091486800594
 .dialogs {
   display: flex;
   flex-direction: row;
@@ -21,6 +35,7 @@
   flex-direction: column;
   width: 90%;
 }
+<<<<<<< HEAD
 .dialogs .messagesElementsWrapper {
   display: flex;
   flex-grow: 3;
@@ -73,3 +88,64 @@
 }
 
 /*# sourceMappingURL=Dialogs.module.css.map */
+=======
+
+.contacts_wrapper {
+    display: flex;
+    width: -webkit-fill-available;
+    /* min-width: 150px; */
+    justify-content: items;
+
+}
+
+.active {
+    color: white;
+    background-color: green;
+}
+
+.messagesWrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: sticky;
+    top: 0;
+    height: fit-content;
+}
+.sendMessageBlock {
+    display: flex;
+    flex-direction: row;
+    /* flex-grow: 1; */
+    border-bottom: 5px solid #90c3d2;
+}
+.inputMessageArea {
+    display: flex;
+    height: 80px;
+    border-left: 1px solid black;
+    flex-grow: 8;
+    border: none;
+    background-color: #444c5a;
+    padding: 1em;
+    font-size: 1.5em;
+    /* border-radius: 30px; */
+    font-family: inherit;
+    filter: none;
+    outline: none;
+    color: #ffffff;
+}
+
+.sendMessageButton {
+    display: flex;
+    flex-grow: 1;
+    cursor: pointer;
+    outline: transparent;
+    background-color: #282c34;
+    border: none;
+    color: #44bf9e;
+    /* text-decoration: underline; */
+    font-size: 2em;
+    justify-content: center;
+    font-weight: 300;
+    text-shadow: 6px 4px 18px black;
+    font-family: unset;
+}
+>>>>>>> 35501aee448360699b37b9e0a06a091486800594
