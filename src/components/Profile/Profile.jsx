@@ -1,25 +1,22 @@
 import React from 'react';
-import MyPosts from './MyPosts/MyPosts.jsx';
+import MyPostsContainer from './MyPosts/MyPostsContainer.jsx';
 import ProfileInfo from './Profile-info/ProfileInfo.jsx'
 import './Profile.module.css'
 
 
-
 const Profile = (props) => {
-    
+
+
     return (
         <main>
-            <ProfileInfo />
-            <MyPosts 
-                updatePostText = {props.updatePostText}
-                addPost = {props.addPost}
-                state = {props.state}
-            />
-            
+            <ProfileInfo/>
+                <MyPostsContainer
+                    // store={props.store}
+                />
+
         </main>
     )
-}
-
+};
 
 
 export default Profile;

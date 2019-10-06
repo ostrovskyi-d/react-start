@@ -1,52 +1,75 @@
-.messages {
-    display: flex;
-    position: sticky;
-    flex-direction: column;
-    top: 0;
-    width: -webkit-fill-available;
-    padding: 0.5em;
-    background-color: #e0fff1;
-    align-self: flex-start;
-    
-}
-
 .dialogs {
-    display: flex;
-    flex-direction: row;
-    background-color: #90c3d2;
+  display: flex;
+  flex-direction: row;
+  background-color: #90c3d2;
+  position: relative;
 }
-
-h3 {
-    display: flex;
-    justify-content: center;
-    border-bottom: 1px solid;
-    width: -webkit-fill-available;
-    padding-bottom: 0.83em;
+.dialogs .contacts {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
 }
-
-
-/* Contacts */
-
-.contacts {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    align-items: center;
+.dialogs .contacts h3 {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid;
+  flex-grow: 1;
+  padding-bottom: 0.83em;
 }
-
-.contacts_items {
-    flex-direction: column;
-    width: 90%;
+.dialogs .contacts .contacts_items {
+  flex-direction: column;
+  width: 90%;
 }
-
-.contacts_wrapper {
-    display: flex;
-    width: -webkit-fill-available;
-    /* min-width: 150px; */
-    justify-content: items;
+.dialogs .messagesElementsWrapper {
+  display: flex;
+  flex-grow: 3;
+  flex-direction: column;
+  position: -webkit-sticky;
+  position: sticky;
+  height: fit-content;
+  top: 0;
+}
+.dialogs .messagesElementsWrapper .messages {
+  display: flex;
+  flex-direction: column;
+  width: -webkit-fill-available;
+  padding: 0.5em;
+  background-color: #e0fff1;
+  align-self: flex-start;
+  overflow-y: scroll;
+  height: 550px;
+}
+.dialogs .messagesElementsWrapper .wrapperInputsForMessage {
+  display: flex;
+  flex-direction: row;
+}
+.dialogs .messagesElementsWrapper .wrapperInputsForMessage .messageTextArea {
+  display: flex;
+  width: 100%;
+  border: none;
+  height: 72px;
+  background-color: #444c5a;
+  color: white;
+  font-size: 1.3em;
+  padding: 1.5em;
+  outline: transparent;
+}
+.dialogs .messagesElementsWrapper .wrapperInputsForMessage .sendMessageButton {
+  display: flex;
+  background: rgba(2, 226, 0, 0.46) url("https://img.icons8.com/material-sharp/96/000000/filled-sent.png") no-repeat center;
+  background-size: auto;
+  border: none;
+  color: white;
+  width: 150px;
+  justify-content: center;
+  cursor: pointer;
+  font-size: larger;
 }
 
 .active {
-    color: white;
-    background-color: green;
+  color: white;
+  background-color: green;
 }
+
+/*# sourceMappingURL=Dialogs.module.css.map */

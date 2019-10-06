@@ -4,57 +4,54 @@ import './App.css';
 import Header from './components/Header/Header.jsx'
 import SideBar from './components/SideBar/SideBar.jsx'
 import Profile from './components/Profile/Profile.jsx'
-import Dialogs from './components/Dialogs/Dialogs'
+import DialogsContainer from './components/Dialogs/DialogsContainer'
 import News from './components/News/News'
 import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings'
 
-import { BrowserRouter, Route } from 'react-router-dom'
+import {BrowserRouter, Route} from 'react-router-dom'
 
 
 const App = (props) => {
-	let ProfilePage = 
-		<Profile 
-			state = {props.state}
-			updatePostText = {props.updatePostText}
-			addPost = {props.addPost}
-		/>;
+    let ProfilePage =
+        <Profile
+            // store={props.store}
+        />;
 
-	let DialogsPage = 
-		<Dialogs 
-			state = {props.state} 
-			
-		/>
+    let DialogsPageContainer =
+        <DialogsContainer
+            // store={props.store}
+        />;
 
-	return (
-		<BrowserRouter>
-			<div className="wrapper">
-				<Header />
-				<SideBar />
-				<div className="app-wrapper-content">
-					<Route
-						exact path="/"
-						render={ () => ProfilePage } 
-					/>
+    return (
+        <BrowserRouter>
+            <div className="wrapper">
+                <Header/>
+                <SideBar/>
+                <div className="app-wrapper-content">
+                    <Route
+                        exact path="/"
+                        render={() => ProfilePage}
+                    />
 
-					<Route
-						path="/dialogs"
-						render={ () => DialogsPage} 
-					/>
+                    <Route
+                        path="/dialogs"
+                        render={() => DialogsPageContainer}
+                    />
 
-					<Route
-						path = "/profile"
-						render ={ () => ProfilePage } 
-					/>
+                    <Route
+                        path="/profile"
+                        render={() => ProfilePage}
+                    />
 
-					<Route path="/news" render={News} />
-					<Route path="/music" render={Music} />
-					<Route path="/settings" render={Settings} />
-				</div>
-				
-			</div>
-		</BrowserRouter>
-	)
+                    <Route path="/news" render={News}/>
+                    <Route path="/music" render={Music}/>
+                    <Route path="/settings" render={Settings}/>
+                </div>
+
+            </div>
+        </BrowserRouter>
+    )
 }
 
 export default App;

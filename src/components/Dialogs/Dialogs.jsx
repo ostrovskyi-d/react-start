@@ -3,11 +3,38 @@ import s from "./Dialogs.module.css";
 import Message from "./Message/Message";
 import Contact from "./Contact/Contact";
 
-const Dialogs = (props)=> {
-    
-    let contacts = props.state.dialogsPage.contactsData.map(c => (<Contact imgSrc={c.imgSrc} id={c.id} name={c.name} />));
-    let messages = props.state.dialogsPage.messagesData.map(m => (<Message time={m.time} id={m.id} text={m.text} />));
-    
+const Dialogs = (props) => {
+    let state = props.dialogsPage;
+    let updatedMessageText = state.updatedMessageText;
+    let contacts = state.contactsData.map(c => (
+            <Contact
+                imgSrc={c.imgSrc}
+                id={c.id}
+                name={c.name}
+            />
+        )
+    );
+
+    let messages = state.messagesData.map(m => (
+            <Message
+                time={m.time}
+                id={m.id}
+                text={m.text}
+            />
+        )
+    );
+
+    let onMessageTextChange = (e) => {
+        props.onMessageTextChange(e.target.value);
+
+    };
+
+    let onMessageSend = (e) => {
+        props.onMessageSend();
+
+    };
+
+
     return (
         <div className={s.dialogs}>
             <section className={s.contacts}>
@@ -17,9 +44,28 @@ const Dialogs = (props)=> {
                 </div>
             </section>
 
-            <section className={s.messages}>
-                {messages}
+            <section className={s.messagesElementsWrapper}>
+                <div className={s.messages}>
+                    {messages}
+                </div>
+                <section className={s.wrapperInputsForMessage}>
+
+                    <textarea
+                        onChange={onMessageTextChange}
+                        placeholder="Input your message"
+                        className={s.messageTextArea}
+                        value={updatedMessageText}
+                    />
+                    <input
+                        value=""
+                        className={s.sendMessageButton}
+                        onClick={onMessageSend}
+                        type="submit"
+                    />
+
+                </section>
             </section>
+
         </div>
     );
 };

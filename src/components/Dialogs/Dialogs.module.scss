@@ -1,0 +1,89 @@
+.dialogs {
+  display: flex;
+  flex-direction: row;
+  background-color: #90c3d2;
+  position: relative;
+
+  .contacts {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    //width: 30%;
+    align-items: center;
+
+    h3 {
+      display: flex;
+      justify-content: center;
+      border-bottom: 1px solid;
+      flex-grow: 1;
+      padding-bottom: 0.83em;
+    }
+
+    .contacts_items {
+      flex-direction: column;
+      width: 90%;
+    }
+  }
+
+  .messagesElementsWrapper {
+    display: flex;
+    flex-grow: 3;
+    flex-direction: column;
+    position: -webkit-sticky;
+    position: sticky;
+    height: fit-content;
+    top: 0;
+
+    .messages {
+      display: flex;
+      flex-direction: column;
+      width: -webkit-fill-available;
+      padding: 0.5em;
+      background-color: #e0fff1;
+      align-self: flex-start;
+      overflow-y: scroll;
+      height: 550px;
+
+    }
+
+    .wrapperInputsForMessage {
+      display: flex;
+      flex-direction: row;
+
+      .messageTextArea {
+        display: flex;
+        width: 100%;
+        border: none;
+        height: 72px;
+        background-color: #444c5a;
+        color: white;
+        font-size: 1.3em;
+        padding: 1.5em;
+        outline: transparent;
+      }
+
+      .sendMessageButton {
+        display: flex;
+        background: rgba(2, 226, 0, 0.46) url("https://img.icons8.com/material-sharp/96/000000/filled-sent.png") no-repeat center;
+        background-size: auto;
+        border: none;
+        color: white;
+        width: 150px;
+        justify-content: center;
+        cursor: pointer;
+        font-size: larger;
+      }
+    }
+
+  }
+}
+
+
+.active {
+  color: white;
+  background-color: green;
+}
+
+
+
+

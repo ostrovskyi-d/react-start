@@ -1,38 +1,39 @@
 .my_posts {
-    display: flex;
-    width: 90%;
-    flex-direction: column;
-    align-content: center;
-    align-self: center;
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+  align-content: center;
+  align-self: center;
 }
 
 .post_add {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .post_add textarea {
-    border: 1px solid #c1c1c196;
-    border-radius: 15px;
-    font-size: 1.2em;
-    padding: 1.5em;
-    margin: 0.5em;
-    outline: none;
-    width: 60%;
-    height: 60px;
-    font-family: Anodina, sans-serif;
-    
+  border: 1px solid #c1c1c196;
+  border-radius: 15px;
+  font-size: 1.2em;
+  padding: 1.5em;
+  margin: 0.5em;
+  outline: none;
+  width: 60%;
+  height: 60px;
+  font-family: Anodina, sans-serif;
 }
 
 .post_add input {
-    border: none;
-    border-radius: 10px;
-    width: 150px;
-    background-color: aliceblue;
-    margin: 0.5em;
-    height: 38px;
+  border: none;
+  border-radius: 10px;
+  width: 150px;
+  background-color: aliceblue;
+  margin: 0.5em;
+  height: 38px;
 }
 
 h3 {
-    margin: 1em;
+  margin: 1em;
 }
+
+/*# sourceMappingURL=MyPosts.module.css.map */

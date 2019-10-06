@@ -12,14 +12,16 @@
 }
 
 .post_add textarea {
-    height: 100px;
-    border: none;
+    border: 1px solid #c1c1c196;
     border-radius: 15px;
-    padding: 0.5em;
+    font-size: 1.2em;
+    padding: 1.5em;
     margin: 0.5em;
     outline: none;
     width: 60%;
     height: 60px;
+    font-family: Anodina, sans-serif;
+    
 }
 
 .post_add input {
