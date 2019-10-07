@@ -1,5 +1,3 @@
-import {updatePostTextCreator} from "./profile-reducer";
-
 const SEND_MESSAGE = "SEND-MESSAGE";
 const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
 
@@ -26,23 +24,30 @@ let initialState = {
         {imgSrc: require(`./../images/100x100-10.png`), id: 10, name: 'Tony Montana 3'},
     ],
 };
-let dialogsReducer = (state = initialState, action ) => {
+let dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case UPDATE_NEW_MESSAGE_TEXT:
-            state.updatedMessageText = action.updatedMessageText;
-            console.log("REDUCER: action = UPDATE-NEW-MESSAGE-TEXT::::" + state.updatedMessageText);
-            return state;
-        case SEND_MESSAGE:
+        case UPDATE_NEW_MESSAGE_TEXT: {
+            let stateCopy = {...state};
+            stateCopy.messagesData = [...state.messagesData];
+            stateCopy.updatedMessageText = action.updatedMessageText;
+            // console.log("REDUCER: action = UPDATE-NEW-MESSAGEMESSAGE-TEXT::::" + state.updatedMessageText);
+            return stateCopy;
+        }
+        case SEND_MESSAGE: {
+            let stateCopy = {...state};
+            stateCopy.messagesData = [...state.messagesData];
             let newMessageObj = {
-                id: state.messagesData.length + 1,
+                id: stateCopy.messagesData.length + 1,
                 time: new Date().toLocaleTimeString(),
-                text: state.updatedMessageText
+                text: stateCopy.updatedMessageText
             };
-            state.messagesData.push(newMessageObj);
-            console.log("REDUCER: action = SEND-MESSAGE::::" + state.updatedMessageText);
-            state.updatedMessageText = "";
+            stateCopy.messagesData.push(newMessageObj);
+            // console.log("REDUCER: action = SEND-MESSAGE::::" + state.updatedMessageText);
+            stateCopy.updatedMessageText = "";
+            return stateCopy;
+        }
+        default:
             return state;
-        default: return state;
     }
 };
 

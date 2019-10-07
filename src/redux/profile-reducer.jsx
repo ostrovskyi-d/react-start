@@ -28,31 +28,37 @@ let initialState = {
     changeAblePostText: '',
 };
 
+
 let profileReducer = (state = initialState, action) => {
 
+    // eslint-disable-next-line default-case
     switch (action.type) {
-        case ADD_POST:
-            // if (state.changeAblePostText !== '') {
+        case ADD_POST: {
             let newPost = {
                 id: state.postsData.length + 1,
                 postMessage: state.changeAblePostText,
                 likes: 0
             };
-            state.postsData.unshift(newPost);
-            console.log("REDUCER: action = ADD-POST::::" + state.changeAblePostText);
-            state.changeAblePostText = '';
-            // } else alert("Empty posts not allowed!");
-            return state;
-        case UPDATE_POST_TEXT:
-            state.changeAblePostText = action.newText;
-            console.log("REDUCER: action = ADD-POST::::" + state.changeAblePostText);
-            return state;
-        case ADD_ONE_LIKE:
-            state.postsData.forEach(post => (post.id === action.id) ? post.likes++ : false);
-            console.log("REDUCER: action = ADD-LIKE::::" );
-            console.log(state.postsData.forEach(post => console.log(post.likes)));
+
+            let stateCopy = {...state};
+            stateCopy.postsData = [...state.postsData];
+            stateCopy.postsData.unshift(newPost);
+            return stateCopy;
+        }
+        case UPDATE_POST_TEXT: {
+            let stateCopy = {...state};
+            stateCopy.changeAblePostText = action.newText;
+            return stateCopy;
+        }
+        case ADD_ONE_LIKE: {
+            let stateCopy = {...state};
+            stateCopy.postsData = [...state.postsData];
+            stateCopy.postsData.forEach(post => (post.id === action.id) ? post.likes++ : false);
+            console.log("REDUCER: action = ADD-LIKE::::");
+            console.log(stateCopy.postsData.forEach(post => console.log(post.likes)));
             console.log("::::::::::::::::::::::::::::::");
-            return state;
+            return stateCopy;
+        }
         default:
             return state;
     }
