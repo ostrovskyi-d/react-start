@@ -13,11 +13,11 @@ body {
 .wrapper {
     display: grid;
     position: relative;
-    grid-template-areas: 
+    grid-template-areas:
         "h h h h"
         "s c c c"
         "f f f f";
-    grid-template-columns: 1fr 2fr 2fr 2fr;
+    grid-template-columns: 2fr 3fr 3fr 3fr;
     
 }
 .app-wrapper-content {
