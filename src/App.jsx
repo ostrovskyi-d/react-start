@@ -12,7 +12,7 @@ import Settings from './components/Settings/Settings'
 import {BrowserRouter, Route} from 'react-router-dom'
 
 
-const App = (props) => {
+const App = () => {
     let ProfilePage =
         <Profile
             // store={props.store}

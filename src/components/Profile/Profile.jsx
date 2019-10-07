@@ -4,7 +4,7 @@ import ProfileInfo from './Profile-info/ProfileInfo.jsx'
 import './Profile.module.css'
 
 
-const Profile = (props) => {
+const Profile = () => {
     return (
         <main>
             <ProfileInfo/>

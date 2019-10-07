@@ -27,12 +27,10 @@ const Dialogs = (props) => {
     let onMessageTextChange = (e) => {
         props.onMessageTextChange(e.target.value);
     };
-
     let onMessageSend = (e) => {
         props.onMessageSend();
 
     };
-
 
     return (
         <div className={s.dialogs}>
