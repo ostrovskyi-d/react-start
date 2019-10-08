@@ -6,8 +6,6 @@ import Contact from "./Contact/Contact";
 const Dialogs = (props) => {
     let state = props.dialogsPage;
 
-    let updatedMessageText = state.updatedMessageText;
-
     let contacts = state.contactsData.map(c => (
             <Contact
                 imgSrc={c.imgSrc}
@@ -51,7 +49,7 @@ const Dialogs = (props) => {
                         onChange={onMessageTextChange}
                         placeholder="Input your message"
                         className={s.messageTextArea}
-                        value={updatedMessageText}
+                        value={state.updatedMessageText}
                     />
                     <input
                         value=""

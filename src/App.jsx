@@ -14,14 +14,10 @@ import {BrowserRouter, Route} from 'react-router-dom'
 
 const App = () => {
     let ProfilePage =
-        <Profile
-            // store={props.store}
-        />;
+        <Profile/>;
 
     let DialogsPageContainer =
-        <DialogsContainer
-            // store={props.store}
-        />;
+        <DialogsContainer/>;
 
 
     return (

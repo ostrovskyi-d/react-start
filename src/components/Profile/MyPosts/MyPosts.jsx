@@ -4,20 +4,18 @@ import Post from './Post/Post.jsx'
 
 
 const MyPosts = (props) => {
-    let state = props.profilePage;
-
 
     let onAddPost = (e) => {
         props.addPost();
     };
+
     let onPostChange = (e) => {
         let newText = e.target.value;
         props.updateNewPostText(newText);
+
     };
 
-
-
-    let posts = state.postsData.map(p => (
+    let posts = props.profilePage.postsData.map(p => (
             <Post
                 id={p.id}
                 likes={p.likes}
@@ -33,7 +31,7 @@ const MyPosts = (props) => {
 
                 <textarea
                     onChange={onPostChange}
-                    value={state.changeAblePostText}
+                    value={props.profilePage.changeAblePostText}
                     // ref={newPostElement}
                 />
 
