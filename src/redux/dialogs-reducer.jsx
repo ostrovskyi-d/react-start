@@ -27,24 +27,25 @@ let initialState = {
 let dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_TEXT: {
-            let stateCopy = {...state};
-            stateCopy.messagesData = [...state.messagesData];
-            stateCopy.updatedMessageText = action.updatedMessageText;
-            // console.log("REDUCER: action = UPDATE-NEW-MESSAGEMESSAGE-TEXT::::" + state.updatedMessageText);
-            return stateCopy;
+            return {
+                ...state,
+                updatedMessageText: action.updatedMessageText
+            }
         }
         case SEND_MESSAGE: {
-            let stateCopy = {...state};
-            stateCopy.messagesData = [...state.messagesData];
+            // eslint-disable-next-line no-use-before-define
+
             let newMessageObj = {
-                id: stateCopy.messagesData.length + 1,
+                id: state.messagesData.length + 1,
                 time: new Date().toLocaleTimeString(),
-                text: stateCopy.updatedMessageText
+                text: state.updatedMessageText
             };
-            stateCopy.messagesData.push(newMessageObj);
-            // console.log("REDUCER: action = SEND-MESSAGE::::" + state.updatedMessageText);
-            stateCopy.updatedMessageText = "";
-            return stateCopy;
+
+            return {
+                ...state,
+                messagesData: [...state.messagesData, newMessageObj],
+                updatedMessageText: ''
+            }
         }
         default:
             return state;

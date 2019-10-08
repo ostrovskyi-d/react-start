@@ -12,18 +12,23 @@ const MyPosts = (props) => {
     let onPostChange = (e) => {
         let newText = e.target.value;
         props.updateNewPostText(newText);
-
     };
 
-    let posts = props.profilePage.postsData.map(p => (
+    // let addLike = (id) => {
+    //     props.addLike(id);
+    // };
+
+    let posts = props.profilePage.postsData.map((p,i) => (
             <Post
                 id={p.id}
                 likes={p.likes}
                 text={p.postMessage}
                 addLike={props.addLike}
+                key={i}
             />
         )
     );
+
     return (
         <div className={classes.my_posts}>
             <h3>WALL:</h3>

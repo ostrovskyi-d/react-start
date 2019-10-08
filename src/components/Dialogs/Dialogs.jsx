@@ -11,6 +11,7 @@ const Dialogs = (props) => {
                 imgSrc={c.imgSrc}
                 id={c.id}
                 name={c.name}
+                key={c.id}
             />
         ));
 
@@ -19,6 +20,8 @@ const Dialogs = (props) => {
                 time={m.time}
                 id={m.id}
                 text={m.text}
+                key={m.id}
+
             />
         ));
 
@@ -41,6 +44,7 @@ const Dialogs = (props) => {
 
             <section className={s.messagesElementsWrapper}>
                 <div className={s.messages}>
+
                     {messages}
                 </div>
                 <section className={s.wrapperInputsForMessage}>

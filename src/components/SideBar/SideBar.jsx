@@ -3,28 +3,30 @@ import classes from './SideBar.module.css';
 import {NavLink} from 'react-router-dom'
 
 
-
 const SideBar = () => {
     return (
         <aside>
             <menu>
                 <ul>
-                    <li className= {classes.item}> 
-                        <NavLink activeClassName={classes.active} to="/profile">PROFILE</NavLink> 
+                    <li className={classes.item}>
+                        <NavLink activeClassName={classes.active} to="/profile">PROFILE</NavLink>
                     </li>
-                    <li className= {classes.item}> 
-                        <NavLink activeClassName={classes.active} to="/dialogs">MESSAGES</NavLink> 
+                    <li>
+                        <NavLink activeClassName={classes.active} to="/users">USERS</NavLink>
                     </li>
-                    <li className= {classes.item}> 
-                        <NavLink activeClassName={classes.active} to="/news">NEWS</NavLink> 
+                    <li className={classes.item}>
+                        <NavLink activeClassName={classes.active} to="/dialogs">MESSAGES</NavLink>
                     </li>
-                    <li className= {classes.item}> 
-                        <NavLink activeClassName={classes.active} to="/music">MUSIC</NavLink> 
+                    <li className={classes.item}>
+                        <NavLink activeClassName={classes.active} to="/news">NEWS</NavLink>
                     </li>
-                    <li className= {classes.item}> 
-                        <NavLink activeClassName={classes.active} to="/settings">SETTINGS</NavLink> 
+                    <li className={classes.item}>
+                        <NavLink activeClassName={classes.active} to="/music">MUSIC</NavLink>
                     </li>
-                </ul> 
+                    <li className={classes.item}>
+                        <NavLink activeClassName={classes.active} to="/settings">SETTINGS</NavLink>
+                    </li>
+                </ul>
             </menu>
         </aside>
     )

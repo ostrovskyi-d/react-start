@@ -34,30 +34,37 @@ let profileReducer = (state = initialState, action) => {
     // eslint-disable-next-line default-case
     switch (action.type) {
         case ADD_POST: {
-            let newPost = {
-                id: state.postsData.length + 1,
-                postMessage: state.changeAblePostText,
-                likes: 0
+            return {
+                ...state,
+                postsData: [
+                    {
+                        id: state.postsData.length + 1,
+                        postMessage: state.changeAblePostText,
+                        likes: 0
+                    },
+                    ...state.postsData
+                ],
+                changeAblePostText: ''
             };
-
-            let stateCopy = {...state};
-            stateCopy.postsData = [...state.postsData];
-            stateCopy.postsData.unshift(newPost);
-            return stateCopy;
         }
         case UPDATE_POST_TEXT: {
-            let stateCopy = {...state};
-            stateCopy.changeAblePostText = action.newText;
-            return stateCopy;
+            return {
+                ...state,
+                changeAblePostText: action.newText
+            };
         }
         case ADD_ONE_LIKE: {
-            let stateCopy = {...state};
-            stateCopy.postsData = [...state.postsData];
-            stateCopy.postsData.forEach(post => (post.id === action.id) ? post.likes++ : false);
-            console.log("REDUCER: action = ADD-LIKE::::");
-            console.log(stateCopy.postsData.forEach(post => console.log(post.likes)));
-            console.log("::::::::::::::::::::::::::::::");
-            return stateCopy;
+            return {
+                ...state,
+                postsData: [...state.postsData].map(post => {
+                    if (post.id === action.id) {
+                        post.likes++;
+                        return post;
+                    } else {
+                        return post;
+                    }
+                }),
+            };
         }
         default:
             return state;

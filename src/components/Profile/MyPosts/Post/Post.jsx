@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Post.module.css';
 
 const Post = (props) => {
+    
     let getId = () => {
         props.addLike(props.id);
     };

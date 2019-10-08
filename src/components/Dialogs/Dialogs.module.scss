@@ -9,8 +9,7 @@
   .contacts {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    //width: 30%;
+    /* flex-grow: 1; */
     align-items: center;
 
     h3 {
@@ -23,7 +22,7 @@
 
     .contacts_items {
       flex-direction: column;
-      width: 90%;
+      width: 400px;
     }
   }
 
@@ -82,8 +81,7 @@
 
 
 .active {
-  color: white;
-  background-color: green;
+  padding-left: 4em;
 }
 
 

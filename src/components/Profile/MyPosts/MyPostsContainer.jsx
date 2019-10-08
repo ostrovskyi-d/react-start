@@ -13,6 +13,7 @@ let mapStateToProps = (state) => {
 };
 let mapDispatchToProps = (dispatch) => {
     return {
+
         updateNewPostText: (newText) => {
             let action = updatePostTextCreator(newText);
             dispatch(action);
@@ -22,7 +23,9 @@ let mapDispatchToProps = (dispatch) => {
             dispatch(action);
         },
         addLike: (id) => {
+
             let action = addOneLikeCreator(id);
+
             dispatch(action);
         }
 
