@@ -4,16 +4,18 @@ import s from "./User/User.module.css";
 
 
 const Users = (props) => {
-    let state = props.users.usersStore;
+    let state = props.users;
 
-    let onFollowUserClick = (state, buttonValue) => {
-        props.followUser(state, buttonValue);
+    let onFollowUserClick = (userID) => {
+        props.followUser(userID);
     };
     let onShowMoreUsersClick = () => {
         props.showMoreUsers();
     };
-
-
+    let onUnfollowUserClick = (userID) => {
+        props.unfollowUser(userID)
+    };
+    // debugger
     let users = state.map(u => {
             return <User
                 id={u.id}
@@ -21,8 +23,8 @@ const Users = (props) => {
                 status={u.status}
                 location={u.location}
                 followed={u.followed}
-                buttonValue={u.followed ? u.buttonValue = "Unfollow" : "Follow"}
                 onFollowUserClick={onFollowUserClick}
+                unfollowUser={onUnfollowUserClick}
                 onShowMoreUsersClick={onShowMoreUsersClick}
             />
         }

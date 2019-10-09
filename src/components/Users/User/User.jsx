@@ -3,14 +3,13 @@ import s from './User.module.css';
 
 
 const User = (props) => {
-
-
-    let onFollowUserClick = (e) => {
-
-        let buttonValue = e.target.value;
-        props.onFollowUserClick(props, buttonValue);
+    console.log(props);
+    let onFollowUserClick = () => {
+        props.onFollowUserClick(props.id);
     };
-
+    let onUnfollowUserClick = () => {
+        props.unfollowUser(props.id);
+    };
 
     return (
         <div className={s.userWrapper}>
@@ -27,7 +26,7 @@ const User = (props) => {
             </section>
             <section className={s.buttons}>
                 <div className={s.followButtonWrapper}>
-                    <input value={props.buttonValue} onClick={onFollowUserClick} type="submit"/>
+                    {props.followed ? <button onClick={onUnfollowUserClick}>UNFOLLOW</button> : <button onClick={onFollowUserClick}>FOLLOW</button>}
                 </div>
             </section>
         </div>

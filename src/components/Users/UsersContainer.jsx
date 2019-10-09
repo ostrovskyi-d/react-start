@@ -1,23 +1,30 @@
 import Users from "./Users";
 import {connect} from "react-redux";
-import {followThisUserCreator, showMoreUsersCreator} from "../../redux/users-reducer";
+import {followThisUserAC, setUsersAC, showMoreUsersAC, unfollowThisUserAC} from "../../redux/users-reducer";
 
 
 let mapStateToProps = (state) => {
     return {
-        users: state.users
+        users: state.users.usersStore
     }
 };
 
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        followUser: (props, buttonValue) => {
-            let action = followThisUserCreator(props, buttonValue);
+        followUser: (userID) => {
+            let action = followThisUserAC(userID);
             return dispatch(action);
         },
+        unfollowUser: (userID) => {
+            let action = unfollowThisUserAC(userID);
+            return dispatch(action);
+        },
+        setUsers: (users) => {
+            dispatch(setUsersAC(users));
+        },
         showMoreUsers: () => {
-            let action = showMoreUsersCreator();
+            let action = showMoreUsersAC();
             dispatch(action);
         }
     }

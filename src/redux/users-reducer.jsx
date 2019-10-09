@@ -1,6 +1,7 @@
 const SHOW_MORE_USERS = "SHOW-MORE-USERS";
-const FOLLOW_USER = "FOLLOW-USER";
-// const action3 = "action3";
+const FOLLOW = "FOLLOW";
+const UNFOLLOW = "UNFOLLOW";
+const SET_USERS = "SET-USERS";
 
 let initialState = {
     usersStore: [
@@ -13,7 +14,6 @@ let initialState = {
                 city: "Kiev"
             },
             followed: false,
-            buttonValue: ""
         },
         {
             id: 2,
@@ -24,7 +24,6 @@ let initialState = {
                 city: "Moscow"
             },
             followed: true,
-            buttonValue: ""
         },
         {
             id: 3,
@@ -35,11 +34,38 @@ let initialState = {
                 city: "Minsk"
             },
             followed: false,
-            buttonValue: ""
         },
-    ],
-    selectedUser: null,
-    subscribed: [],
+        {
+            id: 4,
+            nickName: "NickName3",
+            status: "away from mouse",
+            location: {
+                country: "Belarus",
+                city: "Minsk"
+            },
+            followed: false,
+        },
+        {
+            id: 5,
+            nickName: "Anastasia",
+            status: "away from hell",
+            location: {
+                country: "Arstotzka",
+                city: "Greshtyn"
+            },
+            followed: true,
+        },
+        {
+            id: 6,
+            nickName: "Azaza",
+            location: {
+                country: "Turkey",
+                city: "Stambul"
+            },
+            status: "away from heaven",
+            followed: false
+        }
+    ]
 };
 
 
@@ -49,17 +75,45 @@ let usersReducer = (state = initialState, action) => {
             console.log("SHOW MORE USERS");
             return {...state};
         }
-        case FOLLOW_USER: {
+        case FOLLOW: {
             // створити ефективний спосіб для переключання стану підписки на користувача
+            // а створив неефективний
 
-
+            return {
+                ...state,
+                usersStore: state.usersStore.map(user => {
+                    if (user.id === action.id) {
+                        return {...user, followed: true}
+                    }
+                    return user;
+                })
+            }
         }
+        case UNFOLLOW: {
+            return {
+                ...state,
+                usersStore: state.usersStore.map(user => {
+                    if (user.id === action.id) {
+                        return {...user, followed: false}
+                    }
+                    return user;
+                })
+            }
+        }
+        case SET_USERS: {
+            return {
+                ...state,
+                usersStore: [...state.usersStore, action.usersStore]
+            }
+        }
+
         default:
             return state;
     }
 };
 
-export const showMoreUsersCreator = () => ({type: SHOW_MORE_USERS});
-export const followThisUserCreator = (props, buttonValue) => ({type: FOLLOW_USER, props: props, buttonValue: buttonValue});
-
+export const showMoreUsersAC = () => ({type: SHOW_MORE_USERS});
+export const followThisUserAC = (userID) => ({type: FOLLOW, userID});
+export const unfollowThisUserAC = (userID) => ({type: UNFOLLOW, userID});
+export const setUsersAC = (usersStore) => ({type: SET_USERS, usersStore});
 export default usersReducer;
