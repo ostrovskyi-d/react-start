@@ -11,7 +11,9 @@ let initialState = {
             location: {
                 country: "Ukraine",
                 city: "Kiev"
-            }
+            },
+            followed: false,
+            buttonValue: ""
         },
         {
             id: 2,
@@ -20,7 +22,9 @@ let initialState = {
             location: {
                 country: "Russia",
                 city: "Moscow"
-            }
+            },
+            followed: true,
+            buttonValue: ""
         },
         {
             id: 3,
@@ -29,7 +33,9 @@ let initialState = {
             location: {
                 country: "Belarus",
                 city: "Minsk"
-            }
+            },
+            followed: false,
+            buttonValue: ""
         },
     ],
     selectedUser: null,
@@ -40,25 +46,20 @@ let initialState = {
 let usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case SHOW_MORE_USERS: {
-            console.log("SHOW MORE USERS")
+            console.log("SHOW MORE USERS");
             return {...state};
         }
         case FOLLOW_USER: {
-            console.log("FOLLOW THIS USER");
-            return {...state};
+            // створити ефективний спосіб для переключання стану підписки на користувача
+
 
         }
-        // case action3: {
-        //     return {...state};
-        //
-        // }
         default:
             return state;
     }
 };
 
 export const showMoreUsersCreator = () => ({type: SHOW_MORE_USERS});
-export const followThisUserCreator = (id) => ({type: FOLLOW_USER, userID: id});
-// export const ccc = () => ({type: action3});
+export const followThisUserCreator = (props, buttonValue) => ({type: FOLLOW_USER, props: props, buttonValue: buttonValue});
 
 export default usersReducer;

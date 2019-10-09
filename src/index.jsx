@@ -7,18 +7,20 @@ import App from "./App.jsx"
 import "./index.css";
 
 let rerenderEntireTree = () => {
-    // debugger
     return (
         ReactDOM.render(
             <BrowserRouter>
                 <Provider store={store}>
-                    <App />
+                    <App/>
                 </Provider>
             </BrowserRouter>,
+
             document.getElementById("root"))
     )
 
 };
+//помилка тут, по ходу
+
 rerenderEntireTree(store.getState());
 
 

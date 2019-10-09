@@ -1,10 +1,51 @@
+.userWrapper .buttons .followButtonWrapper input {
+  display: flex;
+  border: none;
+  background-color: beige;
+  padding: 1em 2em;
+  font-size: large;
+  margin: 1em;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0 3px 5px 0 gray;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.userWrapper .buttons .followButtonWrapper input:hover {
+  filter: invert(1);
+}
+
 .userWrapper {
   display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
+  flex-grow: 1;
+  padding: 1em;
+  margin: 0.5em;
+  background-color: #93d2e4;
+}
+.userWrapper .avaAndUserInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.userWrapper .avaAndUserInfo .userAva {
+  display: flex;
+  width: 150px;
+  height: 150px;
+  margin: 1em;
+  border: 3px solid;
+  justify-content: center;
+  align-items: center;
+}
+.userWrapper .buttons {
+  display: flex;
+  flex-direction: column;
+}
+.userWrapper .buttons .followButtonWrapper {
+  display: flex;
 }
 
 /*# sourceMappingURL=User.module.css.map */

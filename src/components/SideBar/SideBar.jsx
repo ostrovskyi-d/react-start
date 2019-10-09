@@ -11,7 +11,7 @@ const SideBar = () => {
                     <li className={classes.item}>
                         <NavLink activeClassName={classes.active} to="/profile">PROFILE</NavLink>
                     </li>
-                    <li>
+                    <li className={classes.item}>
                         <NavLink activeClassName={classes.active} to="/users">USERS</NavLink>
                     </li>
                     <li className={classes.item}>
