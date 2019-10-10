@@ -19,7 +19,6 @@ let rerenderEntireTree = () => {
     )
 
 };
-//помилка тут, по ходу
 
 rerenderEntireTree(store.getState());
 

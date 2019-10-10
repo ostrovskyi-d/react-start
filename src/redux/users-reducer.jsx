@@ -4,68 +4,7 @@ const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET-USERS";
 
 let initialState = {
-    usersStore: [
-        {
-            id: 1,
-            nickName: "NickName",
-            status: "away from keyboard",
-            location: {
-                country: "Ukraine",
-                city: "Kiev"
-            },
-            followed: false,
-        },
-        {
-            id: 2,
-            nickName: "NickName2",
-            status: "away from brain",
-            location: {
-                country: "Russia",
-                city: "Moscow"
-            },
-            followed: true,
-        },
-        {
-            id: 3,
-            nickName: "NickName3",
-            status: "away from mouse",
-            location: {
-                country: "Belarus",
-                city: "Minsk"
-            },
-            followed: false,
-        },
-        {
-            id: 4,
-            nickName: "NickName3",
-            status: "away from mouse",
-            location: {
-                country: "Belarus",
-                city: "Minsk"
-            },
-            followed: false,
-        },
-        {
-            id: 5,
-            nickName: "Anastasia",
-            status: "away from hell",
-            location: {
-                country: "Arstotzka",
-                city: "Greshtyn"
-            },
-            followed: true,
-        },
-        {
-            id: 6,
-            nickName: "Azaza",
-            location: {
-                country: "Turkey",
-                city: "Stambul"
-            },
-            status: "away from heaven",
-            followed: false
-        }
-    ]
+    usersStore: []
 };
 
 
@@ -82,7 +21,7 @@ let usersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 usersStore: state.usersStore.map(user => {
-                    if (user.id === action.id) {
+                    if (user.id === action.userID) {
                         return {...user, followed: true}
                     }
                     return user;
@@ -90,10 +29,12 @@ let usersReducer = (state = initialState, action) => {
             }
         }
         case UNFOLLOW: {
+
             return {
                 ...state,
                 usersStore: state.usersStore.map(user => {
-                    if (user.id === action.id) {
+                    // debugger
+                    if (user.id === action.userID) {
                         return {...user, followed: false}
                     }
                     return user;
@@ -103,7 +44,7 @@ let usersReducer = (state = initialState, action) => {
         case SET_USERS: {
             return {
                 ...state,
-                usersStore: [...state.usersStore, action.usersStore]
+                usersStore: [...state.usersStore, ...action.usersStore]
             }
         }
 

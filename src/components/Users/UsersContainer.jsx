@@ -9,7 +9,6 @@ let mapStateToProps = (state) => {
     }
 };
 
-
 let mapDispatchToProps = (dispatch) => {
     return {
         followUser: (userID) => {
@@ -20,8 +19,8 @@ let mapDispatchToProps = (dispatch) => {
             let action = unfollowThisUserAC(userID);
             return dispatch(action);
         },
-        setUsers: (users) => {
-            dispatch(setUsersAC(users));
+        setUsers: (usersStore) => {
+            dispatch(setUsersAC(usersStore));
         },
         showMoreUsers: () => {
             let action = showMoreUsersAC();
