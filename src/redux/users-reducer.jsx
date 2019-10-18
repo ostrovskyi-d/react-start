@@ -20,9 +20,6 @@ let usersReducer = (state = initialState, action) => {
             return {...state};
         }
         case FOLLOW: {
-            // створити ефективний спосіб для переключання стану підписки на користувача
-            // а створив неефективний
-
             return {
                 ...state,
                 usersStore: state.usersStore.map(user => {
@@ -38,7 +35,6 @@ let usersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 usersStore: state.usersStore.map(user => {
-                    // debugger
                     if (user.id === action.userID) {
                         return {...user, followed: false}
                     }
