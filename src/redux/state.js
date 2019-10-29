@@ -116,7 +116,7 @@
 // {/*// //                 likes: 0*/}
 // {/*// //                 };*/}
 // {/*// //                 this.getState().profilePage.postsData.unshift(newPost);*/}
-// {/*// //                 this.dispatch(updatePostTextCreator(""));*/}
+// {/*// //                 this.dispatch(updatePostTextAC(""));*/}
 // {/*// //                 this.notifySubscriber(this._state);*/}
 // {/*// //             } else {*/}
 // {/*// //                 alert("Empty not allowed!");*/}

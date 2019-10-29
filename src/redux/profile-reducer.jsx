@@ -1,7 +1,9 @@
+import {usersAPI} from "../API/api";
+
 const ADD_POST = "ADD-POST";
 const UPDATE_POST_TEXT = "UPDATE-POST-TEXT";
 const ADD_ONE_LIKE = "ADD-ONE-LIKE";
-
+const SET_USER_PROFILE = "SET-USER-PROFILE"
 let initialState = {
     postsData: [
         {
@@ -26,6 +28,7 @@ let initialState = {
         },
     ],
     changeAblePostText: '',
+    userData: null,
 };
 
 
@@ -34,18 +37,21 @@ let profileReducer = (state = initialState, action) => {
     // eslint-disable-next-line default-case
     switch (action.type) {
         case ADD_POST: {
-            return {
-                ...state,
-                postsData: [
-                    {
-                        id: state.postsData.length + 1,
-                        postMessage: state.changeAblePostText,
-                        likes: 0
-                    },
-                    ...state.postsData
-                ],
-                changeAblePostText: ''
-            };
+            if (state.changeAblePostText) {
+                return {
+                    ...state,
+                    postsData: [
+                        {
+                            id: state.postsData.length + 1,
+                            postMessage: state.changeAblePostText,
+                            likes: 0
+                        },
+                        ...state.postsData
+                    ],
+                    changeAblePostText: ''
+                };
+            }
+            return state;
         }
         case UPDATE_POST_TEXT: {
             return {
@@ -66,13 +72,28 @@ let profileReducer = (state = initialState, action) => {
                 }),
             };
         }
+        case SET_USER_PROFILE: {
+
+            return {
+
+                ...state,
+                userData: action.userData
+            }
+        }
         default:
             return state;
     }
 };
 
-export const updatePostTextCreator = (newText) => ({type: UPDATE_POST_TEXT, newText: newText});
-export const addPostCreator = () => ({type: ADD_POST});
-export const addOneLikeCreator = (id) => ({type: ADD_ONE_LIKE, id: id});
+export const updatePostTextAC = (newText) => ({type: UPDATE_POST_TEXT, newText: newText});
+export const addPostAC = () => ({type: ADD_POST});
+export const addOneLikeAC = (id) => ({type: ADD_ONE_LIKE, id: id});
+export const setUserProfileAC = (userData) => ({type: SET_USER_PROFILE, userData});
+
+export const getUserProfileByIdThunkCreator = (userId) => (dispatch) => {
+    usersAPI.getUserProfileById(userId).then(response => {
+        dispatch(setUserProfileAC(response.data));
+    });
+};
 
 export default profileReducer;

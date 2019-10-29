@@ -1,0 +1,8 @@
+.profilePageWrapper {
+  display: flex;
+  flex-direction: column;
+  grid-area: c;
+  background-color: #e6e6e6;
+}
+
+/*# sourceMappingURL=MyProfile.module.css.map */

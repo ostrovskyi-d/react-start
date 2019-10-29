@@ -1,18 +1,27 @@
 /// USERS_CSS
 
 $borderColor: #676767;
+$themeGreen: #21b7015c;
+$themeBlue: #0025ff8f;
+$themeBlueLighter: #93d2e491;
+$spinkit-size: 4em !default;
+$spinkit-spinner-color: #337ab7 !default;
+a {
+  text-decoration: none;
+}
 .getUsersButton {
   display: flex;
-  background-color: rgb(126, 155, 168);
+  background-color: #444c5a9e;
   flex-grow: 1;
-  height: 74px;
+  box-shadow: inset 5px 5px 5px 0px #5a5a5a85;
+  height: 85px;
+  color: white;
   font-size: x-large;
   font-family: "Raleway", sans-serif;
   outline: transparent;
   border: none;
   justify-content: center;
-  margin: 10px;
-  box-shadow: 0 0 10px 5px rgba(128, 128, 128, 0.52);
+  font-weight: 300;
 }
 
 %for-buttons {
@@ -27,43 +36,70 @@ $borderColor: #676767;
   box-shadow: 0 3px 5px 0 gray;
   transition: .2s;
   cursor: pointer;
-  //width: 74px;
+
 }
 
 %for-hover:hover {
   filter: invert(1);
 }
+%for-disabledButton:disabled {
+  font-size: 0;
 
+}
+//%for-disabledButton:disabled:before {
+//
+//}
 .userWrapper {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   flex-grow: 1;
   //border: 1px solid;
-
-  div > span > a {
+  .pagesBlock {
     display: flex;
-    margin: 0 0.5em ;
-    padding: 0.4em 0.7em ;
-    border-radius: 50%;
-    text-decoration: none;
-    color: #4d4d4d;
+    margin-top: 1em;
+
+    span.pagesWrapper {
+      display: flex;
+      flex-direction: row;
+      /* box-shadow: 0 0 3px 0 #80808070; */
+      flex-wrap: wrap;
+      border: none;
+      /* border-radius: 10px; */
+      margin: 1em;
+      justify-content: center;
+      padding: 0.1em;
+      overflow: hidden;
+      height: 42px;
+
+      a {
+        display: flex;
+        margin: 0 0.3em;
+        padding: 0.4em 0.7em;
+        //border-radius: 50%;
+        text-decoration: none;
+        color: #4d4d4d;
+      }
+
+      .selectedPage {
+        background-color: gray;
+        color: white;
+        text-decoration: none;
+        border: 1px solid gray;
+      }
+
+      .selectedPage:hover {
+        text-decoration: none;
+        cursor: default;
+      }
+    }
+
+    .pagesWrapper > a:hover {
+      cursor: pointer;
+      border-bottom: 1px solid gray;
+    }
   }
 
-  .selectedPage {
-    background-color: gray;
-    color: white;
-    text-decoration: none;
-  }
-  .selectedPage:hover {
-    text-decoration: none;
-    cursor: default;
-  }
-
-  div > span > a:hover {
-    cursor: pointer;
-    text-decoration: underline;
-  }
 
   .userItem {
     display: flex;
@@ -72,7 +108,7 @@ $borderColor: #676767;
     //flex-grow: 1;
     padding: 1em;
     margin: 0.5em;
-    background-color: #93d2e4;
+    background-color: $themeBlueLighter;
 
     //flex-direction: column;
   }
@@ -83,12 +119,19 @@ $borderColor: #676767;
     align-items: flex-start;
 
     .userAva {
+      margin: 1em;
+      width: 156px;
+      border-radius: 50%;
+    }
+
+    .userAvaPlaceholder {
       display: flex;
       width: 150px;
       height: 150px;
       margin: 1em;
       //padding: 1em;
       border: 3px solid;
+      border-radius: 50%;
       justify-content: center;
       align-items: center;
     }
@@ -127,7 +170,7 @@ $borderColor: #676767;
       display: flex;
 
       button {
-        @extend %for-buttons, %for-hover;
+        @extend %for-buttons, %for-hover, %for-disabledButton;
       }
     }
   }

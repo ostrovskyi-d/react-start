@@ -1,0 +1,131 @@
+/* PROFILE CARD INFO */
+@import url('https://fonts.googleapis.com/css?family=Prompt&display=swap');
+
+
+.profileInfoWrapper {
+  //background-color: #7fffd470;
+
+
+  .card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2em;
+    /* border-left: 0.5em solid #2dc198; */
+    margin-top: 3em;
+    padding: 1em;
+
+    .userNameAvaContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-self: flex-start;
+
+      .userName {
+        display: flex;
+        width: -webkit-fill-available;
+        justify-content: center;
+        border: 1px solid;
+        padding: 0.5em;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        height: 27px;
+        color: #444444;
+        /* border-bottom: none; */
+        align-items: center;
+        font-family: 'Prompt', sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      .avatar {
+        display: flex;
+        align-self: start;
+        height: auto;
+
+        img {
+          width: inherit;
+          height: inherit;
+        }
+      }
+    }
+
+
+    .info {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 2em;
+
+      section.aboutUserContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        span.aboutHeading {
+          display: flex;
+          font-family: "Raleway", sans-serif;
+          padding: 12px 0;
+          font-weight: bold;
+          border-bottom: 1px solid gray;
+          margin: 10px 0;
+          font-size: 16px;
+          margin-top: 0;
+          padding-top: 0;
+        }
+
+        div.details {
+          display: flex;
+          border-radius: 10px;
+          padding: 2.5em;
+          flex-direction: column;
+          background-color: rgb(255, 255, 255);
+          font-family: 'Prompt', sans-serif;
+          box-shadow: 0 0 7px 0 #0000002e;
+          width: max-content;
+          height: 100%;
+
+          li {
+            padding: 3px;
+            list-style: circle;
+            color: #4d4d4d;
+          }
+        }
+      }
+
+      .galleryContainer {
+        display: flex;
+        flex-direction: column;
+        margin: 0 0.5em;
+
+        span.galleryHeading {
+          display: flex;
+          font-family: "Raleway", sans-serif;
+          padding: 12px 0;
+          font-weight: bold;
+          border-bottom: 1px solid gray;
+          margin: 10px 0;
+          font-size: 16px;
+          margin-top: 0;
+          padding-top: 0;
+        }
+
+        .gallery {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          column-gap: 1rem;
+          row-gap: 1rem;
+        }
+      }
+
+    }
+  }
+}
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+.headerBar {
+  display: inline-flex;
+  grid-area: h;
+  justify-content: space-between;
+  padding: 0 1em;
+  background-color: #282c34;
+}
+.headerBar img {
+  width: 180px;
+}
+.headerBar .loginBlock {
+  display: flex;
+}
+.headerBar .loginBlock .loggedInHeaderBlock {
+  display: flex;
+  flex-direction: column;
+  color: whitesmoke;
+  background-color: #444c5a;
+  align-self: center;
+  justify-items: center;
+  padding: 1em;
+}
+.headerBar .loginBlock .loggedInHeaderBlock .mailToLink {
+  color: inherit;
+}
+.headerBar .loginBlock .loggedInHeaderBlock .myLogin {
+  margin-block-start: 0;
+}
+.headerBar .loginBlock .notLoggedIn {
+  display: flex;
+  text-transform: uppercase;
+  align-self: center;
+  color: whitesmoke;
+  background-color: #4d4d4d;
+  padding: 1em;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=Header.module.css.map */

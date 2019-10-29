@@ -1,0 +1,14 @@
+.userAvaPlaceholder {
+  display: flex;
+  width: 200px;
+  height: 200px;
+  margin: 1em;
+  border: 3px solid;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: x-large;
+}
+
+/*# sourceMappingURL=UserAvatarPlaceholder.module.css.map */

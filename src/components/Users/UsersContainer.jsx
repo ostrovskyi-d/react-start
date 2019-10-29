@@ -1,47 +1,45 @@
-
 import {connect} from "react-redux";
 import {
-    changePageAC,
-    followThisUserAC, setTotalUsersCountAC,
-    setUsersAC,
-    showMoreUsersAC,
-    unfollowThisUserAC
+    changePage,
+    followSuccess, followThisUserThunkCreator, getUsersThunkCreator,
+    setTotalUsersCount,
+    setUsers, toggleFollowingProgress,
+    toggleIsFetching,
+    unfollowSuccess, unFollowThisUserThunkCreator,
+    // showMoreUsers,
 } from "../../redux/users-reducer";
 import React from "react";
-import * as axios from "axios";
 import UsersDumb from "./UsersDumb/UsersDumb";
+import Preloader from "../Placeholders-etc/Preloader/Preloader";
+import {Redirect} from "react-router-dom";
 
 class UsersContainer extends React.Component {
-    componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-            .then(response => {
-                this.props.setUsers(response.data.items);
-                this.props.setTotalUsersCount(response.data.totalCount);
-            });
+    componentDidMount(){
+        this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize)
     };
-
-    changePage = (p) => {
-        this.props.changePage(p);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.pageSize}`)
-            .then(response => {
-                this.props.setUsers(response.data.items);
-
-            });
+    changePage = (pageNumber) => {
+        this.props.getUsersThunkCreator(pageNumber, this.props.pageSize);
     };
 
     render() {
-
+        if(!this.props.isAuth) return <Redirect to={`/login`}/>;
         return (
-            <UsersDumb
-                totalUsersCount={this.props.totalUsersCount}
-                pageSize={this.props.pageSize}
-                currentPage={this.props.currentPage}
-                onChangePage={this.changePage}
-                users={this.props.users}
-
-                followUser={this.props.followUser}
-                unfollowUser={this.props.unfollowUser}
-            />
+            <>
+                {this.props.isFetching
+                    ? <Preloader/>
+                    : null
+                }
+                <UsersDumb
+                    totalUsersCount={this.props.totalUsersCount}
+                    pageSize={this.props.pageSize}
+                    currentPage={this.props.currentPage}
+                    onChangePage={this.changePage}
+                    users={this.props.users}
+                    follow={this.props.followThisUserThunkCreator}
+                    unfollow={this.props.unFollowThisUserThunkCreator}
+                    isFollowingInProgress={this.props.isFollowingInProgress}
+                />
+            </>
         )
     }
 }
@@ -53,43 +51,20 @@ let mapStateToProps = (state) => {
         pageSize: state.users.pageSize,
         totalUsersCount: state.users.totalUsersCount,
         currentPage: state.users.currentPage,
-
+        isFetching: state.users.isFetching,
+        isFollowingInProgress: state.users.isFollowingInProgress,
+        isAuth: state.auth.isAuth,
     }
 };
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        followUser: (userID) => {
-            let action = followThisUserAC(userID);
-            return dispatch(action);
-        },
-        unfollowUser: (userID) => {
-            let action = unfollowThisUserAC(userID);
-            return dispatch(action);
-        },
-        setUsers: (usersStore) => {
-            dispatch(setUsersAC(usersStore));
-        },
-        showMoreUsers: () => {
-            let action = showMoreUsersAC();
-            dispatch(action);
-        },
-        changePage: (pageNumber) => {
-            let action = changePageAC(pageNumber);
-            dispatch(action);
-        },
-        setTotalUsersCount: (count) => {
-            let action = setTotalUsersCountAC(count);
-            dispatch(action);
-        }
-    }
 
-};
+export default connect(mapStateToProps, {
+    toggleFollowingProgress: toggleFollowingProgress,
+    getUsersThunkCreator: getUsersThunkCreator,
+    followThisUserThunkCreator: followThisUserThunkCreator,
+    unFollowThisUserThunkCreator: unFollowThisUserThunkCreator
 
-let Users = connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
-
-
-export default Users;
+})(UsersContainer);
 
 
 

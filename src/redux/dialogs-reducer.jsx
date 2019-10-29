@@ -33,19 +33,19 @@ let dialogsReducer = (state = initialState, action) => {
             }
         }
         case SEND_MESSAGE: {
-            // eslint-disable-next-line no-use-before-define
-
             let newMessageObj = {
                 id: state.messagesData.length + 1,
                 time: new Date().toLocaleTimeString(),
                 text: state.updatedMessageText
             };
-
-            return {
-                ...state,
-                messagesData: [...state.messagesData, newMessageObj],
-                updatedMessageText: ''
+            if (newMessageObj.text) {
+                return {
+                    ...state,
+                    messagesData: [...state.messagesData, newMessageObj],
+                    updatedMessageText: ''
+                }
             }
+            return  state;
         }
         default:
             return state;

@@ -2,28 +2,29 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import Message from "./Message/Message";
 import Contact from "./Contact/Contact";
+import {Redirect} from "react-router-dom";
 
 const Dialogs = (props) => {
     let state = props.dialogsPage;
 
     let contacts = state.contactsData.map(c => (
-            <Contact
-                imgSrc={c.imgSrc}
-                id={c.id}
-                name={c.name}
-                key={c.id}
-            />
-        ));
+        <Contact
+            imgSrc={c.imgSrc}
+            id={c.id}
+            name={c.name}
+            key={c.id}
+        />
+    ));
 
     let messages = state.messagesData.map(m => (
-            <Message
-                time={m.time}
-                id={m.id}
-                text={m.text}
-                key={m.id}
+        <Message
+            time={m.time}
+            id={m.id}
+            text={m.text}
+            key={m.id}
 
-            />
-        ));
+        />
+    ));
 
     let onMessageTextChange = (e) => {
         props.onMessageTextChange(e.target.value);
@@ -32,7 +33,7 @@ const Dialogs = (props) => {
         props.onMessageSend();
 
     };
-
+    if (!props.isAuth) return <Redirect to={"/login"}/>;
     return (
         <div className={s.dialogs}>
             <section className={s.contacts}>
