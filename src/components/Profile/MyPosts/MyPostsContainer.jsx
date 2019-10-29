@@ -23,9 +23,7 @@ let mapDispatchToProps = (dispatch) => {
             dispatch(action);
         },
         addLike: (id) => {
-
             let action = addOneLikeAC(id);
-
             dispatch(action);
         }
 

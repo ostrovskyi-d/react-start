@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Post.module.css';
+import classes from './Post.module.scss';
 
 const Post = (props) => {
     
@@ -9,7 +9,6 @@ const Post = (props) => {
 
     return (
         <div className={classes.post_item}>
-
             <img
                 className={classes.ava}
                 src="https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/300/full/angular2.png"
@@ -22,11 +21,9 @@ const Post = (props) => {
                 </div>
                 <div onClick={getId} className={classes.post_like_button}>LIKES: {props.likes} </div>
             </section>
-
-
         </div>
     )
-}
+};
 
 
 export default Post;

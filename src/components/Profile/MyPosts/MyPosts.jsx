@@ -14,41 +14,37 @@ const MyPosts = (props) => {
         props.updateNewPostText(newText);
     };
 
-    // let addLike = (id) => {
-    //     props.addLike(id);
-    // };
 
-    let posts = props.profilePage.postsData.map((p,i) => (
+    let posts = props.profilePage.postsData.map((p, i) => (
             <Post
                 id={p.id}
                 likes={p.likes}
                 text={p.postMessage}
                 addLike={props.addLike}
-                key={i}
+                key={p.id}
             />
         )
     );
 
     return (
         <div className={classes.my_posts}>
-            <h3>WALL:</h3>
+            {/*<h3>WALL:</h3>*/}
             <div className={classes.post_add}>
 
-                <textarea
-                    onChange={onPostChange}
-                    value={props.profilePage.changeAblePostText}
-                    // ref={newPostElement}
-                />
+                <div className={classes.group}>
+                    <input value={props.profilePage.changeAblePostText} onChange={onPostChange} required/>
+                    <span className={classes.bar}/>
+                    <label>INPUT POST TEXT</label>
+                </div>
 
                 <input
-                    value="SEND"
+                    className={classes.sendPostButton}
+                    value="Send"
                     type="submit"
                     onClick={onAddPost}
                 />
             </div>
-
             {posts}
-
         </div>
     )
 };

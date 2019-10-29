@@ -4,6 +4,7 @@ const ADD_POST = "ADD-POST";
 const UPDATE_POST_TEXT = "UPDATE-POST-TEXT";
 const ADD_ONE_LIKE = "ADD-ONE-LIKE";
 const SET_USER_PROFILE = "SET-USER-PROFILE"
+
 let initialState = {
     postsData: [
         {
@@ -30,7 +31,6 @@ let initialState = {
     changeAblePostText: '',
     userData: null,
 };
-
 
 let profileReducer = (state = initialState, action) => {
 

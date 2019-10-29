@@ -1,0 +1,83 @@
+
+.post_item {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  margin: 0.5em;
+  width: 70%;
+  align-items: center;
+  box-shadow: 10px 10px 12px 0px #00000017;
+  align-self: flex-start;
+
+  .post_item section {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1em
+
+  }
+
+   .ava {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    border-radius: 50%;
+    margin-left: 1em;
+    margin-right: 0.5em;
+
+  }
+
+  .post_content {
+    display: flex;
+    width: fit-content;
+    flex-direction: column;
+    padding: 0.5em;
+    border-bottom: 1px solid gray;
+    width: -webkit-fill-available;
+
+    .post_title {
+      display: flex;
+      width: fit-content;
+      font-weight: 600;
+      font-size: 1.2em;
+      margin: 0.5em 0;
+      padding: 0.3em 0;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      border-bottom: 1px solid rgb(172, 172, 172);
+
+    }
+
+    .post_message {
+      margin-bottom: 1em;
+      font-family: Anodina, sans-serif;
+      background-color: white;
+      border-radius: 15px;
+      font-size: 1.2em;
+
+    }
+  }
+
+  .post_like_button {
+    display: flex;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 10px;
+    width: fit-content;
+    margin: 0.5em;
+    text-decoration: none;
+    font-weight: 500;
+    font-family: monospace;
+  }
+}
+
+
+
+
+
+
+
+
+

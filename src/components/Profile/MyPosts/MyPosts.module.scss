@@ -1,38 +1,114 @@
 .my_posts {
-    display: flex;
-    width: 90%;
-    flex-direction: column;
-    align-content: center;
-    align-self: center;
-}
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-self: center;
+    padding: 0 3em;
+  h3 {
+    margin: 1em;
+  }
 
-.post_add {
+  .post_add {
     display: flex;
     flex-direction: row;
+      margin: 0.5em;
+
+    .group {
+      position: relative;
+
+
+      input {
+          font-size: 1.2em;
+          padding: 2em;
+          display: block;
+          width: 656px;
+          border: none;
+          border-bottom: 2px solid #7d7d7d;
+          background: #0000000f;
+          height: 50px;
+
+
+      }
+
+      input:focus {
+        outline: none;
+      }
+
+      .bar {
+        position: relative;
+        display: block;
+        width: -webkit-fill-available;
+
+      }
+
+      .bar:before, .bar:after {
+        content: "";
+        height: 4px;
+        width: 0;
+        bottom: 0;
+        position: absolute;
+        background: #444c5a;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+      }
+
+      .bar:before {
+        left: 50%;
+      }
+
+      .bar:after {
+        right: 50%;
+      }
+
+      input:focus ~ .bar:before,
+      input:focus ~ .bar:after {
+        width: 50%;
+      }
+
+      label {
+          color: #282c34a6;
+          font-size: 2em;
+          position: absolute;
+          pointer-events: none;
+          left: 36px;
+          top: 47px;
+          transition: 0.2s ease all;
+          -moz-transition: 0.2s ease all;
+          -webkit-transition: 0.2s ease all;
+      }
+
+      input:focus ~ label, input:valid ~ label {
+        top: 0em;
+        font-size: 1.5em;
+        color: #5264AE;
+        /* background: #e6e6e6; */
+
+      }
+    }
+
+    .sendPostButton {
+        border: none;
+        /* border-radius: 50px; */
+        width: 107px;
+        background-color: #444c5a;
+        /* margin: 0 0.5em; */
+        color: white;
+        height: 129px;
+        align-self: center;
+        outline: transparent;
+        font-family: inherit;
+        font-size: larger;
+        cursor: pointer;
+        font-weight: 700;
+        text-decoration: underline;
+
+    }
+  }
 }
 
-.post_add textarea {
-    border: 1px solid #c1c1c196;
-    border-radius: 15px;
-    font-size: 1.2em;
-    padding: 1.5em;
-    margin: 0.5em;
-    outline: none;
-    width: 60%;
-    height: 60px;
-    font-family: Anodina, sans-serif;
-    
-}
 
-.post_add input {
-    border: none;
-    border-radius: 10px;
-    width: 150px;
-    background-color: aliceblue;
-    margin: 0.5em;
-    height: 38px;
-}
 
-h3 {
-    margin: 1em;
-}
+
+
+

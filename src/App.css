@@ -13,6 +13,10 @@ body .wrapper {
 }
 body .wrapper .app-wrapper-content {
   grid-area: c;
+  margin: 0 auto;
+  padding: 0;
+  width: -webkit-fill-available;
+  height: auto;
 }
 
 /*# sourceMappingURL=App.css.map */

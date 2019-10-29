@@ -9,7 +9,7 @@ const Header = (props) => {
             <img src="https://secure.meetupstatic.com/photos/event/1/c/b/8/600_475147352.jpeg" alt=""/>
             <div className={s.loginBlock}>
                 {
-                    props._isAuth
+                    props.isAuth
                         ? <div className={s.loggedInHeaderBlock}>
                             <p className={s.myLogin}>Your login: {props.login}</p>
                             <a className={s.mailToLink} href={`mailto:${props.email}`}>Your email: {props.email}</a>

@@ -1,8 +1,21 @@
 import React from 'react'
 import Login from "./Login";
+import {Redirect} from "react-router-dom";
+import {connect} from "react-redux";
 
-const LoginContainer = (props) => {
-    return <Login/>
+class LoginContainer extends React.Component {
+
+    render() {
+        if(this.props.isAuth) return <Redirect to={'/profile'}/>;
+        return <Login/>
+    }
+
+}
+
+const mapStateToProps = (state) => {
+    return {
+        isAuth: state.auth.isAuth
+    }
 };
 
-export default LoginContainer;
+export default connect(mapStateToProps)(LoginContainer);

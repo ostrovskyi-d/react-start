@@ -1,3 +1,25 @@
-
+.highWrapper {
+  display: flex;
+}
+.highWrapper .loginWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  margin: 2em;
+  border: 1px solid gray;
+  border-radius: 10px;
+  flex-grow: 1;
+  width: fit-content;
+  align-items: center;
+}
+.highWrapper .loginWrapper .loginHeading {
+  display: flex;
+  text-transform: uppercase;
+}
+.highWrapper .loginWrapper .reactSamuraiLink {
+  display: flex;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
 /*# sourceMappingURL=Login.module.css.map */

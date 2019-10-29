@@ -1,6 +1,6 @@
 import React from "react";
 import s from './../Users.module.css';
-import {NavLink, Redirect} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import UserAvatarPlaceholder from "../../Placeholders-etc/UserAvatarPlaceholder/UserAvatarPlaceholder";
 
 const UsersDumb = (props) => {
@@ -35,10 +35,10 @@ const UsersDumb = (props) => {
             {props.users.map(user => (
                     <div className={s.userItem} key={user.id}>
                         <div className={s.avaAndUserInfo}>
-                            <NavLink to={"/profile/" + user.id}>
+                            <NavLink className={s.userAvaWrapper} to={"/profile/" + user.id}>
                                 {
                                     user.photos.small !== null
-                                        ? <img className={s.userAva} src={user.photos.small} alt=""/>
+                                        ? <img className={s.userAvaImg} src={user.photos.small} alt=""/>
                                         : <UserAvatarPlaceholder/>
                                 }
                             </NavLink>

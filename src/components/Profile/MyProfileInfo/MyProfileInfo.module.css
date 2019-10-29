@@ -7,7 +7,8 @@
   margin-bottom: 2em;
   /* border-left: 0.5em solid #2dc198; */
   margin-top: 3em;
-  padding: 1em;
+  padding: 1em 5em;
+  overflow: hidden;
 }
 .profileInfoWrapper .card .userNameAvaContainer {
   display: flex;
@@ -25,16 +26,18 @@
   margin-block-end: 0;
   height: 27px;
   color: #444444;
+  margin-bottom: 1em;
   /* border-bottom: none; */
   align-items: center;
   font-family: "Prompt", sans-serif;
   font-weight: 600;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 .profileInfoWrapper .card .userNameAvaContainer .avatar {
-  display: flex;
+  display: contents;
   align-self: start;
-  height: auto;
+  height: 200px;
+  width: 200px;
 }
 .profileInfoWrapper .card .userNameAvaContainer .avatar img {
   width: inherit;
@@ -44,13 +47,14 @@
   display: flex;
   width: 100%;
   flex-direction: row;
-  justify-content: space-between;
-  padding: 0 2em;
+  justify-content: center;
+  padding: 0 4em;
 }
 .profileInfoWrapper .card .info section.aboutUserContainer {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin: 0 1em;
 }
 .profileInfoWrapper .card .info section.aboutUserContainer span.aboutHeading {
   display: flex;
@@ -66,7 +70,7 @@
 .profileInfoWrapper .card .info section.aboutUserContainer div.details {
   display: flex;
   border-radius: 10px;
-  padding: 2.5em;
+  padding: 1.5em;
   flex-direction: column;
   background-color: white;
   font-family: "Prompt", sans-serif;

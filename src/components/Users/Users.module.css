@@ -52,17 +52,15 @@ a {
 .userWrapper .pagesBlock span.pagesWrapper {
   display: flex;
   flex-direction: row;
-  /* box-shadow: 0 0 3px 0 #80808070; */
   flex-wrap: wrap;
   border: none;
-  /* border-radius: 10px; */
   margin: 1em;
   justify-content: center;
   padding: 0.1em;
   overflow: hidden;
   height: 42px;
 }
-.userWrapper .pagesBlock span.pagesWrapper a {
+.userWrapper .pagesBlock span.pagesWrapper .pageNumberItem {
   display: flex;
   margin: 0 0.3em;
   padding: 0.4em 0.7em;
@@ -83,11 +81,16 @@ a {
   cursor: pointer;
   border-bottom: 1px solid gray;
 }
+.userWrapper .pagesBlock .pagesWrapper > a {
+  padding: 0.4em 0.8em;
+  margin: 0.2em 0.3em;
+  font-family: "Prompt", sans-serif;
+}
 .userWrapper .userItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1em;
+  flex-wrap: wrap;
   margin: 0.5em;
   background-color: #93d2e491;
 }
@@ -95,31 +98,32 @@ a {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  flex-grow: 1;
 }
-.userWrapper .avaAndUserInfo .userAva {
-  margin: 1em;
+.userWrapper .avaAndUserInfo .userAvaWrapper {
+  display: contents;
   width: 156px;
-  border-radius: 50%;
+  height: 156px;
+  font-size: larger;
 }
-.userWrapper .avaAndUserInfo .userAvaPlaceholder {
+.userWrapper .avaAndUserInfo .userAvaWrapper .userAvaImg {
   display: flex;
-  width: 150px;
-  height: 150px;
   margin: 1em;
-  border: 3px solid;
   border-radius: 50%;
-  justify-content: center;
-  align-items: center;
+  width: 168px;
+  height: 168px;
 }
 .userWrapper .avaAndUserInfo .userInfo {
   display: flex;
   flex-direction: column;
+  padding: 1em;
 }
 .userWrapper .avaAndUserInfo .userInfo .nickName {
   display: flex;
   font-size: 2em;
-  margin: 0 auto;
+  margin: 1em auto;
   border: none;
+  text-transform: capitalize;
 }
 .userWrapper .avaAndUserInfo .userInfo .location > * {
   display: flex;

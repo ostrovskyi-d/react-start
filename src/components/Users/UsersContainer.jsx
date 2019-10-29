@@ -1,12 +1,9 @@
 import {connect} from "react-redux";
 import {
-    changePage,
-    followSuccess, followThisUserThunkCreator, getUsersThunkCreator,
-    setTotalUsersCount,
-    setUsers, toggleFollowingProgress,
-    toggleIsFetching,
-    unfollowSuccess, unFollowThisUserThunkCreator,
-    // showMoreUsers,
+    followThisUserThunkCreator,
+    getUsersThunkCreator,
+    toggleFollowingProgress,
+    unFollowThisUserThunkCreator,
 } from "../../redux/users-reducer";
 import React from "react";
 import UsersDumb from "./UsersDumb/UsersDumb";
@@ -14,15 +11,16 @@ import Preloader from "../Placeholders-etc/Preloader/Preloader";
 import {Redirect} from "react-router-dom";
 
 class UsersContainer extends React.Component {
-    componentDidMount(){
+    componentDidMount() {
         this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize)
     };
+
     changePage = (pageNumber) => {
         this.props.getUsersThunkCreator(pageNumber, this.props.pageSize);
     };
 
     render() {
-        if(!this.props.isAuth) return <Redirect to={`/login`}/>;
+        // if (!this.props.isAuth) return <Redirect to={`/login`}/>;
         return (
             <>
                 {this.props.isFetching
