@@ -12,7 +12,7 @@ const TOGGLE_FOLLOWING_PROGRESS = "TOGGLE-FOLLOWING-PROGRESS";
 
 let initialState = {
     usersStore: [],
-    pageSize: 5,
+    pageSize: 10,
     totalUsersCount: null,
     currentPage: 1,
     isFetching: true,
@@ -24,7 +24,11 @@ let usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case SHOW_MORE_USERS: {
             console.log("SHOW MORE USERS");
-            return {...state};
+            debugger
+            return {
+                ...state,
+                pageSize: Number(state.pageSize) + Number(state.pageSize)
+            };
         }
         case FOLLOW: {
             return {
@@ -126,6 +130,10 @@ export const unFollowThisUserThunkCreator = (userId) => (dispatch) => {
         dispatch(toggleFollowingProgress(false, userId));
     });
 };
+export const getMoreUsersThunkCreator = () => (dispatch) => {
+    dispatch(showMoreUsers());
+};
+
 
 
 export default usersReducer;

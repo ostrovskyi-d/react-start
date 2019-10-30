@@ -1,5 +1,5 @@
 import React from "react";
-import s from './../Users.module.css';
+import s from './UsersDumb.module.css';
 import {NavLink} from "react-router-dom";
 import UserAvatarPlaceholder from "../../Placeholders-etc/UserAvatarPlaceholder/UserAvatarPlaceholder";
 
@@ -13,19 +13,21 @@ const UsersDumb = (props) => {
         pages[i] = i;
     }
 
-    pages = pages.map(p => {
-            return <a
-                onClick={() => props.onChangePage(p)}
-                className={props.currentPage === p && s.selectedPage}>
-                {p}
-            </a>
+    pages = pages.map((p, i) => {
+            return (
+                <span key={i}
+                      onClick={() => props.onChangePage(p)}
+                      className={props.currentPage === p && s.selectedPage}>
+                    {p}
+                </span>
+            )
         }
     );
 
     return (
         <div className={s.userWrapper}>
 
-            <button className={s.getUsersButton} onClick={props.getUsers}>LOAD USERS</button>
+            <button className={s.getUsersButton} onClick={props.getMoreUsers}>LOAD USERS</button>
             <div className={s.pagesBlock}>
                 {/*цей wrapper - з overflow hidden - костиль (забрати overflow hidden і подивитися чому)*/}
                 <span className={s.pagesWrapper}>

@@ -10,7 +10,7 @@ const Login = (props) => {
                     login page:
                 </h1>
                 <h2>
-                    <a target={"_blank"} href="https://social-network.samuraijs.com" className={s.reactSamuraiLink}>
+                    <a target={"_blank"} href="https://social-network.samuraijs.com/login" className={s.reactSamuraiLink}>
                         react samurai login page
                     </a>
                 </h2>

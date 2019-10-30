@@ -23,5 +23,5 @@ export const usersAPI = {
     },
     followUser(id){
         return instance.post(`/follow/${id}`, {}).then(response => response.data)
-    }
+    },
 };

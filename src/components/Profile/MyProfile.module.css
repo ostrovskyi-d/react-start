@@ -1,6 +1,5 @@
 .profilePageWrapper {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   grid-area: c;
   background-color: #e6e6e6;
 }

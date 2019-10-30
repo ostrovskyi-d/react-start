@@ -1,3 +1,146 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600&display=swap&subset=latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600&display=swap&subset=latin-ext");
+.getUsersButton {
+  display: flex;
+  background-color: #444c5a9e;
+  flex-grow: 1;
+  box-shadow: inset 5px 5px 5px 0px #5a5a5a85;
+  height: 85px;
+  color: white;
+  font-size: x-large;
+  font-family: "Raleway", sans-serif;
+  outline: transparent;
+  border: none;
+  justify-content: center;
+  font-weight: 300;
+}
 
+.userWrapper .buttons .followButtonWrapper button {
+  display: flex;
+  border: none;
+  background-color: beige;
+  padding: 1em 2em;
+  font-size: large;
+  margin: 1em;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0 3px 5px 0 gray;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.userWrapper .buttons .followButtonWrapper button:hover {
+  filter: invert(1);
+}
+
+.userWrapper .buttons .followButtonWrapper button:disabled {
+  font-size: 0;
+}
+
+.userWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.userWrapper .pagesBlock {
+  display: flex;
+  margin-top: 1em;
+}
+.userWrapper .pagesBlock span.pagesWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: none;
+  margin: 1em;
+  justify-content: center;
+  padding: 0.1em;
+  overflow: hidden;
+  height: 42px;
+}
+.userWrapper .pagesBlock span.pagesWrapper .pageNumberItem {
+  display: flex;
+  margin: 0 0.3em;
+  padding: 0.4em 0.7em;
+  text-decoration: none;
+  color: #4d4d4d;
+}
+.userWrapper .pagesBlock span.pagesWrapper .selectedPage {
+  background-color: gray;
+  color: white;
+  text-decoration: none;
+  border: 1px solid gray;
+}
+.userWrapper .pagesBlock span.pagesWrapper .selectedPage:hover {
+  text-decoration: none;
+  cursor: default;
+}
+.userWrapper .pagesBlock .pagesWrapper > a:hover {
+  cursor: pointer;
+  border-bottom: 1px solid gray;
+}
+.userWrapper .pagesBlock .pagesWrapper > * {
+  padding: 0.4em 0.8em;
+  margin: 0.2em 0.3em;
+  font-family: "Prompt", sans-serif;
+  cursor: pointer;
+}
+.userWrapper .userItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0.5em;
+  background-color: #93d2e491;
+}
+.userWrapper .avaAndUserInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-grow: 1;
+}
+.userWrapper .avaAndUserInfo .userAvaWrapper {
+  display: contents;
+  width: 156px;
+  height: 156px;
+  font-size: larger;
+}
+.userWrapper .avaAndUserInfo .userAvaWrapper .userAvaImg {
+  display: flex;
+  margin: 1em;
+  border-radius: 50%;
+  width: 168px;
+  height: 168px;
+}
+.userWrapper .avaAndUserInfo .userInfo {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  font-family: "Quicksand", sans-serif;
+}
+.userWrapper .avaAndUserInfo .userInfo .nickName {
+  display: flex;
+  font-size: 2em;
+  margin: 1em auto;
+  border: none;
+  text-transform: capitalize;
+}
+.userWrapper .avaAndUserInfo .userInfo .location > * {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.7em;
+  border-color: #676767;
+}
+.userWrapper .avaAndUserInfo .userInfo .status {
+  border-color: #676767;
+  font-size: 0.9em;
+}
+.userWrapper .buttons {
+  display: flex;
+  flex-direction: column;
+}
+.userWrapper .buttons .followButtonWrapper {
+  display: flex;
+}
 
 /*# sourceMappingURL=UsersDumb.module.css.map */

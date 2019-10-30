@@ -20,6 +20,7 @@ const App = () => {
                 <HeaderContainer/>
                 <SideBar/>
                 <div className="app-wrapper-content">
+
                     <Route path="/dialogs"
                            render={() => <DialogsContainer/>}
                     />
@@ -31,6 +32,9 @@ const App = () => {
                            render={() => <ProfileContainer/>}
                     />
                     <Route exact path={`/profile`}
+                           render={() => <ProfileContainer/>}
+                    />
+                    <Route exact path={`/`}
                            render={() => <ProfileContainer/>}
                     />
 

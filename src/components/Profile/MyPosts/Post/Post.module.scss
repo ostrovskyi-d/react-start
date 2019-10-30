@@ -57,20 +57,26 @@
 
     }
   }
-
-  .post_like_button {
+  .likes {
     display: flex;
-    cursor: pointer;
-    background-color: green;
-    color: white;
-    padding: 5px 20px;
-    border-radius: 10px;
-    width: fit-content;
-    margin: 0.5em;
-    text-decoration: none;
-    font-weight: 500;
-    font-family: monospace;
+    flex-direction: row;
+    padding: 5px 10px;
+    .post_like_button {
+      display: flex;
+      cursor: pointer;
+      background-color: green;
+      color: white;
+      padding: inherit;
+      border-radius: 10px;
+      width: fit-content;
+      margin: 0.5em;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.3em;
+      font-family: monospace;
+    }
   }
+
 }
 
 

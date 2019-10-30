@@ -1,11 +1,18 @@
 import React from 'react';
 import classes from './Post.module.scss';
+import styled from "styled-components";
 
 const Post = (props) => {
-    
+
     let getId = () => {
         props.addLike(props.id);
     };
+    const LikesCounterButton = styled.span`
+        display: flex;
+          ::after {
+             content: ' ${props.likes}';
+           }
+    `;
 
     return (
         <div className={classes.post_item}>
@@ -19,7 +26,9 @@ const Post = (props) => {
                     <p className={classes.post_title}/>
                     <div className={classes.post_message}>{props.text}</div>
                 </div>
-                <div onClick={getId} className={classes.post_like_button}>LIKES: {props.likes} </div>
+                <div className={classes.likes}>
+                    <LikesCounterButton className={classes.post_like_button} onClick={getId}>Like </LikesCounterButton>
+                </div>
             </section>
         </div>
     )

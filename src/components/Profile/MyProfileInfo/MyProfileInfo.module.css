@@ -1,20 +1,20 @@
 /* PROFILE CARD INFO */
 @import url("https://fonts.googleapis.com/css?family=Prompt&display=swap");
+.profileInfoWrapper {
+  grid-column: 1/2;
+}
 .profileInfoWrapper .card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-bottom: 2em;
-  /* border-left: 0.5em solid #2dc198; */
-  margin-top: 3em;
-  padding: 1em 5em;
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-gap: 2rem;
+  padding: 4rem;
 }
 .profileInfoWrapper .card .userNameAvaContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-self: flex-start;
+  grid-column: 1/2;
 }
 .profileInfoWrapper .card .userNameAvaContainer .userName {
   display: flex;
@@ -44,17 +44,14 @@
   height: inherit;
 }
 .profileInfoWrapper .card .info {
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  justify-content: center;
-  padding: 0 4em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
 }
 .profileInfoWrapper .card .info section.aboutUserContainer {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin: 0 1em;
 }
 .profileInfoWrapper .card .info section.aboutUserContainer span.aboutHeading {
   display: flex;
@@ -86,7 +83,6 @@
 .profileInfoWrapper .card .info .galleryContainer {
   display: flex;
   flex-direction: column;
-  margin: 0 0.5em;
 }
 .profileInfoWrapper .card .info .galleryContainer span.galleryHeading {
   display: flex;

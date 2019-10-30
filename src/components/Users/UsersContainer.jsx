@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import {
-    followThisUserThunkCreator,
+    followThisUserThunkCreator, getMoreUsersThunkCreator,
     getUsersThunkCreator,
     toggleFollowingProgress,
     unFollowThisUserThunkCreator,
@@ -20,7 +20,8 @@ class UsersContainer extends React.Component {
     };
 
     render() {
-        // if (!this.props.isAuth) return <Redirect to={`/login`}/>;
+        //поміняти редірект на /login
+        if (!this.props.isAuth) return <Redirect to={`/users`}/>;
         return (
             <>
                 {this.props.isFetching
@@ -36,6 +37,7 @@ class UsersContainer extends React.Component {
                     follow={this.props.followThisUserThunkCreator}
                     unfollow={this.props.unFollowThisUserThunkCreator}
                     isFollowingInProgress={this.props.isFollowingInProgress}
+                    getMoreUsers={this.props.getMoreUsers}
                 />
             </>
         )
@@ -52,6 +54,7 @@ let mapStateToProps = (state) => {
         isFetching: state.users.isFetching,
         isFollowingInProgress: state.users.isFollowingInProgress,
         isAuth: state.auth.isAuth,
+
     }
 };
 
@@ -60,8 +63,8 @@ export default connect(mapStateToProps, {
     toggleFollowingProgress: toggleFollowingProgress,
     getUsersThunkCreator: getUsersThunkCreator,
     followThisUserThunkCreator: followThisUserThunkCreator,
-    unFollowThisUserThunkCreator: unFollowThisUserThunkCreator
-
+    unFollowThisUserThunkCreator: unFollowThisUserThunkCreator,
+    getMoreUsers: getMoreUsersThunkCreator
 })(UsersContainer);
 
 
