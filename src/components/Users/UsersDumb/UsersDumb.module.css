@@ -17,24 +17,17 @@
 
 .userWrapper .buttons .followButtonWrapper button {
   display: flex;
-  border: none;
-  background-color: beige;
   padding: 1em 2em;
   font-size: large;
   margin: 1em;
   font-weight: bold;
-  border-radius: 5px;
-  box-shadow: 0 3px 5px 0 gray;
+  border: 2px solid;
   transition: 0.2s;
-  cursor: pointer;
-}
-
-.userWrapper .buttons .followButtonWrapper button:hover {
-  filter: invert(1);
 }
 
 .userWrapper .buttons .followButtonWrapper button:disabled {
   font-size: 0;
+  border: none;
 }
 
 .userWrapper {
@@ -138,6 +131,7 @@
 .userWrapper .buttons {
   display: flex;
   flex-direction: column;
+  transition-delay: 0.5s;
 }
 .userWrapper .buttons .followButtonWrapper {
   display: flex;

@@ -2,6 +2,7 @@ import React from "react";
 import s from './UsersDumb.module.css';
 import {NavLink} from "react-router-dom";
 import UserAvatarPlaceholder from "../../Placeholders-etc/UserAvatarPlaceholder/UserAvatarPlaceholder";
+import Button from '@material-ui/core/Button';
 
 const UsersDumb = (props) => {
 
@@ -56,15 +57,21 @@ const UsersDumb = (props) => {
                         </div>
                         <div className={s.buttons}>
                             <div className={s.followButtonWrapper}>
+
+
                                 {user.followed
-                                    ? <button disabled={props.isFollowingInProgress.some(id => id === user.id)}
+                                    ? <Button variant="contained"
+                                              color="primary"
+                                              disabled={props.isFollowingInProgress.some(id => id === user.id)}
                                               onClick={() => props.unfollow(user.id)}>
-                                        UNFOLLOW
-                                    </button>
-                                    : <button disabled={props.isFollowingInProgress.some(id => id === user.id)}
+                                        Unfollow
+                                    </Button>
+                                    : <Button variant="contained"
+                                              color="primary"
+                                              disabled={props.isFollowingInProgress.some(id => id === user.id)}
                                               onClick={() => props.follow(user.id)}>
-                                        FOLLOW
-                                    </button>
+                                        Follow
+                                    </Button>
                                 }
                             </div>
                         </div>

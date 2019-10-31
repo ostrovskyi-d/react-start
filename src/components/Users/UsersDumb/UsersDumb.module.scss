@@ -31,17 +31,17 @@ $spinkit-spinner-color: #337ab7 !default;
 
 %for-buttons {
   display: flex;
-  border: none;
-  background-color: beige;
+  //border: none;
+  //background-color: beige;
   padding: 1em 2em;
   font-size: large;
   margin: 1em;
   font-weight: bold;
-  border-radius: 5px;
-  box-shadow: 0 3px 5px 0 gray;
-  transition: .2s;
-  cursor: pointer;
+  border: 2px solid;
+  //border-radius: 5px;
 
+  transition: .2s;
+  //cursor: pointer;
 }
 
 %for-hover:hover {
@@ -50,7 +50,7 @@ $spinkit-spinner-color: #337ab7 !default;
 
 %for-disabledButton:disabled {
   font-size: 0;
-
+  border: none;
 }
 .userWrapper {
   display: flex;
@@ -169,12 +169,14 @@ $spinkit-spinner-color: #337ab7 !default;
   .buttons {
     display: flex;
     flex-direction: column;
+    transition-delay: .5s;
 
     .followButtonWrapper {
       display: flex;
 
       button {
-        @extend %for-buttons, %for-hover, %for-disabledButton;
+
+        @extend %for-buttons, %for-disabledButton;
       }
     }
   }
