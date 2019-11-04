@@ -1,17 +1,7 @@
-import React from 'react';
 import News from "./News";
-import {Redirect} from 'react-router-dom';
 import {connect} from "react-redux";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
-
-const NewsContainer = (props) => {
-    if(!props.isAuth) return <Redirect to={"/login"}/>
-    return <News {...props}/>
-};
-
-let mapStateToProps = (state) => {
-    return {isAuth: state.auth.isAuth}
-};
-
-export default connect(mapStateToProps) (NewsContainer);
+export default compose(withAuthRedirect, connect())(News);
 

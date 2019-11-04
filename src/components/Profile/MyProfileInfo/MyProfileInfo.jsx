@@ -1,18 +1,18 @@
 import React from 'react';
 import styles from './MyProfileInfo.module.scss'
 import UserAvatarPlaceholder from "../../Placeholders-etc/UserAvatarPlaceholder/UserAvatarPlaceholder";
+import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = (props) => {
     return (
         <main className={styles.profileInfoWrapper}>
-
             <section className={styles.card}>
                 <div className={styles.userNameAvaContainer}>
                     <h2 className={styles.userName} >{props.userData.fullName}</h2>
                     <div className={styles.avatar}>
                         {
-                            props.userData.photos.large ?
-                                <img src={props.userData.photos.large} alt=""/>
+                            props.userData.photos.large
+                                ? <img src={props.userData.photos.large} alt=""/>
                                 : <UserAvatarPlaceholder/>
                         }
 
@@ -22,6 +22,7 @@ const ProfileInfo = (props) => {
                     <section className={styles.aboutUserContainer}>
                         <span className={styles.aboutHeading}>ABOUT ME:</span>
                         <div className={styles.details}>
+                            <li><ProfileStatus/></li>
                             <li>Is Looking For A Job:
                             {
                                 props.userData.lookingForAJob

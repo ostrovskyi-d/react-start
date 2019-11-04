@@ -8,7 +8,8 @@ import {
 import React from "react";
 import UsersDumb from "./UsersDumb/UsersDumb";
 import Preloader from "../Placeholders-etc/Preloader/Preloader";
-import {Redirect} from "react-router-dom";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -20,8 +21,6 @@ class UsersContainer extends React.Component {
     };
 
     render() {
-        //поміняти редірект на /login
-        if (!this.props.isAuth) return <Redirect to={`/users`}/>;
         return (
             <>
                 {this.props.isFetching
@@ -53,19 +52,20 @@ let mapStateToProps = (state) => {
         currentPage: state.users.currentPage,
         isFetching: state.users.isFetching,
         isFollowingInProgress: state.users.isFollowingInProgress,
-        isAuth: state.auth.isAuth,
-
     }
 };
+let mapDispatchToProps = {
+        toggleFollowingProgress: toggleFollowingProgress,
+        getUsersThunkCreator: getUsersThunkCreator,
+        followThisUserThunkCreator: followThisUserThunkCreator,
+        unFollowThisUserThunkCreator: unFollowThisUserThunkCreator,
+        getMoreUsers: getMoreUsersThunkCreator
+    };
 
-
-export default connect(mapStateToProps, {
-    toggleFollowingProgress: toggleFollowingProgress,
-    getUsersThunkCreator: getUsersThunkCreator,
-    followThisUserThunkCreator: followThisUserThunkCreator,
-    unFollowThisUserThunkCreator: unFollowThisUserThunkCreator,
-    getMoreUsers: getMoreUsersThunkCreator
-})(UsersContainer);
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect,)
+(UsersContainer);
 
 
 

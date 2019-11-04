@@ -24,7 +24,7 @@ const UsersDumb = (props) => {
             )
         }
     );
-
+    console.log(props.users)
     return (
         <div className={s.userWrapper}>
 

@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600&display=swap&subset=latin-ext");
-@import url("https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600&display=swap&subset=latin-ext");
 .getUsersButton {
   display: flex;
   background-color: #444c5a9e;
@@ -21,8 +20,8 @@
   font-size: large;
   margin: 1em;
   font-weight: bold;
-  border: 2px solid;
-  transition: 0.2s;
+  transition: 0.1s;
+  background-color: #5264AE;
 }
 
 .userWrapper .buttons .followButtonWrapper button:disabled {
@@ -131,7 +130,6 @@
 .userWrapper .buttons {
   display: flex;
   flex-direction: column;
-  transition-delay: 0.5s;
 }
 .userWrapper .buttons .followButtonWrapper {
   display: flex;

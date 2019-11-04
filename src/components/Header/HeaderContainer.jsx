@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from "./Header";
 import {connect} from "react-redux";
-import {getMyUserDataThunkCreator, setUserDataAC} from "../../redux/auth-reducer";
+import {getMyUserDataThunkCreator, setUserDataAC} from "../../redux/auth-reducer.js";
 
 class HeaderContainer extends React.Component {
     componentDidMount() {
@@ -16,5 +16,6 @@ const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
     ...state.auth
 });
+
 
 export default connect(mapStateToProps, {setUserDataAC, getMyUserDataThunkCreator})(HeaderContainer);

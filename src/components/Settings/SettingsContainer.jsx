@@ -1,16 +1,9 @@
-import React from 'react';
 import Settings from "./Settings";
 import {connect} from "react-redux";
-import {Redirect} from "react-router-dom";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
-const SettingsContainer = (props) => {
-    if(!props.isAuth) return <Redirect to={'/login'}/>;
-    return <Settings {...props} />
-};
-
-const mapStateToProps = (state) => {
- return{
-    isAuth: state.auth.isAuth
- }
-};
-export default connect(mapStateToProps)(SettingsContainer);
+export default compose (
+    connect(),
+    withAuthRedirect,
+)(Settings);
