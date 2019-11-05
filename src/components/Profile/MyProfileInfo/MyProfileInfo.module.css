@@ -43,6 +43,12 @@
   width: inherit;
   height: inherit;
 }
+.profileInfoWrapper .card .userNameAvaContainer .avatar .status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #90c3d2;
+}
 .profileInfoWrapper .card .info {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -3,6 +3,7 @@ import styles from './MyProfileInfo.module.scss'
 import UserAvatarPlaceholder from "../../Placeholders-etc/UserAvatarPlaceholder/UserAvatarPlaceholder";
 import ProfileStatus from "./ProfileStatus";
 
+
 const ProfileInfo = (props) => {
     return (
         <main className={styles.profileInfoWrapper}>
@@ -16,13 +17,21 @@ const ProfileInfo = (props) => {
                                 : <UserAvatarPlaceholder/>
                         }
 
+                        <div className={styles.status}>
+                            <ProfileStatus />
+                        </div>
+
                     </div>
                 </div>
                 <div className={styles.info}>
+
                     <section className={styles.aboutUserContainer}>
+
                         <span className={styles.aboutHeading}>ABOUT ME:</span>
+
+
                         <div className={styles.details}>
-                            <li><ProfileStatus/></li>
+
                             <li>Is Looking For A Job:
                             {
                                 props.userData.lookingForAJob
