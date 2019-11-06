@@ -20,6 +20,8 @@ class UsersContainer extends React.Component {
         this.props.getUsersThunkCreator(pageNumber, this.props.pageSize);
     };
 
+
+
     render() {
         return (
             <>
@@ -62,10 +64,7 @@ let mapDispatchToProps = {
         getMoreUsers: getMoreUsersThunkCreator
     };
 
-export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
-    withAuthRedirect,)
-(UsersContainer);
+export default compose(connect(mapStateToProps, mapDispatchToProps), withAuthRedirect)(UsersContainer);
 
 
 

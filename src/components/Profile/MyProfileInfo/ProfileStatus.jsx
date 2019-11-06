@@ -29,7 +29,7 @@ const ProfileStatus = (props) => {
     const classes = useStyles();
     const [label, setLabel] = useState("Status");
     const [editMode, setEditMode] = useState(false);
-    const [statusValue, setStatusValue] = useState('Here is your status');
+    const [statusValue, setStatusValue] = useState(props.status);
 
     const onChange = (e) => {
         setStatusValue(e.target.value)
@@ -63,7 +63,7 @@ const ProfileStatus = (props) => {
                     />
                 </FormControl>
             </div>
-            : <div style={{margin: "1em 0"}}><span  onClick={enableEditMode}>{statusValue}</span></div>
+            : <div style={{margin: "1em 0"}}><span onClick={enableEditMode}>{statusValue}</span></div>
         }
     </div>)
 };

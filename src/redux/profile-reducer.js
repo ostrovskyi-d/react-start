@@ -1,9 +1,11 @@
-import {usersAPI} from "../API/api";
+import {profileAPI, usersAPI} from "../API/api";
 
 const ADD_POST = "ADD-POST";
 const UPDATE_POST_TEXT = "UPDATE-POST-TEXT";
 const ADD_ONE_LIKE = "ADD-ONE-LIKE";
-const SET_USER_PROFILE = "SET-USER-PROFILE"
+const SET_USER_PROFILE = "SET-USER-PROFILE";
+const GET_STATUS = "GET-STATUS";
+const UPDATE_STATUS = "UPDATE-STATUS";
 
 let initialState = {
     postsData: [
@@ -30,6 +32,7 @@ let initialState = {
     ],
     changeAblePostText: '',
     userData: null,
+    status: "ddd"
 };
 
 let profileReducer = (state = initialState, action) => {
@@ -80,6 +83,15 @@ let profileReducer = (state = initialState, action) => {
                 userData: action.userData
             }
         }
+        case GET_STATUS: {
+            return {
+                ...state,
+                status: action.status
+            }
+        }
+        case UPDATE_STATUS: {
+            return state
+        }
         default:
             return state;
     }
@@ -89,6 +101,21 @@ export const updatePostTextAC = (newText) => ({type: UPDATE_POST_TEXT, newText: 
 export const addPostAC = () => ({type: ADD_POST});
 export const addOneLikeAC = (id) => ({type: ADD_ONE_LIKE, id: id});
 export const setUserProfileAC = (userData) => ({type: SET_USER_PROFILE, userData});
+export const setStatus = (status) => ({type: UPDATE_STATUS, status})
+export const getStatus = (userId) => ({type: GET_STATUS})
+
+export const getStatusThunkCreator = (userId) => (dispatch) => {
+    profileAPI.getStatus(userId).then(response => {
+        dispatch(setStatus(response.data));
+    })
+};
+export const updateStatusThunkCreator = (status) => (dispatch) => {
+    profileAPI.updateStatus(status).then(response => {
+        if (response.data.resultCode === 0) {
+            dispatch(setStatus(status));
+        }
+    })
+};
 
 export const getUserProfileByIdThunkCreator = (userId) => (dispatch) => {
     usersAPI.getUserProfileById(userId).then(response => {
