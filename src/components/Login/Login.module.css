@@ -1,25 +1,106 @@
 .highWrapper {
   display: flex;
+  justify-content: center;
 }
 .highWrapper .loginWrapper {
   display: flex;
   flex-direction: column;
   padding: 2em;
   margin: 2em;
-  border: 1px solid gray;
   border-radius: 10px;
-  flex-grow: 1;
-  width: fit-content;
+  align-items: center;
+  width: 500px;
+}
+.highWrapper .loginWrapper form {
+  border-top: 1px solid #00000029;
+  padding: 1em;
+  border-bottom: 1px solid #0000002b;
+  width: 500px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 .highWrapper .loginWrapper .loginHeading {
   display: flex;
   text-transform: uppercase;
 }
-.highWrapper .loginWrapper .reactSamuraiLink {
+.highWrapper .loginWrapper .loginField {
+  font-family: Prompt, sans-serif;
+  font-size: 1.2em;
+  font-weight: 300;
+  border: none;
+  border-color: grey;
+  border-radius: 3px;
+  box-shadow: 0 2px 0 0 #0000001f;
+  background-color: #8080800d;
+  margin: 0.5em 0;
+  padding: 0.5em 1em;
+  text-align: center;
+  outline: transparent;
+}
+.highWrapper .loginWrapper .passwordField {
+  font-family: Prompt, sans-serif;
+  font-size: 1.2em;
+  font-weight: 300;
+  border-radius: 3px;
+  background-color: #e2e2e242;
+  margin: 0.5em 0;
+  padding: 0.5em;
+  outline: white;
+  font-family: Prompt, sans-serif;
+  font-size: 1.2em;
+  font-weight: 300;
+  border: none;
+  border-color: grey;
+  border-radius: 3px;
+  box-shadow: 0 2px 0 0 #0000001f;
+  background-color: #8080800d;
+  margin: 0.5em 0;
+  padding: 0.5em 1em;
+  text-align: center;
+  outline: transparent;
+}
+.highWrapper .rememberMeCheck {
+  font-family: Prompt, sans-serif;
+  font-size: 1.2em;
+  font-weight: 300;
+  border: none;
+  border-color: grey;
+  border-radius: 3px;
+  box-shadow: 0 2px 0 0 #0000001f;
+  background-color: #8080800d;
+  margin: 0.5em 0;
+  padding: 0.5em 1em;
+  text-align: center;
+  outline: transparent;
+  transform: scale(1.8);
+  margin: 0.5em 0.3em;
+  box-shadow: none;
+}
+.highWrapper .loginSubmitButtonWrapper {
   display: flex;
-  font-weight: bold;
-  text-transform: uppercase;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.highWrapper .loginSubmitButtonWrapper .loginSubmitButton {
+  font-family: Prompt, sans-serif;
+  font-size: 1.2em;
+  font-weight: 300;
+  border: none;
+  border-color: grey;
+  border-radius: 3px;
+  box-shadow: 0 2px 0 0 #0000001f;
+  background-color: #8080800d;
+  margin: 0.5em 0;
+  padding: 0.5em 1em;
+  text-align: center;
+  outline: transparent;
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  padding: 0.3em 1em;
 }
 
 /*# sourceMappingURL=Login.module.css.map */

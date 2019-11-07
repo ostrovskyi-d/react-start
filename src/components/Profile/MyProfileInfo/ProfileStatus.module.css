@@ -1,0 +1,12 @@
+.statusSpan {
+  font-family: "Prompt", sans-serif;
+  font-size: 1.2em;
+  display: flex;
+  padding: 0.5em;
+  white-space: pre-wrap;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-bottom: 1px solid grey;
+}
+
+/*# sourceMappingURL=ProfileStatus.module.css.map */
