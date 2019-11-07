@@ -32,7 +32,7 @@ let initialState = {
     ],
     changeAblePostText: '',
     userData: null,
-    status: "ddd"
+    status: '',
 };
 
 let profileReducer = (state = initialState, action) => {
@@ -83,15 +83,10 @@ let profileReducer = (state = initialState, action) => {
                 userData: action.userData
             }
         }
-        case GET_STATUS: {
-            return {
-                ...state,
-                status: action.status
-            }
-        }
-        case UPDATE_STATUS: {
-            return state
-        }
+        case GET_STATUS:
+            return {...state, status: action.status};
+        case UPDATE_STATUS:
+            return {...state, status: action.status};
         default:
             return state;
     }
@@ -101,24 +96,25 @@ export const updatePostTextAC = (newText) => ({type: UPDATE_POST_TEXT, newText: 
 export const addPostAC = () => ({type: ADD_POST});
 export const addOneLikeAC = (id) => ({type: ADD_ONE_LIKE, id: id});
 export const setUserProfileAC = (userData) => ({type: SET_USER_PROFILE, userData});
-export const setStatus = (status) => ({type: UPDATE_STATUS, status})
-export const getStatus = (userId) => ({type: GET_STATUS})
+// export const getStatus = (userId) => ({type: GET_STATUS, id: userId});
+export const updateStatus = (status) => ({type: UPDATE_STATUS, status});
 
-export const getStatusThunkCreator = (userId) => (dispatch) => {
+export const getStatus = (userId) => (dispatch) => {
     profileAPI.getStatus(userId).then(response => {
-        dispatch(setStatus(response.data));
+        dispatch(updateStatus(response.data));
     })
 };
-export const updateStatusThunkCreator = (status) => (dispatch) => {
+
+export const setStatus = (status) => (dispatch) => {
     profileAPI.updateStatus(status).then(response => {
         if (response.data.resultCode === 0) {
-            dispatch(setStatus(status));
+            dispatch(updateStatus(status));
         }
     })
 };
 
-export const getUserProfileByIdThunkCreator = (userId) => (dispatch) => {
-    usersAPI.getUserProfileById(userId).then(response => {
+export const getUserProfile = (userId) => (dispatch) => {
+    profileAPI.getUserProfileById(userId).then(response => {
         dispatch(setUserProfileAC(response.data));
     });
 };

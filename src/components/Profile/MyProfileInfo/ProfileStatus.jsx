@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {makeStyles} from '@material-ui/core/styles';
 import FilledInput from '@material-ui/core/FilledInput';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
+import {updateStatus} from "../../../redux/profile-reducer";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -28,25 +29,25 @@ const useStyles = makeStyles(theme => ({
 const ProfileStatus = (props) => {
     const classes = useStyles();
     const [label, setLabel] = useState("Status");
+
+    //initial
+    // state: {
+    //    editMode: false,
+    //    statusValue: props.status
+    // }
     const [editMode, setEditMode] = useState(false);
-    const [statusValue, setStatusValue] = useState(props.status);
+    const [statusValue, setStatusValue] = useState(props.status );
+    const onStatusChange = (e) => {
+        setStatusValue(e.currentTarget.value);
+    }
+    const enableEditMode = (e) => {
 
-    const onChange = (e) => {
-        setStatusValue(e.target.value)
-    };
-
-    const disableEditMode = (e) => {
-        if (e.target.value) {
-            setLabel("Status");
-            setEditMode(false);
-        } else {
-            setLabel("Empty status not allowed");
-        }
-    };
-
-    const enableEditMode = () => {
         setEditMode(true);
-    };
+    }
+    const disableEditMode = () => {
+        props.updateStatus(statusValue)
+        setEditMode(false)
+    }
 
     return (<div>
         {editMode
@@ -58,12 +59,18 @@ const ProfileStatus = (props) => {
                         onBlur={disableEditMode}
                         id="filled-adornment-amount"
                         value={statusValue}
-                        onChange={onChange}
+                        onChange={onStatusChange}
                         placeholder={"Enter your status"}
                     />
                 </FormControl>
             </div>
-            : <div style={{margin: "1em 0"}}><span onClick={enableEditMode}>{statusValue}</span></div>
+            : <div style={{margin: "1em 0"}}>
+                <span onClick={props.statusEditEnabled
+                    ? enableEditMode
+                    : false}>
+                    Status: {props.status}
+                </span>
+            </div>
         }
     </div>)
 };

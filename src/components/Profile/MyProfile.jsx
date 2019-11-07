@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfileInfo from './MyProfileInfo/MyProfileInfo.jsx'
+import ProfileInfo from './MyProfileInfo/ProfileInfo.jsx'
 import './MyProfile.module.scss'
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import Preloader from "../Placeholders-etc/Preloader/Preloader";
@@ -11,7 +11,7 @@ const MyProfile = (props) => {
     }
     return (
         <main className={s.profilePageWrapper}>
-            <ProfileInfo {...props}/>
+            <ProfileInfo userId={props.userId}  {...props}/>
             <MyPostsContainer/>
         </main>
     );

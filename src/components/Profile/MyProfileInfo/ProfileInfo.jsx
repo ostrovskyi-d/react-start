@@ -5,11 +5,12 @@ import ProfileStatus from "./ProfileStatus";
 
 
 const ProfileInfo = (props) => {
+    console.log(props.userData.userId)
     return (
         <main className={styles.profileInfoWrapper}>
             <section className={styles.card}>
                 <div className={styles.userNameAvaContainer}>
-                    <h2 className={styles.userName} >{props.userData.fullName}</h2>
+                    <h2 className={styles.userName}>{props.userData.fullName}</h2>
                     <div className={styles.avatar}>
                         {
                             props.userData.photos.large
@@ -18,7 +19,10 @@ const ProfileInfo = (props) => {
                         }
 
                         <div className={styles.status}>
-                            <ProfileStatus status={props.status}/>
+                            {props.userData.userId === 4889
+                                ? <ProfileStatus statusEditEnabled={true} updateStatus={props.updateStatus} status={props.status}/>
+                                : <ProfileStatus statusEditEnabled={false} status={props.status} updateStatus={props.updateStatus}/>
+                            }
                         </div>
 
                     </div>
@@ -33,11 +37,11 @@ const ProfileInfo = (props) => {
                         <div className={styles.details}>
 
                             <li>Is Looking For A Job:
-                            {
-                                props.userData.lookingForAJob
-                                    ? <b> YES</b>
-                                    : <b> NO</b>
-                            }
+                                {
+                                    props.userData.lookingForAJob
+                                        ? <b> YES</b>
+                                        : <b> NO</b>
+                                }
                             </li>
                             <li>Birthday: 17.12.1997</li>
                             <li>City: Khmelnitskyi</li>

@@ -14,6 +14,7 @@ import {compose} from "redux";
 class UsersContainer extends React.Component {
     componentDidMount() {
         this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize)
+
     };
 
     changePage = (pageNumber) => {
@@ -62,6 +63,7 @@ let mapDispatchToProps = {
         followThisUserThunkCreator: followThisUserThunkCreator,
         unFollowThisUserThunkCreator: unFollowThisUserThunkCreator,
         getMoreUsers: getMoreUsersThunkCreator
+
     };
 
 export default compose(connect(mapStateToProps, mapDispatchToProps), withAuthRedirect)(UsersContainer);
