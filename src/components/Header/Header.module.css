@@ -4,6 +4,9 @@
   justify-content: space-between;
   padding: 0 1em;
   background-color: #282c34;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 .headerBar img {
   width: 180px;
@@ -13,12 +16,28 @@
 }
 .headerBar .loginBlock .loggedInHeaderBlock {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   color: whitesmoke;
   background-color: #444c5a;
   align-self: center;
-  justify-items: center;
+  align-items: center;
+  width: 500px;
+  justify-content: space-between;
   padding: 1em;
+  font-size: 0.9em;
+  font-family: "Prompt", sans-serif;
+}
+.headerBar .loginBlock .loggedInHeaderBlock .logOutButton {
+  display: flex;
+  padding: 0.5em 1.5em;
+  margin: 0.5em;
+  font-size: 1em;
+  /* background: #00000040; */
+  color: #89a4b1c7;
+  border-radius: 0;
+  border: 2px solid;
+  font-weight: 700;
+  font-family: "Prompt", sans-serif;
 }
 .headerBar .loginBlock .loggedInHeaderBlock .mailToLink {
   color: inherit;

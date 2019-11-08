@@ -10,13 +10,13 @@
   }
   border: none {
     color: grey;
-    radius: 3px;
+    //radius: 0px;
   }
   box: {
     shadow: 0 2px 0 0 #0000001f;
   }
   background: {
-    color: #8080800d;
+    color: #8080801c;
   };
   margin: 0.5em 0;
   padding: 0.5em 1em;
@@ -27,6 +27,7 @@
 .highWrapper {
   display: flex;
   justify-content: center;
+  grid-area: m;
   .loginWrapper {
     display: flex;
     flex-direction: column;

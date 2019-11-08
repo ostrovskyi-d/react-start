@@ -1,11 +1,12 @@
 import React from 'react';
 import classes from './SideBar.module.scss';
 import {NavLink} from 'react-router-dom'
+import s from "../../App.css";
 
 
 const SideBar = () => {
     return (
-        <aside>
+        <aside className={s.appWrapperContent}>
             <menu>
                 <ul>
                     <li className={classes.item}>

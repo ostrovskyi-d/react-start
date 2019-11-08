@@ -2,6 +2,7 @@ import {authAPI, loginAPI} from "../API/api";
 
 const SET_USER_DATA = "SET-USER-DATA";
 const LOG_IN = "LOG-IN";
+const LOG_OUT = "LOG-OUT";
 
 let initialState = {
     userId: null,
@@ -23,7 +24,15 @@ let authReducer = (state = initialState, action) => {
         case LOG_IN: {
             return {
                 ...state,
-                ...action.data
+                userId: action.userId,
+                isAuth: true,
+            }
+        }
+        case LOG_OUT: {
+            debugger
+            return {
+                ...state,
+                isAuth: false
             }
         }
         default:
@@ -32,7 +41,9 @@ let authReducer = (state = initialState, action) => {
 };
 
 export const setUserDataAC = (userId, login, email) => ({type: SET_USER_DATA, data: {userId, login, email}});
-export const logInAC = (email, password, remember) => ({type: LOG_IN, data: {email, password, remember}});
+export const logInAC = (userId) => ({type: LOG_IN, userId});
+export const logOutAC = () => ({type: LOG_OUT});
+
 export const getMyUserDataThunkCreator = () => (dispatch) => {
     authAPI.getMyUserData().then(data => {
         if (data.resultCode === 0) {
@@ -43,12 +54,19 @@ export const getMyUserDataThunkCreator = () => (dispatch) => {
 };
 
 // need to zamutit normalno
-export const loginThunkCreator = (email, password, remember) => (dispatch) => {
-    loginAPI.login(email, password, remember).then(data => {
-        if(data.resultCode === 0) {
-            let {email, password, remember} = data.data;
-            dispatch(logInAC(email, password, remember));
+// vrode zamutil...
+export const loginThunkCreator = (data) => (dispatch) => {
+    loginAPI.login(data).then(response => {
+        if(response.data.resultCode === 0) {
+            dispatch(logInAC(response.data.data.userId));
         }
     })
-}
+};
+
+export const logOutThunkCreator = () => (dispatch) => {
+    loginAPI.logOut().then(() => {
+        dispatch(logOutAC());
+    })
+};
+
 export default authReducer;

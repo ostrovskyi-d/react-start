@@ -47,6 +47,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: azure;
+  border-radius: 10px;
 }
 .profileInfoWrapper .card .info {
   display: grid;

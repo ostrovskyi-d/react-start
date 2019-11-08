@@ -9,7 +9,8 @@ const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
         flexWrap: 'wrap',
-        width: "370px",
+        width: "310px",
+        background: "azure"
     },
     margin: {
         margin: theme.spacing(1),
@@ -27,7 +28,6 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-
 const ProfileStatus = (props) => {
         const classes = useStyles();
         const [label, setLabel] = useState("Status");
@@ -35,13 +35,8 @@ const ProfileStatus = (props) => {
         const [statusValue, setStatusValue] = useState(props.status);
 
         useEffect(() => {
-            console.log("render");
-
             setStatusValue((prevState) => {
-                if(prevState !== props.status) {
                     return props.status
-                }
-
             });
         }, [props.status]);
 

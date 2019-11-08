@@ -1,11 +1,14 @@
-.statusSpan{
+.statusSpan {
   font-family: 'Prompt', sans-serif;
-  font-size: 1.2em;
+  font-size: 1.1em;
   display: flex;
-  padding: 0.5em;
+  padding: 10px 0;
   white-space: pre-wrap;
   flex-direction: column;
   flex-wrap: wrap;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  align-items: center;
   //max-width: 350px;
-  border-bottom: 1px solid grey;
+  //border-bottom: 1px solid grey;
 }

@@ -9,6 +9,8 @@ aside menu {
   margin-block-start: 0;
   margin-block-end: 0;
   padding-inline-start: 0;
+  position: sticky;
+  top: 100px;
 }
 aside menu ul {
   display: flex;
