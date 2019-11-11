@@ -3,6 +3,8 @@ aside {
   flex-direction: column;
   background-color: #282c34;
   font-size: 1.2em;
+  align-self: baseline;
+  height: 100%;
 
   menu {
     background-color: #444c5a;
@@ -10,7 +12,7 @@ aside {
     margin-block-end: 0;
     padding-inline-start: 0;
     position: sticky;
-    top: 100px;
+    //top: 100px;
 
     ul {
       display: flex;

@@ -29,7 +29,6 @@ let authReducer = (state = initialState, action) => {
             }
         }
         case LOG_OUT: {
-            debugger
             return {
                 ...state,
                 isAuth: false

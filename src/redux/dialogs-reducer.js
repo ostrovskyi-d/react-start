@@ -1,8 +1,11 @@
 const SEND_MESSAGE = "SEND-MESSAGE";
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+
+// REPLACED BY REDUX-FORM
+// const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
 
 let initialState = {
-    updatedMessageText: '',
+    // REPLACED BY REDUX-FORM
+    // updatedMessageText: '',
     messagesData: [
         {id: 1, time: `12:50`, text: 'Hi'},
         {id: 2, time: `12:50`, text: 'Hiiii'},
@@ -26,23 +29,26 @@ let initialState = {
 };
 let dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case UPDATE_NEW_MESSAGE_TEXT: {
-            return {
-                ...state,
-                updatedMessageText: action.updatedMessageText
-            }
-        }
+
+        // REPLACED BY REDUX-FORM
+        // case UPDATE_NEW_MESSAGE_TEXT: {
+        //     return {
+        //         ...state,
+        //         updatedMessageText: action.updatedMessageText
+        //     }
+        // }
+
         case SEND_MESSAGE: {
             let newMessageObj = {
                 id: state.messagesData.length + 1,
                 time: new Date().toLocaleTimeString(),
-                text: state.updatedMessageText
+                text: action.newMessageBody
             };
             if (newMessageObj.text) {
                 return {
                     ...state,
                     messagesData: [...state.messagesData, newMessageObj],
-                    updatedMessageText: ''
+                    // updatedMessageText: ''
                 }
             }
             return  state;
@@ -52,11 +58,13 @@ let dialogsReducer = (state = initialState, action) => {
     }
 };
 
-export const updateNewMessageTextCreator = (updatedMessageText) => ({
-    type: UPDATE_NEW_MESSAGE_TEXT,
-    updatedMessageText: updatedMessageText
-});
-export const sendMessageCreator = () => ({type: SEND_MESSAGE});
+// REPLACED BY REDUX-FORM
+// export const updateNewMessageTextCreator = (updatedMessageText) => ({
+//     type: UPDATE_NEW_MESSAGE_TEXT,
+//     updatedMessageText: updatedMessageText
+// });
+
+export const sendMessageCreator = (newMessageBody) => ({type: SEND_MESSAGE, newMessageBody});
 
 
 export default dialogsReducer;

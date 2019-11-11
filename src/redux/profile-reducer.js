@@ -1,7 +1,6 @@
-import {profileAPI, usersAPI} from "../API/api";
+import {profileAPI} from "../API/api";
 
 const ADD_POST = "ADD-POST";
-const UPDATE_POST_TEXT = "UPDATE-POST-TEXT";
 const ADD_ONE_LIKE = "ADD-ONE-LIKE";
 const SET_USER_PROFILE = "SET-USER-PROFILE";
 const GET_STATUS = "GET-STATUS";
@@ -30,7 +29,6 @@ let initialState = {
             likes: 100500
         },
     ],
-    changeAblePostText: '',
     userData: null,
     status: '',
 };
@@ -40,27 +38,19 @@ let profileReducer = (state = initialState, action) => {
     // eslint-disable-next-line default-case
     switch (action.type) {
         case ADD_POST: {
-            if (state.changeAblePostText) {
-                return {
+            if (action.newPostBody) return {
                     ...state,
                     postsData: [
                         {
                             id: state.postsData.length + 1,
-                            postMessage: state.changeAblePostText,
+                            postMessage: action.newPostBody,
                             likes: 0
                         },
                         ...state.postsData
                     ],
-                    changeAblePostText: ''
                 };
-            }
+
             return state;
-        }
-        case UPDATE_POST_TEXT: {
-            return {
-                ...state,
-                changeAblePostText: action.newText
-            };
         }
         case ADD_ONE_LIKE: {
             return {
@@ -92,11 +82,9 @@ let profileReducer = (state = initialState, action) => {
     }
 };
 
-export const updatePostTextAC = (newText) => ({type: UPDATE_POST_TEXT, newText: newText});
-export const addPostAC = () => ({type: ADD_POST});
+export const addPostAC = (newPostBody) => ({type: ADD_POST, newPostBody});
 export const addOneLikeAC = (id) => ({type: ADD_ONE_LIKE, id: id});
 export const setUserProfileAC = (userData) => ({type: SET_USER_PROFILE, userData});
-// export const getStatus = (userId) => ({type: GET_STATUS, id: userId});
 export const updateStatus = (status) => ({type: UPDATE_STATUS, status});
 
 export const getStatus = (userId) => (dispatch) => {

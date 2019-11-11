@@ -24,6 +24,12 @@ const SideBar = () => {
                     <li className={classes.item}>
                         <NavLink activeClassName={classes.active} to="/music">MUSIC</NavLink>
                     </li>
+
+                    <li className={classes.item}>
+                        <NavLink activeClassName={classes.active} to="/notes">
+                            Notes
+                        </NavLink>
+                    </li>
                     <li className={classes.item}>
                         <NavLink activeClassName={classes.active} to="/settings">SETTINGS</NavLink>
                     </li>

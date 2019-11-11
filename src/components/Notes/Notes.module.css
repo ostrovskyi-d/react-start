@@ -1,0 +1,37 @@
+.notesWrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.notesWrapper div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: -webkit-fill-available;
+}
+.notesWrapper div .notesHeading {
+  display: flex;
+  font-size: 1.4em;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid gray;
+  padding: 1em 0;
+}
+.notesWrapper div .notesList {
+  list-style: circle;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+  margin: 0.5em;
+  font-size: 1.3em;
+}
+.notesWrapper div .notesList .noteItem {
+  display: flex;
+  flex-direction: column;
+}
+
+/*# sourceMappingURL=Notes.module.css.map */

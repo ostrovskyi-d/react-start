@@ -1,56 +1,76 @@
-import React from 'react';
-import classes from './MyPosts.module.css';
+import React from 'react'
+import s from './MyPosts.module.scss';
 import Post from './Post/Post.jsx'
 import {Field, reduxForm} from "redux-form";
+import Button from "@material-ui/core/Button";
+import {TextField} from "@material-ui/core";
+import {makeStyles} from "@material-ui/styles";
 
+const useStyles = makeStyles({
+    root: {
+        display: "flex",
+        background: 'linear-gradient(45deg, #32988aa1 30%, #05b9b1c7 90%)',
+        border: 0,
+        borderRadius: 3,
+        boxShadow: '0 3px 5px 2px rgba(39, 146, 133, 0.3)',
+        color: 'white',
+        height: 55,
+        padding: '0 30px',
+        margin: "0.5em",
+    },
+
+});
 
 const MyPosts = (props) => {
-    let posts = props.profilePage.postsData.map((p, i) => (
-            <Post
-                id={p.id}
-                likes={p.likes}
-                text={p.postMessage}
-                addLike={props.addLike}
-                key={p.id}
-            />
-        )
-    );
+    const handleChange = (data) => console.log(data);
+    const addPost = (data) => {
+        props.addPost(data.newPostBody);
+        //clear text field
+        data.newPostBody = '';
+    };
+
+    let posts = props.profilePage.postsData.map((p, i) => <Post
+        id={p.id}
+        likes={p.likes}
+        text={p.postMessage}
+        addLike={props.addLike}
+        key={p.id}
+    />);
+
     return (
-        <div className={classes.my_posts}>
-            <div className={classes.post_add}>
-                <NewPostReduxForm onSubmit={props.addPost}/>
+        <div className={s.my_posts}>
+            <div className={s.post_add}>
+                <NewPostReduxFormMaterial onChange={handleChange} onSubmit={addPost}/>
             </div>
             {posts}
         </div>
     )
 };
 
-const MyPostsForm = (props) => {
+const MyMaterialPostsForm = (props) => {
+    const classes = useStyles();
 
-
-    return <form>
-        <div className={classes.group}>
-            <Field component={"textarea"} name={"newPostBody"} required/>
-            <span className={classes.bar}/>
-            {/*<label>INPUT POST TEXT</label>*/}
-        </div>
-        <Field
-            component={"submit"}
-            name={"sendNewPost"}
-            className={classes.sendPostButton}
-            value="Send"
-            // onSubmit={onAddPost}
-            type="submit"
-        >
-            Send
-        </Field>
+    return <form className={s.formBlock} onSubmit={props.handleSubmit}>
+        <Field classname={s.postInputArea} type='text' component={MaterialTextField} name="newPostBody"/>
+        <Button className={classes.root} type="submit"> Publish </Button>
     </form>
 };
 
-export const NewPostReduxForm = reduxForm({
-    form: 'newPost'
-})(MyPostsForm);
+const MaterialTextField = ({input, ...custom}) => {
+    return (
+        <TextField
+            variant={"filled"}
+            placeholder={"Input your post text..."}
+            label={"Post"}
+            {...input}
+            {...custom}
+        />)
+};
 
+
+export const NewPostReduxFormMaterial = reduxForm({
+    form: 'MaterialUiForm'
+})(MyMaterialPostsForm);
 
 
 export default MyPosts;

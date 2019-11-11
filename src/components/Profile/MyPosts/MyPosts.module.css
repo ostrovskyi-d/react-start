@@ -13,64 +13,29 @@
   flex-direction: row;
   margin: 0.5em;
 }
-.my_posts .post_add .group {
-  position: relative;
+.my_posts .post_add .formBlock {
+  display: flex;
+  align-items: center;
+  width: 500px;
+  flex-grow: 1;
 }
-.my_posts .post_add .group input {
-  font-size: 1.2em;
-  padding: 2em;
-  display: block;
-  width: 656px;
-  border: none;
-  border-bottom: 2px solid #7d7d7d;
-  background: #0000000f;
-  height: 50px;
+.my_posts .post_add .formBlock div {
+  display: flex;
+  width: 500px;
 }
-.my_posts .post_add .group input:focus {
-  outline: none;
+.my_posts .post_add .formBlock div .postInputArea {
+  display: flex;
+  width: 500px;
 }
-.my_posts .post_add .group .bar {
-  position: relative;
-  display: block;
-  width: -webkit-fill-available;
-}
-.my_posts .post_add .group .bar:before, .my_posts .post_add .group .bar:after {
-  content: "";
-  height: 4px;
-  width: 0;
-  bottom: 0;
-  position: absolute;
-  background: #444c5a;
-  transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -webkit-transition: 0.2s ease all;
-}
-.my_posts .post_add .group .bar:before {
-  left: 50%;
-}
-.my_posts .post_add .group .bar:after {
-  right: 50%;
-}
-.my_posts .post_add .group input:focus ~ .bar:before,
-.my_posts .post_add .group input:focus ~ .bar:after {
-  width: 50%;
-}
-.my_posts .post_add .group label {
-  color: #282c34a6;
+.my_posts .post_add .formBlock div .postInputArea label {
   font-size: 2em;
-  position: absolute;
-  pointer-events: none;
-  left: 36px;
-  top: 47px;
-  transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -webkit-transition: 0.2s ease all;
+  width: 500px;
 }
-.my_posts .post_add .group input:focus ~ label, .my_posts .post_add .group input:valid ~ label {
-  top: 0em;
-  font-size: 1.5em;
-  color: #5264AE;
-  /* background: #e6e6e6; */
+.my_posts .post_add .formBlock div .postInputArea div {
+  width: 500px;
+}
+.my_posts .post_add .formBlock div .postInputArea div input {
+  width: 500px;
 }
 .my_posts .post_add .sendPostButton {
   border: none;

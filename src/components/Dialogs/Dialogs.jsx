@@ -3,6 +3,7 @@ import s from "./Dialogs.module.css";
 import Message from "./Message/Message";
 import Contact from "./Contact/Contact";
 import {Field, reduxForm} from "redux-form";
+import Button from "@material-ui/core/Button";
 
 
 const Dialogs = (props) => {
@@ -27,9 +28,12 @@ const Dialogs = (props) => {
         />
     ));
 
-    const formOnSubmit = (formData) => {
-        props.onMessageSend()
+    const onSubmitForm = (formData) => {
+        props.onMessageSend(formData.newMessageBody);
         formData.newMessageBody = "";
+    };
+    const onChangeForm = (data) => {
+        console.log(data);
     };
     return (
         <div className={s.dialogs}>
@@ -45,7 +49,7 @@ const Dialogs = (props) => {
 
                     {messages}
                 </div>
-                <DialogsReduxForm onSubmit={formOnSubmit} {...props}/>
+                <DialogsReduxForm onChange={onChangeForm} onSubmit={onSubmitForm}/>
 
             </section>
 
@@ -54,39 +58,20 @@ const Dialogs = (props) => {
 };
 
 const DialogsForm = (props) => {
-    let onMessageTextChange = (e) => {
-        debugger
-        if (state.updatedMessageText === "prop") {
-            props.onMessageTextChange(e.currentTarget.value);
-        }
-
-    };
-
-    let onMessageSend = (e) => {
-        props.onMessageSend();
-    };
-    let state = props.dialogsPage;
-
     return (
         <form onSubmit={props.handleSubmit}>
             <section className={s.wrapperInputsForMessage}>
                 <Field
                     name={"newMessageBody"}
-                    component={"textarea"}
-                    onChange={onMessageTextChange}
+                    component={"input"}
                     placeholder="Input your message"
                     className={s.messageTextArea}
-                    value={state.updatedMessageText}
                 />
-                <Field
+                <Button
                     name={"sendMessageButton"}
-                    component={"input"}
-                    value=""
                     className={s.sendMessageButton}
-                    onClick={onMessageSend}
                     type="submit"
                 />
-
             </section>
         </form>
     )

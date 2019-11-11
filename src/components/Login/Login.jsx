@@ -2,18 +2,17 @@ import React from 'react'
 import s from './Login.module.scss'
 import {Field, reduxForm} from "redux-form";
 import Button from "@material-ui/core/Button";
-// import handleSubmit from "redux-form/lib/handleSubmit";
-
-
 
 const Login = (props) => {
+    const sendFormData = (formData) => props.loginThunkCreator(formData);
+    const checkFormData = (formData) => console.log(formData);
 
     return (
         <section className={s.highWrapper}>
             <div className={s.loginWrapper}>
                 <h1 className={s.loginHeading}>Login:</h1>
                 <LoginReduxForm
-                    onSubmit={(formData) => props.loginThunkCreator(formData)}/>
+                    onSubmit={sendFormData}/>
             </div>
         </section>
 
@@ -21,6 +20,7 @@ const Login = (props) => {
 };
 
 const LoginForm = (props) => {
+
     return (
         <form onSubmit={props.handleSubmit}>
             <div>

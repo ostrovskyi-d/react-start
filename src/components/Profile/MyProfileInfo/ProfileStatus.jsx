@@ -4,13 +4,15 @@ import FilledInput from '@material-ui/core/FilledInput';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import s from './ProfileStatus.module.scss';
+import {OutlinedInput} from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
         flexWrap: 'wrap',
         width: "310px",
-        background: "azure"
+        background: "azure",
+
     },
     margin: {
         margin: theme.spacing(1),
@@ -64,7 +66,7 @@ const ProfileStatus = (props) => {
                 ? <div className={classes.root}>
                     <FormControl fullWidth className={classes.margin} variant="filled">
                         <InputLabel htmlFor="filled-adornment-amount">{label}</InputLabel>
-                        <FilledInput
+                        <OutlinedInput
                             autoFocus={true}
                             onBlur={disableEditMode}
                             id="filled-adornment-amount"
