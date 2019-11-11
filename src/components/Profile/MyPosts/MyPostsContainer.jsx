@@ -8,7 +8,8 @@ import {connect} from "react-redux"
 
 let mapStateToProps = (state) => {
     return {
-        profilePage: state.profilePage
+        profilePage: state.profilePage,
+        // form: state.form
     }
 };
 let mapDispatchToProps = (dispatch) => {
@@ -25,7 +26,8 @@ let mapDispatchToProps = (dispatch) => {
         addLike: (id) => {
             let action = addOneLikeAC(id);
             dispatch(action);
-        }
+        },
+
 
     }
 };

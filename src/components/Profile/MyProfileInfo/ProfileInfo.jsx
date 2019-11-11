@@ -5,7 +5,6 @@ import ProfileStatus from "./ProfileStatus";
 
 
 const ProfileInfo = (props) => {
-    console.log(props.userData.userId)
     return (
         <main className={styles.profileInfoWrapper}>
             <section className={styles.card}>
@@ -68,7 +67,7 @@ const ProfileInfo = (props) => {
 
         </main>
     )
-}
+};
 
 
 export default ProfileInfo;

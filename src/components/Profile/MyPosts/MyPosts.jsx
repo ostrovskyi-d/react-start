@@ -1,20 +1,10 @@
 import React from 'react';
 import classes from './MyPosts.module.css';
 import Post from './Post/Post.jsx'
+import {Field, reduxForm} from "redux-form";
 
 
 const MyPosts = (props) => {
-
-    let onAddPost = (e) => {
-        props.addPost();
-    };
-
-    let onPostChange = (e) => {
-        let newText = e.target.value;
-        props.updateNewPostText(newText);
-    };
-
-
     let posts = props.profilePage.postsData.map((p, i) => (
             <Post
                 id={p.id}
@@ -25,29 +15,42 @@ const MyPosts = (props) => {
             />
         )
     );
-
     return (
         <div className={classes.my_posts}>
-            {/*<h3>WALL:</h3>*/}
             <div className={classes.post_add}>
-
-                <div className={classes.group}>
-                    <input value={props.profilePage.changeAblePostText} onChange={onPostChange} required/>
-                    <span className={classes.bar}/>
-                    <label>INPUT POST TEXT</label>
-                </div>
-
-                <input
-                    className={classes.sendPostButton}
-                    value="Send"
-                    type="submit"
-                    onClick={onAddPost}
-                />
+                <NewPostReduxForm onSubmit={props.addPost}/>
             </div>
             {posts}
         </div>
     )
 };
+
+const MyPostsForm = (props) => {
+
+
+    return <form>
+        <div className={classes.group}>
+            <Field component={"textarea"} name={"newPostBody"} required/>
+            <span className={classes.bar}/>
+            {/*<label>INPUT POST TEXT</label>*/}
+        </div>
+        <Field
+            component={"submit"}
+            name={"sendNewPost"}
+            className={classes.sendPostButton}
+            value="Send"
+            // onSubmit={onAddPost}
+            type="submit"
+        >
+            Send
+        </Field>
+    </form>
+};
+
+export const NewPostReduxForm = reduxForm({
+    form: 'newPost'
+})(MyPostsForm);
+
 
 
 export default MyPosts;

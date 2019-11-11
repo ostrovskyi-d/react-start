@@ -2,6 +2,8 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import Message from "./Message/Message";
 import Contact from "./Contact/Contact";
+import {Field, reduxForm} from "redux-form";
+
 
 const Dialogs = (props) => {
     let state = props.dialogsPage;
@@ -25,14 +27,10 @@ const Dialogs = (props) => {
         />
     ));
 
-    let onMessageTextChange = (e) => {
-        props.onMessageTextChange(e.target.value);
+    const formOnSubmit = (formData) => {
+        props.onMessageSend()
+        formData.newMessageBody = "";
     };
-    let onMessageSend = (e) => {
-        props.onMessageSend();
-
-    };
-
     return (
         <div className={s.dialogs}>
             <section className={s.contacts}>
@@ -47,26 +45,56 @@ const Dialogs = (props) => {
 
                     {messages}
                 </div>
-                <section className={s.wrapperInputsForMessage}>
+                <DialogsReduxForm onSubmit={formOnSubmit} {...props}/>
 
-                    <textarea
-                        onChange={onMessageTextChange}
-                        placeholder="Input your message"
-                        className={s.messageTextArea}
-                        value={state.updatedMessageText}
-                    />
-                    <input
-                        value=""
-                        className={s.sendMessageButton}
-                        onClick={onMessageSend}
-                        type="submit"
-                    />
-
-                </section>
             </section>
 
         </div>
     );
 };
+
+const DialogsForm = (props) => {
+    let onMessageTextChange = (e) => {
+        debugger
+        if (state.updatedMessageText === "prop") {
+            props.onMessageTextChange(e.currentTarget.value);
+        }
+
+    };
+
+    let onMessageSend = (e) => {
+        props.onMessageSend();
+    };
+    let state = props.dialogsPage;
+
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <section className={s.wrapperInputsForMessage}>
+                <Field
+                    name={"newMessageBody"}
+                    component={"textarea"}
+                    onChange={onMessageTextChange}
+                    placeholder="Input your message"
+                    className={s.messageTextArea}
+                    value={state.updatedMessageText}
+                />
+                <Field
+                    name={"sendMessageButton"}
+                    component={"input"}
+                    value=""
+                    className={s.sendMessageButton}
+                    onClick={onMessageSend}
+                    type="submit"
+                />
+
+            </section>
+        </form>
+    )
+};
+
+export const DialogsReduxForm = reduxForm({
+    form: 'login'
+})(DialogsForm);
+
 
 export default Dialogs;

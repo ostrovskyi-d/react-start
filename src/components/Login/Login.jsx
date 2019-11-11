@@ -2,10 +2,12 @@ import React from 'react'
 import s from './Login.module.scss'
 import {Field, reduxForm} from "redux-form";
 import Button from "@material-ui/core/Button";
+// import handleSubmit from "redux-form/lib/handleSubmit";
 
 
 
 const Login = (props) => {
+
     return (
         <section className={s.highWrapper}>
             <div className={s.loginWrapper}>
@@ -19,7 +21,6 @@ const Login = (props) => {
 };
 
 const LoginForm = (props) => {
-
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
