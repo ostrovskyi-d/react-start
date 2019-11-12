@@ -3,9 +3,9 @@ import s from './Login.module.scss'
 import {Field, reduxForm} from "redux-form";
 import Button from "@material-ui/core/Button";
 
+
 const Login = (props) => {
     const sendFormData = (formData) => props.loginThunkCreator(formData);
-    const checkFormData = (formData) => console.log(formData);
 
     return (
         <section className={s.highWrapper}>
