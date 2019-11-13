@@ -1,9 +1,6 @@
-// import React from 'react';
-
 import MyPosts from "./MyPosts";
 import {addOneLikeAC, addPostAC} from "../../../redux/profile-reducer";
 import {connect} from "react-redux"
-
 
 
 let mapStateToProps = (state) => {
@@ -11,6 +8,7 @@ let mapStateToProps = (state) => {
         profilePage: state.profilePage,
     }
 };
+
 let mapDispatchToProps = (dispatch) => {
     return {
         addPost: (newPostBody) => {
@@ -22,8 +20,6 @@ let mapDispatchToProps = (dispatch) => {
             let action = addOneLikeAC(id);
             dispatch(action);
         },
-
-
     }
 };
 let MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);

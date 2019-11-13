@@ -52,8 +52,7 @@ export const getMyUserDataThunkCreator = () => (dispatch) => {
     })
 };
 
-// need to zamutit normalno
-// vrode zamutil...
+
 export const loginThunkCreator = (data) => (dispatch) => {
     loginAPI.login(data).then(response => {
         if(response.data.resultCode === 0) {

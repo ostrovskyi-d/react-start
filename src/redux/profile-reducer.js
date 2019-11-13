@@ -34,8 +34,6 @@ let initialState = {
 };
 
 let profileReducer = (state = initialState, action) => {
-
-    // eslint-disable-next-line default-case
     switch (action.type) {
         case ADD_POST: {
             if (action.newPostBody) return {
@@ -66,9 +64,7 @@ let profileReducer = (state = initialState, action) => {
             };
         }
         case SET_USER_PROFILE: {
-
             return {
-
                 ...state,
                 userData: action.userData
             }
