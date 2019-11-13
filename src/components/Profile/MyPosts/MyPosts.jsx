@@ -4,9 +4,11 @@ import Post from './Post/Post.jsx'
 import {Field, reduxForm} from "redux-form";
 import Button from "@material-ui/core/Button";
 import {makeStyles} from "@material-ui/styles";
+import {maxLength, required} from "../../../common/validators/validators";
 import {Textarea} from "../../Placeholders-etc/FormsControls/FormsControls";
-import {isLengthValid, required} from "../../../common/validators/validators";
 import TextField from "@material-ui/core/TextField";
+
+const maxLength300 = maxLength(300);
 
 
 const useStyles = makeStyles({
@@ -55,30 +57,20 @@ const MyMaterialPostsForm = (props) => {
 
     return <form className={s.formBlock} onSubmit={props.handleSubmit}>
         <Field
-            label={"WRITE A POST:"}
             name="newPostBody" type="text"
             component={Textarea}
-            validate={[required]}
+            validate={[required, maxLength300]}
         />
         <Button className={classes.root} type="submit">
             Publish
         </Button>
     </form>
 };
-//
-// const MaterialTextField = ({input, ...custom}) => {
-//     return (
-//         <TextField
-//             placeholder={"Input your post text..."}
-//             label={"Post"}
-//             {...input}
-//             {...custom}
-//         />)
-// };
+
 
 
 export const NewPostReduxFormMaterial = reduxForm({
-    form: 'MaterialUiForm'
+    form: 'MaterialUiForm',
 })(MyMaterialPostsForm);
 
 

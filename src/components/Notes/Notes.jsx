@@ -16,6 +16,10 @@ const Notes = (props) => {
                 <ul className={s.notesList}>
                     <li className={s.noteItem}>Try to use Bootstrap</li>
                     <li className={s.noteItem}>Try to use Semantic UI React</li>
+                    <li className={s.noteItem}>Треба помістити повідомлення про залишок символів у якийсь метод,
+                        чи якось інакше, бо якщо це повідомлення міститься в "validate", то форма вважається
+                        не валідною.
+                    </li>
                 </ul>
             </div>
         </section>
