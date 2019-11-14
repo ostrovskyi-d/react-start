@@ -195,7 +195,7 @@ $.fn.search = function(parameters) {
               ;
             }
             else {
-              module.debug('Input blurred without user action, closing results');
+              module.debug('renderInput blurred without user action, closing results');
               callback();
             }
           },

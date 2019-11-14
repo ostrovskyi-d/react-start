@@ -85,7 +85,7 @@
 @menuDividerSize: 1px;
 @menuDividerBorder: @menuDividerSize solid @menuDividerColor;
 
-/* Menu Input */
+/* Menu renderInput */
 @menuInputMargin: @large @mini;
 @menuInputMinWidth: 10rem;
 @menuInputVerticalPadding: 0.5em;

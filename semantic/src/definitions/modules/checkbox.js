@@ -412,7 +412,7 @@ $.fn.checkbox = function(parameters) {
               module.uncheckOthers();
             }
             if(!module.is.indeterminate() && module.is.checked()) {
-              module.debug('Input is already checked, skipping input property change');
+              module.debug('renderInput is already checked, skipping input property change');
               return;
             }
             module.verbose('Setting state to checked', input);
@@ -429,7 +429,7 @@ $.fn.checkbox = function(parameters) {
               .removeClass(className.checked)
             ;
             if(!module.is.indeterminate() &&  module.is.unchecked() ) {
-              module.debug('Input is already unchecked');
+              module.debug('renderInput is already unchecked');
               return;
             }
             module.debug('Setting state to unchecked');
@@ -445,7 +445,7 @@ $.fn.checkbox = function(parameters) {
               .addClass(className.indeterminate)
             ;
             if( module.is.indeterminate() ) {
-              module.debug('Input is already indeterminate, skipping input property change');
+              module.debug('renderInput is already indeterminate, skipping input property change');
               return;
             }
             module.debug('Setting state to indeterminate');
@@ -460,7 +460,7 @@ $.fn.checkbox = function(parameters) {
               .removeClass(className.indeterminate)
             ;
             if( module.is.determinate() ) {
-              module.debug('Input is already determinate, skipping input property change');
+              module.debug('renderInput is already determinate, skipping input property change');
               return;
             }
             module.debug('Setting state to determinate');
@@ -474,7 +474,7 @@ $.fn.checkbox = function(parameters) {
               .addClass(className.disabled)
             ;
             if( module.is.disabled() ) {
-              module.debug('Input is already disabled, skipping input property change');
+              module.debug('renderInput is already disabled, skipping input property change');
               return;
             }
             module.debug('Setting state to disabled');
@@ -487,7 +487,7 @@ $.fn.checkbox = function(parameters) {
             module.verbose('Removing disabled class');
             $module.removeClass(className.disabled);
             if( module.is.enabled() ) {
-              module.debug('Input is already enabled, skipping input property change');
+              module.debug('renderInput is already enabled, skipping input property change');
               return;
             }
             module.debug('Setting state to enabled');

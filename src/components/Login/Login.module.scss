@@ -28,6 +28,7 @@
   display: flex;
   justify-content: center;
   grid-area: m;
+
   .loginWrapper {
     display: flex;
     flex-direction: column;
@@ -38,6 +39,7 @@
     //flex-grow: 1;
     align-items: center;
     width: 500px;
+
     form {
       border-top: 1px solid #00000029;
       padding: 1em;
@@ -48,6 +50,7 @@
       flex-direction: column;
       align-items: center;
     }
+
     .loginHeading {
       display: flex;
       text-transform: uppercase;
@@ -75,16 +78,18 @@
 
   }
 
-  .rememberMeCheck {
-    @include biggerInputs;
-    transform: scale(1.8);
-    //padding: 1em 0;
-    margin: 0.5em 0.3em;
-    box-shadow: none;
+  .checkBox {
+    display: flex;
+    align-items: center;
+
+    .checkBoxLabel {
+      padding: 9px;
+    }
   }
 
   .loginSubmitButtonWrapper {
     display: flex;
+
     width: 100%;
     justify-content: center;
     align-items: center;

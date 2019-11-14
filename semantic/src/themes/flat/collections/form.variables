@@ -19,7 +19,7 @@
 
 @groupedLabelTextTransform: none;
 
-/* Input */
+/* renderInput */
 @inputHorizontalPadding: 0.5em;
 @inputBackground: transparent;
 @inputBorder: none;

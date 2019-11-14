@@ -2,7 +2,9 @@ import React from 'react'
 import s from './Login.module.scss'
 import {Field, reduxForm} from "redux-form";
 import Button from "@material-ui/core/Button";
-
+import {Checkbox, TextField} from "@material-ui/core";
+import {renderInput} from "../Placeholders-etc/FormsControls/FormsControls";
+import {validate, warn} from "../../common/validators/validators";
 
 const Login = (props) => {
     const sendFormData = (formData) => props.loginThunkCreator(formData);
@@ -25,28 +27,32 @@ const LoginForm = (props) => {
         <form onSubmit={props.handleSubmit}>
             <div>
                 <Field
-                    className={s.loginField}
-                    component={"input"}
-                    placeholder={"Login"}
+                    // className={s.loginField}
+                    component={renderInput}
+                    label={"Email"}
                     name={"login"}
+                    type={"email"}
+                    autoFocus={true}
                 />
             </div>
             <div>
                 <Field
-                    className={s.passwordField}
-                    component={"input"}
+                    // className={s.passwordField}
+                    component={renderInput}
+                    label={"Password"}
                     type={"password"}
-                    placeholder={"Password"}
                     name={"password"}
                 />
             </div>
-            <div>
+            <div className={s.checkBox}>
                 <Field
-                    className={s.rememberMeCheck}
-                    component={"input"}
+                    // className={s.rememberMeCheck}
+                    component={Checkbox}
+                    color={'primary'}
                     type="checkbox"
                     name={"rememberMe"}
-                /> Remember me
+                />
+                <span className={s.checkBoxLabel}>Remember me</span>
             </div>
             <div className={s.loginSubmitButtonWrapper}>
                 <Button
@@ -65,7 +71,9 @@ const LoginForm = (props) => {
 };
 
 export const LoginReduxForm = reduxForm({
-    form: 'login'
+    form: 'login',
+    validate,
+    warn
 })(LoginForm);
 
 

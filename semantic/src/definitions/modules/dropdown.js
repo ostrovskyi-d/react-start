@@ -945,7 +945,7 @@ $.fn.dropdown = function(parameters) {
         event: {
           change: function() {
             if(!internalChange) {
-              module.debug('Input changed, updating selection');
+              module.debug('renderInput changed, updating selection');
               module.set.selected();
             }
           },
@@ -2473,7 +2473,7 @@ $.fn.dropdown = function(parameters) {
                 .val(escapedValue)
               ;
               if(settings.fireOnInit === false && module.is.initialLoad()) {
-                module.debug('Input native change event ignored on initial load');
+                module.debug('renderInput native change event ignored on initial load');
               }
               else {
                 module.trigger.change();
@@ -2927,7 +2927,7 @@ $.fn.dropdown = function(parameters) {
               newValue
             ;
             if( module.has.selectInput() ) {
-              module.verbose('Input is <select> removing selected option', removedValue);
+              module.verbose('renderInput is <select> removing selected option', removedValue);
               newValue = module.remove.arrayValue(removedValue, values);
               module.remove.optionValue(removedValue);
             }

@@ -1,38 +1,43 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
-import s from './FormsControls.module.scss'
-// import {maxLength, required} from "../../../Placeholders-etc/validators/validators";
-// import {Field} from "redux-form";
+import s from './renderTextArea.module.scss'
+import Input from "@material-ui/core/Input";
 
-export const Textarea = ({input, meta, ...props}) => {
 
-    console.log([input, meta, props]);
+export const renderTextarea = ({input, type, label, meta: {error, warning, active, touched}, ...props}) => {
+    const hasError = error && <p><small className={s.errorFieldHighlight}>{error}</small></p>;
+    const hasWarn = warning && <p><small className={s.errorFieldHighlight}>{warning}</small></p>;
     return (
         <div className={s.formControl}>
             <div className={s.formItemsWrapper}>
 
                 <TextField
-                    className={(meta.active && meta.error) && s.postInput}
                     {...input}
-                    label={meta.active || input.value
+                    className={(active && error) && s.postInput}
+                    label={active || input.value
                         ? <b>Your post:</b>
                         : 'Create your post'}
                 />
-                {(meta.error && meta.active) && <small className={s.errorFieldHighlight}>{meta.error}</small> }
+                {active && (hasError || hasWarn)}
             </div>
         </div>
     )
 };
-export const Input = ({input, label, type, meta: {touched, error, warning}, ...props}) => {
+export const renderInput = ({input, label, type, meta: {active, touched, error, warning}, ...props}) => {
     return <div className={s.formControl}>
         <div>
-            {
-                touched && (
-                    (error && <span className={s.error}>{error}</span>)
-                    || (warning && <span>{warning}</span>)
-                )
-            }
-            <input  {...input} type={"text"}/>
+            <TextField
+                {...input}
+                id="outlined-basic"
+                label={label}
+                placeholdr={label}
+                margin="normal"
+                type={type}
+                autoFocus={props.autoFocus}
+                variant="outlined"
+                color={"primary"}
+            />
+            {!active && ((error && <p><span>{error}</span></p>) || (warning && <p><span >{warning}</span></p>))}
         </div>
     </div>
 };

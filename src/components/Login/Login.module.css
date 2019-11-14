@@ -60,21 +60,12 @@
   text-align: center;
   outline: transparent;
 }
-.highWrapper .rememberMeCheck {
-  font-family: Prompt, sans-serif;
-  font-size: 1.2em;
-  font-weight: 300;
-  border: none;
-  border-color: grey;
-  box-shadow: 0 2px 0 0 #0000001f;
-  background-color: #8080801c;
-  margin: 0.5em 0;
-  padding: 0.5em 1em;
-  text-align: center;
-  outline: transparent;
-  transform: scale(1.8);
-  margin: 0.5em 0.3em;
-  box-shadow: none;
+.highWrapper .checkBox {
+  display: flex;
+  align-items: center;
+}
+.highWrapper .checkBox .checkBoxLabel {
+  padding: 9px;
 }
 .highWrapper .loginSubmitButtonWrapper {
   display: flex;

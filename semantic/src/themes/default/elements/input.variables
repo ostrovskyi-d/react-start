@@ -1,5 +1,5 @@
 /*******************************
-            Input
+            renderInput
 *******************************/
 
 /*-------------------
@@ -31,7 +31,7 @@
         Types
 --------------------*/
 
-/* Icon Input */
+/* Icon renderInput */
 @iconWidth: (@verticalPadding * 2) + @glyphWidth;
 @iconOpacity: 0.5;
 @iconFocusOpacity: 1;
@@ -44,11 +44,11 @@
 @transparentIconWidth: @glyphWidth;
 @transparentIconMargin: 2em;
 
-/* Circular Icon Input */
+/* Circular Icon renderInput */
 @circularIconVerticalOffset: 0.35em;
 @circularIconHorizontalOffset: 0.5em;
 
-/* Labeled Input */
+/* Labeled renderInput */
 @labelCornerTop: @borderWidth;
 @labelCornerRight: @borderWidth;
 @labelCornerSize: @relative9px;

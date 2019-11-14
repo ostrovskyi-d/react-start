@@ -101,7 +101,7 @@
 @buttonMargin: -0.5em 0em;
 @buttonVerticalPadding: @relativeMini;
 
-/* Input */
+/* renderInput */
 @inputSize: @relativeMedium;
 @inputVerticalMargin: -0.5em;
 @inputOffset: 0em;

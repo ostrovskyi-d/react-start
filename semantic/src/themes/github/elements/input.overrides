@@ -1,8 +1,8 @@
 /*******************************
-            Input
+            renderInput
 *******************************/
 
-/* Labeled Input has padding */
+/* Labeled renderInput has padding */
 .ui.labeled.input {
   background-color: @white;
   border: @borderWidth solid @borderColor;

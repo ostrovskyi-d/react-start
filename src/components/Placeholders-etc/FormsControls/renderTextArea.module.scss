@@ -52,6 +52,9 @@
   font-family: monospace, sans-serif;
   padding: 5px;
   display: flex;
+
+  transition-duration: 0.3s;
+  transition-delay: 0.2s;
   min-width: 100px;
   max-height: 50px;
   border-radius: 5px;
@@ -61,6 +64,7 @@
   position: relative;
 
   &:before {
+    transition-delay: 0.2s;
     content: "↑";
     display: flex;
     width: inherit;

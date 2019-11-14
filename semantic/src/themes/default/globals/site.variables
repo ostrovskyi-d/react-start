@@ -71,7 +71,7 @@
 @h5 : unit((14 / 14), rem);
 
 /*--------------
-   Form Input
+   Form renderInput
 ---------------*/
 
 /* This adjusts the default form input across all elements */
@@ -80,7 +80,7 @@
 @inputHorizontalPadding : @relative14px;
 @inputPadding           : @inputVerticalPadding @inputHorizontalPadding;
 
-/* Input Text Color */
+/* renderInput Text Color */
 @inputColor: @textColor;
 @inputPlaceholderColor: lighten(@inputColor, 75);
 @inputPlaceholderFocusColor: lighten(@inputColor, 45);
@@ -89,7 +89,7 @@
 @inputLineHeight: unit((17 / 14), em);
 
 /*-------------------
-    Focused Input
+    Focused renderInput
 --------------------*/
 
 /* Used on inputs, textarea etc */

@@ -27,7 +27,7 @@
 @labelTextTransform: none;
 @labelColor: @textColor;
 
-/* Input */
+/* renderInput */
 @inputFont: @pageFont;
 @inputWidth: 100%;
 @inputFontSize: 1em;
@@ -82,7 +82,7 @@
 /* Focus */
 @inputFocusPointerSize: 0px;
 
-/* Input Focus */
+/* renderInput Focus */
 @inputFocusBackground: @inputBackground;
 @inputFocusBorderColor: @focusedFormBorderColor;
 @inputFocusColor: @selectedTextColor;
@@ -99,7 +99,7 @@
 /* Disabled */
 @disabledLabelOpacity: @disabledOpacity;
 
-/* Errored Input */
+/* Errored renderInput */
 @formErrorColor: @negativeTextColor;
 @formErrorBorder: @negativeBorderColor;
 @formErrorBackground: @negativeBackgroundColor;
@@ -113,7 +113,7 @@
 @inputAutoFillErrorBorder: #E0B4B4;
 
 
-/* Input Error */
+/* renderInput Error */
 @inputErrorBorderRadius: '';
 @inputErrorBoxShadow: none;
 
