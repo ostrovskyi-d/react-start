@@ -1,22 +1,24 @@
 import React from "react";
-import s from './FormsControls.module.scss'
 import TextField from "@material-ui/core/TextField";
-import {makeStyles} from "@material-ui/styles";
+import s from './FormsControls.module.scss'
+// import {maxLength, required} from "../../../common/validators/validators";
+// import {Field} from "redux-form";
 
+export const Textarea = ({input, meta, ...props}) => {
 
-export const Textarea = ({input, label, type, meta: {touched, error, warning}, ...props}) => {
-
+    console.log([input, meta, props]);
     return (
         <div className={s.formControl}>
             <div className={s.formItemsWrapper}>
-                <label> {label}</label>
+
                 <TextField
+                    className={(meta.active && meta.error) && s.postInput}
                     {...input}
-                    type={type}
-                    placeholder={"Insert post text here"}
-                    // className={s.root}
+                    label={meta.active || input.value
+                        ? <b>Your post:</b>
+                        : 'Create your post'}
                 />
-                {<span>{input.newPostBody}</span>}
+                {(meta.error && meta.active) && <small className={s.errorFieldHighlight}>{meta.error}</small> }
             </div>
         </div>
     )
