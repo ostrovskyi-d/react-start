@@ -1,7 +1,7 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 import s from './FormsControls.module.scss'
-// import {maxLength, required} from "../../../common/validators/validators";
+// import {maxLength, required} from "../../../Placeholders-etc/validators/validators";
 // import {Field} from "redux-form";
 
 export const Textarea = ({input, meta, ...props}) => {

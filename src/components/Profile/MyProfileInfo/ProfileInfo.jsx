@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './MyProfileInfo.module.scss'
+import styles from './ProfileInfo.module.scss'
 import UserAvatarPlaceholder from "../../Placeholders-etc/UserAvatarPlaceholder/UserAvatarPlaceholder";
 import ProfileStatus from "./ProfileStatus";
 
