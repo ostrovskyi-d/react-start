@@ -1,16 +1,14 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 import s from './renderTextArea.module.scss'
-import Input from "@material-ui/core/Input";
 
 
 export const renderTextarea = ({input, type, label, meta: {error, warning, active, touched}, ...props}) => {
-    const hasError = error && <p><small className={s.errorFieldHighlight}>{error}</small></p>;
-    const hasWarn = warning && <p><small className={s.errorFieldHighlight}>{warning}</small></p>;
+    const hasError = error && <p className={s.errorWrapper}> <small className={s.error}>{error}</small></p>;
+    const hasWarn = warning && <p className={s.warningWrapper}><small className={s.warning}>{warning}</small></p>;
     return (
         <div className={s.formControl}>
             <div className={s.formItemsWrapper}>
-
                 <TextField
                     {...input}
                     className={(active && error) && s.postInput}
@@ -27,6 +25,7 @@ export const renderInput = ({input, label, type, meta: {active, touched, error, 
     return <div className={s.formControl}>
         <div>
             <TextField
+                required
                 {...input}
                 id="outlined-basic"
                 label={label}
@@ -37,7 +36,9 @@ export const renderInput = ({input, label, type, meta: {active, touched, error, 
                 variant="outlined"
                 color={"primary"}
             />
-            {!active && ((error && <p><span>{error}</span></p>) || (warning && <p><span >{warning}</span></p>))}
+            {(active || touched) && ((error && <p className={s.errorWrapper}><span className={s.error}>{error}</span></p>)
+                || (warning && <p className={s.warningWrapper}><span className={s.warning}>{warning}</span></p>)
+            )}
         </div>
     </div>
 };

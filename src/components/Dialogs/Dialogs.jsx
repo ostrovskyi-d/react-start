@@ -78,7 +78,8 @@ const DialogsForm = (props) => {
 };
 
 export const DialogsReduxForm = reduxForm({
-    form: 'login'
+    form: 'login',
+
 })(DialogsForm);
 
 

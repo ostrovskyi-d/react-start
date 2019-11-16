@@ -918,7 +918,7 @@ $.fn.form = function(parameters) {
               apiRequest
             ;
 
-            // input keydown event will fire submit repeatedly by browser default
+            // input keydown event will fire submitLoginForm repeatedly by browser default
             if(keyHeldDown) {
               return false;
             }
@@ -938,7 +938,7 @@ $.fn.form = function(parameters) {
               if(!settings.inline) {
                 module.add.errors(formErrors);
               }
-              // prevent ajax submit
+              // prevent ajax submitLoginForm
               if($module.data('moduleApi') !== undefined) {
                 event.stopImmediatePropagation();
               }
@@ -1289,7 +1289,7 @@ $.fn.form.settings = {
     prompt     : '.prompt.label',
     radio      : 'input[type="radio"]',
     reset      : '.reset:not([type="reset"])',
-    submit     : '.submit:not([type="submit"])',
+    submit     : '.submitLoginForm:not([type="submitLoginForm"])',
     uiCheckbox : '.ui.checkbox',
     uiDropdown : '.ui.dropdown'
   },
