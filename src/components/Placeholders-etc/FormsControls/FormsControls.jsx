@@ -11,10 +11,8 @@ export const renderTextarea = ({input, type, label, meta: {error, warning, activ
             <div className={s.formItemsWrapper}>
                 <TextField
                     {...input}
-                    className={(active && error) && s.postInput}
-                    label={active || input.value
-                        ? <b>Your post:</b>
-                        : 'Create your post'}
+                    className={(active && error) ? s.postInput : undefined}
+                    label={(active || input.value) ? <b>Your post:</b> : 'Create your post'}
                 />
                 {active && (hasError || hasWarn)}
             </div>

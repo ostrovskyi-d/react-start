@@ -18,7 +18,7 @@ const UsersDumb = (props) => {
             return (
                 <span key={i}
                       onClick={() => props.onChangePage(p)}
-                      className={props.currentPage === p && s.selectedPage}>
+                      className={props.currentPage === p ? s.selectedPage : undefined}>
                     {p}
                 </span>
             )

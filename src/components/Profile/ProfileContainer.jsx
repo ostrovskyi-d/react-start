@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import './MyProfile.module.scss'
 import MyProfile from "./MyProfile";
 import {connect} from "react-redux";
@@ -7,32 +7,24 @@ import {withRouter} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 
+const ProfileContainer = (props) => {
+    let {match: {params}, getUserProfile, getStatus} = props;
+    useEffect(() => {
+        let userId = params.userId;
+        if (!userId) userId = 4889;
+        getUserProfile(userId);
+        getStatus(userId);
+    }, []);
 
-class ProfileContainer extends React.Component {
-    componentDidMount() {
-        let userId = this.props.match.params.userId;
-        if (!userId) {
-            userId = 4889;
-        }
-        this.props.getUserProfile(userId);
-        this.props.getStatus(userId)
-
-
-    }
-
-    render() {
-        return (
-            <main>
-                <MyProfile
-                    {...this.props}
-                    userId = {this.props.match.params.userId}
-                    status={this.props.status}
-                    updateStatus={this.props.setStatus}
-                />
-            </main>
-        )
-    }
-}
+    return <main>
+        <MyProfile
+            {...props}
+            userId={props.match.params.userId}
+            status={props.status}
+            updateStatus={props.setStatus}
+        />
+    </main>
+};
 
 let mapStateToProps = (state) => {
     return {

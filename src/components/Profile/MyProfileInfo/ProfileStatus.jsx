@@ -41,20 +41,15 @@ const ProfileStatus = (props) => {
                     return props.status
             });
         }, [props.status]);
-
-
         const onStatusChange = (e) => {
-            console.log(statusValue);
             setStatusValue(e.target.value)
         };
-
         const enableEditMode = () => {
             setEditMode(true);
         };
         const disableEditMode = (e) => {
             if (e.currentTarget.value) {
                 props.updateStatus(statusValue);
-
                 setEditMode(false)
             } else {
                 setLabel("Empty status not working yet")
@@ -73,6 +68,7 @@ const ProfileStatus = (props) => {
                             value={statusValue}
                             onChange={onStatusChange}
                             placeholder={"Enter your status"}
+                            // onKeyDown={}
                         />
                     </FormControl>
                 </div>
@@ -91,44 +87,3 @@ const ProfileStatus = (props) => {
 ;
 
 export default ProfileStatus;
-
-
-// debugger;
-// export default class ProfileStatus extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             editMode: false,
-//             statusValue: '1111',
-//         }
-//     }
-//
-//     onChange = (e) => {
-//         this.setState({statusValue: e.target.value})
-//     };
-//     enableEditMode = () => {
-//         this.setState({editMode: true})
-//     };
-//     disableEditMode = (e) => {
-//         this.setState({editMode: false})
-//     };
-//
-//     render() {
-//         return <div>
-//             {this.state.editMode
-//                 ? <div>
-//                     STATUS: <TextField
-//                         placeholder={"STATUS"}
-//                         required
-//                         fullWidth={true}
-//                         autoFocus={true}
-//                         onBlur={this.disableEditMode}
-//                         value={this.state.statusValue}
-//                         onChange={this.onChange}
-//                         type="text"/>
-//                 </div>
-//                 : <div>STATUS: <span onClick={this.enableEditMode}>{this.state.statusValue}</span></div>
-//             }
-//         </div>
-//     }
-// }

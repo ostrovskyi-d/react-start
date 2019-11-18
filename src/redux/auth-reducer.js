@@ -9,6 +9,7 @@ let initialState = {
     userId: null,
     email: null,
     login: null,
+    rememberMe: false,
     isAuth: false,
     // errorData: null,
 };

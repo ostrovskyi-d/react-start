@@ -1,4 +1,4 @@
-import {loginThunkCreator} from "../../redux/auth-reducer";
+// import {loginThunkCreator} from "../../redux/auth-reducer";
 
 export const validate = values => {
     const errors = {};

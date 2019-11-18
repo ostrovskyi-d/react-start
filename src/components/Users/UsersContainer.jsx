@@ -1,50 +1,53 @@
 import {connect} from "react-redux";
 import {
-    followThisUserThunkCreator, getMoreUsersThunkCreator,
+    followThisUserThunkCreator,
+    getMoreUsersThunkCreator,
     getUsersThunkCreator,
     toggleFollowingProgress,
     unFollowThisUserThunkCreator,
 } from "../../redux/users-reducer";
-import React from "react";
+import React, {useEffect} from "react";
 import UsersDumb from "./UsersDumb/UsersDumb";
 import Preloader from "../Placeholders-etc/Preloader/Preloader";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 
-class UsersContainer extends React.Component {
-    componentDidMount() {
-        this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize)
+const UsersContainer = (props) => {
+    const {
+        pageSize,
+        currentPage,
+        getUsersThunkCreator,
+        getMoreUsers,
+        isFollowingInProgress,
+        unFollowThisUserThunkCreator,
+        followThisUserThunkCreator,
+        users,
+        totalUsersCount,
+        isFetching
+    } = props;
 
-    };
+    const changePage = (pageNumber) => getUsersThunkCreator(pageNumber, pageSize);
 
-    changePage = (pageNumber) => {
-        this.props.getUsersThunkCreator(pageNumber, this.props.pageSize);
-    };
+    useEffect(() => getUsersThunkCreator(currentPage, pageSize), [currentPage, getUsersThunkCreator, pageSize]);
 
-
-
-    render() {
-        return (
-            <>
-                {this.props.isFetching
-                    ? <Preloader/>
-                    : null
-                }
-                <UsersDumb
-                    totalUsersCount={this.props.totalUsersCount}
-                    pageSize={this.props.pageSize}
-                    currentPage={this.props.currentPage}
-                    onChangePage={this.changePage}
-                    users={this.props.users}
-                    follow={this.props.followThisUserThunkCreator}
-                    unfollow={this.props.unFollowThisUserThunkCreator}
-                    isFollowingInProgress={this.props.isFollowingInProgress}
-                    getMoreUsers={this.props.getMoreUsers}
-                />
-            </>
-        )
-    }
-}
+    return <>
+        {isFetching
+            ? <Preloader/>
+            : null
+        }
+        <UsersDumb
+            totalUsersCount={totalUsersCount}
+            pageSize={pageSize}
+            currentPage={currentPage}
+            onChangePage={changePage}
+            users={users}
+            follow={followThisUserThunkCreator}
+            unfollow={unFollowThisUserThunkCreator}
+            isFollowingInProgress={isFollowingInProgress}
+            getMoreUsers={getMoreUsers}
+        />
+    </>;
+};
 
 
 let mapStateToProps = (state) => {
@@ -58,13 +61,13 @@ let mapStateToProps = (state) => {
     }
 };
 let mapDispatchToProps = {
-        toggleFollowingProgress: toggleFollowingProgress,
-        getUsersThunkCreator: getUsersThunkCreator,
-        followThisUserThunkCreator: followThisUserThunkCreator,
-        unFollowThisUserThunkCreator: unFollowThisUserThunkCreator,
-        getMoreUsers: getMoreUsersThunkCreator
+    toggleFollowingProgress: toggleFollowingProgress,
+    getUsersThunkCreator: getUsersThunkCreator,
+    followThisUserThunkCreator: followThisUserThunkCreator,
+    unFollowThisUserThunkCreator: unFollowThisUserThunkCreator,
+    getMoreUsers: getMoreUsersThunkCreator
 
-    };
+};
 
 export default compose(connect(mapStateToProps, mapDispatchToProps), withAuthRedirect)(UsersContainer);
 

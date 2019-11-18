@@ -4,12 +4,10 @@ import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 import {loginThunkCreator} from "../../redux/auth-reducer";
 
-class LoginContainer extends React.Component {
-    render() {
-        if(this.props.isAuth) return <Redirect to={'/profile'}/>;
-        return <Login {...this.props}/>
-    }
-}
+const LoginContainer = (props) => {
+    if (props.isAuth) return <Redirect to={'/profile'}/>;
+    return <Login {...props}/>
+};
 
 const mapStateToProps = (state) => {
     return {
