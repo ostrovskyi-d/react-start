@@ -14,7 +14,7 @@ const ProfileContainer = (props) => {
         if (!userId) userId = 4889;
         getUserProfile(userId);
         getStatus(userId);
-    }, []);
+    }, [getStatus, getUserProfile, params.userId]);
 
     return <main>
         <MyProfile
