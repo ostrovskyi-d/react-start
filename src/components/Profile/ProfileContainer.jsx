@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect} from 'react';
 import './MyProfile.module.scss'
 import MyProfile from "./MyProfile";
 import {connect} from "react-redux";

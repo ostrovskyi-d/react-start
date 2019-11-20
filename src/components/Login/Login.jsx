@@ -7,24 +7,21 @@ import {renderInput} from "../Placeholders-etc/FormsControls/FormsControls";
 import {validate, warn} from "../../common/validators/validators";
 
 const Login = (props) => {
-    // console.log(...[props.loginFailed]);
-
     const sendFormData = (formData) => {
         props.loginThunkCreator(formData);
     };
-
     return (
         <section className={s.highWrapper}>
             <div className={s.loginWrapper}>
                 <h1 className={s.loginHeading}>Login:</h1>
-                <LoginReduxForm onSubmit={sendFormData}/>
+                <LoginReduxForm captchaImgURL={props.captchaImgURL} onSubmit={sendFormData}/>
             </div>
         </section>
     )
 };
 
 const LoginForm = (props) => {
-    const {error, handleSubmit, submitting} = props;
+    const {handleSubmit, submitting, captchaImgURL} = props;
     return (
         <form onSubmit={handleSubmit}>
             <div>
@@ -53,6 +50,16 @@ const LoginForm = (props) => {
                 />
                 <span className={s.checkBoxLabel}>Remember me</span>
             </div>
+
+            {/* ------- Captcha Container ---------*/}
+            {captchaImgURL
+                ? <>
+                    <h3>Captcha</h3>
+                    <img src={captchaImgURL} alt="captcha"/>
+                    <Field name={"captcha"} component={'input'}/>
+                </>
+                : undefined}
+
             <div className={s.loginSubmitButtonWrapper}>
                 <Button
                     className={s.loginSubmitButton}
@@ -66,6 +73,7 @@ const LoginForm = (props) => {
                     Log In
                 </Button>
             </div>
+
         </form>
     )
 };

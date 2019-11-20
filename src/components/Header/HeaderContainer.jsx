@@ -5,7 +5,8 @@ import {getMyUserDataThunkCreator, setUserDataAC} from "../../redux/auth-reducer
 import {logOutThunkCreator} from "../../redux/auth-reducer";
 
 const HeaderContainer = (props) => {
-    useEffect(() => props.getMyUserDataThunkCreator(), []);
+    const {getMyUserDataThunkCreator} = props;
+    useEffect(() => getMyUserDataThunkCreator(), [getMyUserDataThunkCreator]);
     return <Header {...props}/>
 };
 

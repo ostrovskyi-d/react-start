@@ -12,6 +12,8 @@
     "react-router-dom": "^5.1.1",
     "react-scripts": "3.1.2",
     "scss": "^0.2.4",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "latest",
     "styled-components": "^4.4.0"
   },
   "scripts": {

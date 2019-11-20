@@ -1,9 +1,9 @@
-import {authAPI, loginAPI} from "../API/api";
+import {authAPI, loginAPI, securityAPI} from "../API/api";
 
 const SET_USER_DATA = "SET-USER-DATA";
 const LOG_IN = "LOG-IN";
 const LOG_OUT = "LOG-OUT";
-// const LOGIN_FAILED = "LOGIN-FAILED";
+const SET_CAPTCHA_URL = "SET-CAPTCHA-URL";
 
 let initialState = {
     userId: null,
@@ -11,7 +11,7 @@ let initialState = {
     login: null,
     rememberMe: false,
     isAuth: false,
-    // errorData: null,
+    captchaImgURL: null,
 };
 
 
@@ -34,25 +34,33 @@ let authReducer = (state = initialState, action) => {
         case LOG_OUT: {
             return {
                 ...state,
-                isAuth: false
+                ...action.payload
             }
         }
-        // case LOGIN_FAILED: {
-        //     return {
-        //         ...state,
-        //         errorData: action.errorMessage
-        //     }
-        // }
+        case SET_CAPTCHA_URL: {
+            return {
+                ...state,
+                captchaImgURL: action.captchaURL
+            }
+        }
         default:
             return state;
     }
 };
 
-export const setUserDataAC = (userId, login, email) => ({type: SET_USER_DATA, data: {userId, login, email}});
+export const setUserDataAC = (userId, login, email) => (
+    {
+        type: SET_USER_DATA,
+        data: {userId, login, email}
+    });
 export const logInAC = (userId) => ({type: LOG_IN, userId});
-export const logOutAC = () => ({type: LOG_OUT});
+export const logOutAC = (userId, email, login, rememberMe, isAuth) => (
+    {
+        type: LOG_OUT,
+        payload: {userId, email, login, rememberMe, isAuth}
+    });
 
-// export const setLoginFailedMessage = (errorData) => ({type: LOGIN_FAILED, errorData});
+export const setCaptchaUrl = (captchaURL) => ({type: SET_CAPTCHA_URL, captchaURL});
 
 export const getMyUserDataThunkCreator = () => (dispatch) => {
     authAPI.getMyUserData().then(data => {
@@ -63,20 +71,26 @@ export const getMyUserDataThunkCreator = () => (dispatch) => {
     })
 };
 
+
 export const loginThunkCreator = (data) => (dispatch) => {
     loginAPI.login(data).then(response => {
         if(response.data.resultCode === 0) {
             dispatch(logInAC(response.data.data.userId))
-        } else {
-            alert(response.data.messages[0])
-            // dispatch((response.data))
+        } else if(response.data.resultCode === 10) {
+            securityAPI.getCaptchaUrl().then(response => {
+                dispatch(setCaptchaUrl(response.data.url))
+            })
         }
     })
 };
 
 export const logOutThunkCreator = () => (dispatch) => {
-    loginAPI.logOut().then(() => {
-        dispatch(logOutAC());
+    loginAPI.logOut().then((response) => {
+        if(response.data.resultCode === 0) {
+            dispatch(logOutAC(null, null, null,false, false));
+        } else {
+            alert("Logout failed")
+        }
     })
 };
 

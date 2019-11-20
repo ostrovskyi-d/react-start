@@ -12,6 +12,7 @@ const LoginContainer = (props) => {
 const mapStateToProps = (state) => {
     return {
         isAuth: state.auth.isAuth,
+        captchaImgURL: state.auth.captchaImgURL
         // loginFailed: state.auth.loginFailedMessage,
     }
 };

@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import {makeStyles} from '@material-ui/core/styles';
-import FilledInput from '@material-ui/core/FilledInput';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import s from './ProfileStatus.module.scss';

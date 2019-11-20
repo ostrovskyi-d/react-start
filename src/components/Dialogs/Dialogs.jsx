@@ -32,9 +32,7 @@ const Dialogs = (props) => {
         props.onMessageSend(formData.newMessageBody);
         formData.newMessageBody = "";
     };
-    const onChangeForm = (data) => {
-        console.log(data);
-    };
+
     return (
         <div className={s.dialogs}>
             <section className={s.contacts}>
@@ -49,7 +47,7 @@ const Dialogs = (props) => {
 
                     {messages}
                 </div>
-                <DialogsReduxForm onChange={onChangeForm} onSubmit={onSubmitForm}/>
+                <DialogsReduxForm onSubmit={onSubmitForm}/>
 
             </section>
 
@@ -71,6 +69,7 @@ const DialogsForm = (props) => {
                     name={"sendMessageButton"}
                     className={s.sendMessageButton}
                     type="submit"
+                    children={"input"}
                 />
             </section>
         </form>
