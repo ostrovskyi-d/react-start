@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import {makeStyles} from "@material-ui/styles";
 import {warn, validate} from "../../../common/validators/validators";
 import {renderTextarea} from "../../Placeholders-etc/FormsControls/FormsControls";
+import {Container, Item} from "semantic-ui-react";
 
 
 const useStyles = makeStyles({
@@ -25,6 +26,7 @@ const useStyles = makeStyles({
 });
 
 const MyPosts = (props) => {
+
     const addPost = (data) => {
         props.addPost(data.newPostBody);
         //clear text field
@@ -40,12 +42,14 @@ const MyPosts = (props) => {
     />);
 
     return (
-        <div className={s.my_posts}>
+        <Container textAlign={"left"} className={s.my_posts}>
             <div className={s.post_add}>
                 <NewPostReduxFormMaterial onSubmit={addPost}/>
             </div>
-            {posts}
-        </div>
+            <Item.Group>
+                {posts}
+            </Item.Group>
+        </Container>
     )
 };
 

@@ -1,36 +1,35 @@
 import React from 'react';
-import classes from './Post.module.scss';
-import styled from "styled-components";
+import styles from './Post.module.scss'
+import 'semantic-ui-css/semantic.min.css'
+import {Button, Divider, Icon, Item, Label} from 'semantic-ui-react'
 
 const Post = (props) => {
-
+    const {text, likes} = props;
     let getId = () => {
         props.addLike(props.id);
     };
-    const LikesCounterButton = styled.span`
-        display: flex;
-          ::after {
-             content: ' ${props.likes}';
-           }
-    `;
-
     return (
-        <div className={classes.post_item}>
-            <img
-                className={classes.ava}
-                src="https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/300/full/angular2.png"
-                alt=""
-            />
-            <section>
-                <div className={classes.post_content}>
-                    <p className={classes.post_title}/>
-                    <div className={classes.post_message}>{props.text}</div>
-                </div>
-                <div className={classes.likes}>
-                    <LikesCounterButton className={classes.post_like_button} onClick={getId}>Like </LikesCounterButton>
-                </div>
-            </section>
-        </div>
+        <>
+            <Item className={styles.postItem}>
+                <Item.Image size='small'
+                            src='https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/300/full/angular2.png'/>
+                <Item.Content verticalAlign='middle'>
+                    <Item.Header>Post Title</Item.Header>
+                    <Item.Description>{text}</Item.Description>
+                    <Item.Extra>
+                        <Button as='div' labelPosition='right'>
+                            <Button onClick={getId} icon>
+                                <Icon color="red" name='heart'/>
+                            </Button>
+                            <Label as='a' basic pointing='left'>
+                                {likes}
+                            </Label>
+                        </Button>
+                    </Item.Extra>
+                </Item.Content>
+            </Item>
+            <Divider />
+        </>
     )
 };
 

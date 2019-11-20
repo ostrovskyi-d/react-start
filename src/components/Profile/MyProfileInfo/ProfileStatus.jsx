@@ -74,8 +74,7 @@ const ProfileStatus = (props) => {
                 : <div style={{whiteSpace: "pre-wrap", display: "flex"}}>
                     <p className={s.statusSpan}
                        onClick={props.statusEditEnabled
-                           ? enableEditMode
-                           : false}>
+                           ? enableEditMode : undefined}>
                         <span>Status:</span>
                         <span>{props.status}</span>
                     </p>
