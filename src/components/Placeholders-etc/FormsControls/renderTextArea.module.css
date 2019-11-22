@@ -26,9 +26,6 @@
   flex-direction: column;
 }
 
-.errorWrapper, .warningWrapper {
-  margin-block-start: -9px;
-}
 .errorWrapper .error, .warningWrapper .error, .warningWrapper .warning {
   background-color: rgba(255, 216, 204, 0.52);
   display: flex;

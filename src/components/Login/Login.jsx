@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import {Checkbox} from "@material-ui/core";
 import {renderInput} from "../Placeholders-etc/FormsControls/FormsControls";
 import {validate, warn} from "../../common/validators/validators";
+import {Input, Message} from "semantic-ui-react";
 
 const Login = (props) => {
     const sendFormData = (formData) => {
@@ -21,7 +22,7 @@ const Login = (props) => {
 };
 
 const LoginForm = (props) => {
-    const {handleSubmit, submitting, captchaImgURL} = props;
+    const { error, handleSubmit, submitting, captchaImgURL} = props;
     return (
         <form onSubmit={handleSubmit}>
             <div>
@@ -50,13 +51,15 @@ const LoginForm = (props) => {
                 />
                 <span className={s.checkBoxLabel}>Remember me</span>
             </div>
+            {/* ------ Common error ------ */}
+            {error && <Message error header={error}  />}
 
             {/* ------- Captcha Container ---------*/}
             {captchaImgURL
                 ? <>
-                    <h3>Captcha</h3>
+                    <Message warning header={"Too many attempts"} content={"We need to check you not a bot"} />
                     <img src={captchaImgURL} alt="captcha"/>
-                    <Field name={"captcha"} component={'input'}/>
+                    <Field name={"captcha"} placeholder="Captcha..." component={Input}/>
                 </>
                 : undefined}
 

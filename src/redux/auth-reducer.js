@@ -1,4 +1,5 @@
 import {authAPI, loginAPI, securityAPI} from "../API/api";
+import {stopSubmit} from 'redux-form'
 
 const SET_USER_DATA = "SET-USER-DATA";
 const LOG_IN = "LOG-IN";
@@ -74,20 +75,23 @@ export const getMyUserDataThunkCreator = () => (dispatch) => {
 
 export const loginThunkCreator = (data) => (dispatch) => {
     loginAPI.login(data).then(response => {
-        if(response.data.resultCode === 0) {
+        if (response.data.resultCode === 0) {
             dispatch(logInAC(response.data.data.userId))
-        } else if(response.data.resultCode === 10) {
+        } else if (response.data.resultCode === 10) {
             securityAPI.getCaptchaUrl().then(response => {
-                dispatch(setCaptchaUrl(response.data.url))
+                dispatch(setCaptchaUrl(response.data.url));
             })
+        } else {
+            response.data.messages[0] &&
+            dispatch(stopSubmit('login', {_error: response.data.messages[0]}))
         }
     })
 };
 
 export const logOutThunkCreator = () => (dispatch) => {
     loginAPI.logOut().then((response) => {
-        if(response.data.resultCode === 0) {
-            dispatch(logOutAC(null, null, null,false, false));
+        if (response.data.resultCode === 0) {
+            dispatch(logOutAC(null, null, null, false, false));
         } else {
             alert("Logout failed")
         }

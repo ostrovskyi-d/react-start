@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Post.module.scss'
 import 'semantic-ui-css/semantic.min.css'
-import {Button, Divider, Icon, Item, Label} from 'semantic-ui-react'
+import {Button, Icon, Item, Label} from 'semantic-ui-react'
 
 const Post = (props) => {
     const {text, likes} = props;
@@ -28,7 +28,6 @@ const Post = (props) => {
                     </Item.Extra>
                 </Item.Content>
             </Item>
-            <Divider />
         </>
     )
 };
