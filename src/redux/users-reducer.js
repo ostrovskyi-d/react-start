@@ -85,7 +85,6 @@ let usersReducer = (state = initialState, action) => {
                 isFollowingInProgress: action.isFollowingInProgress
                     ? [...state.isFollowingInProgress, action.userId]
                     : state.isFollowingInProgress.filter(id => id !== action.userId)
-
             }
         }
         default:
@@ -105,6 +104,7 @@ export const toggleFollowingProgress = (isFollowingInProgress, userId) => ({
     isFollowingInProgress,
     userId
 });
+
 
 export const getUsersThunkCreator = (currentPage, pageSize) => (dispatch) => {
     dispatch(toggleIsFetching(true));

@@ -2,25 +2,27 @@ import React from 'react';
 import styles from './ProfileInfo.module.scss'
 import UserAvatarPlaceholder from "../../Placeholders-etc/UserAvatarPlaceholder/UserAvatarPlaceholder";
 import ProfileStatus from "./ProfileStatus";
+import { InputFile } from 'semantic-ui-react-input-file'
 
-
-const ProfileInfo = (props) => {
+const ProfileInfo = ( {status, userData, updateStatus} ) => {
+    const {fullName, photos: {large}, userId, lookingForAJob} = userData;
     return (
-        <main className={styles.profileInfoWrapper}>
-            <section className={styles.card}>
+        <section className={styles.profileInfoWrapper}>
+            <div className={styles.card}>
                 <div className={styles.userNameAvaContainer}>
-                    <h2 className={styles.userName}>{props.userData.fullName}</h2>
+                    <h2 className={styles.userName}>{fullName}</h2>
                     <div className={styles.avatar}>
                         {
-                            props.userData.photos.large
-                                ? <img src={props.userData.photos.large} alt=""/>
+                            large
+                                ? <img src={large} alt=""/>
                                 : <UserAvatarPlaceholder/>
                         }
+                        <InputFile input={{id: 'input-control-id'}}/>
 
                         <div className={styles.status}>
-                            {props.userData.userId === 4889
-                                ? <ProfileStatus statusEditEnabled={true} updateStatus={props.updateStatus} status={props.status}/>
-                                : <ProfileStatus statusEditEnabled={false} status={props.status} updateStatus={props.updateStatus}/>
+                            {userId === 4889
+                                ? <ProfileStatus statusEditEnabled={true} updateStatus={updateStatus} status={status}/>
+                                : <ProfileStatus statusEditEnabled={false} status={status} updateStatus={updateStatus}/>
                             }
                         </div>
 
@@ -37,7 +39,7 @@ const ProfileInfo = (props) => {
 
                             <li>Is Looking For A Job:
                                 {
-                                    props.userData.lookingForAJob
+                                    lookingForAJob
                                         ? <b> YES</b>
                                         : <b> NO</b>
                                 }
@@ -63,9 +65,9 @@ const ProfileInfo = (props) => {
 
 
                 </div>
-            </section>
+            </div>
 
-        </main>
+        </section>
     )
 };
 

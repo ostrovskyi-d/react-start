@@ -51,8 +51,10 @@ const LoginForm = (props) => {
                 />
                 <span className={s.checkBoxLabel}>Remember me</span>
             </div>
+
             {/* ------ Common error ------ */}
             {error && <Message error header={error}  />}
+            {/*----------------------------*/}
 
             {/* ------- Captcha Container ---------*/}
             {captchaImgURL
@@ -62,6 +64,7 @@ const LoginForm = (props) => {
                     <Field name={"captcha"} placeholder="Captcha..." component={Input}/>
                 </>
                 : undefined}
+            {/*------------------------------------*/}
 
             <div className={s.loginSubmitButtonWrapper}>
                 <Button

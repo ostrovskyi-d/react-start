@@ -26,14 +26,17 @@ export const usersAPI = {
     },
 };
 export const profileAPI = {
-    getUserProfileById (userId) {
+    getUserProfileById(userId) {
         return instance.get(`/profile/${userId}`)
     },
-    getStatus(userId)  {
+    getStatus(userId) {
         return instance.get(`/profile/status/${userId}`)
     },
-    updateStatus(status){
+    updateStatus(status) {
         return instance.put(`profile/status/`, {status: status})
+    },
+    uploadPhoto(formData) {
+        return instance.put(`profile/photo`, formData, {headers: {'Content-Type': 'multipart/form-data'}})
     }
 };
 

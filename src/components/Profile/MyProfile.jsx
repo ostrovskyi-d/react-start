@@ -10,10 +10,10 @@ const MyProfile = (props) => {
         return <Preloader/>
     }
     return (
-        <main className={s.profilePageWrapper}>
+        <div className={s.profilePageWrapper}>
             <ProfileInfo userId={props.userId}  {...props}/>
             <MyPostsContainer/>
-        </main>
+        </div>
     );
 
 };

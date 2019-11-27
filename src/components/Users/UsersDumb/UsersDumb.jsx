@@ -3,6 +3,7 @@ import s from './UsersDumb.module.css';
 import {NavLink} from "react-router-dom";
 import UserAvatarPlaceholder from "../../Placeholders-etc/UserAvatarPlaceholder/UserAvatarPlaceholder";
 import Button from '@material-ui/core/Button';
+import {Container} from "semantic-ui-react";
 
 const UsersDumb = (props) => {
 
@@ -28,12 +29,19 @@ const UsersDumb = (props) => {
         <div className={s.userWrapper}>
 
             <button className={s.getUsersButton} onClick={props.getMoreUsers}>LOAD USERS</button>
+
             <div className={s.pagesBlock}>
                 {/*цей wrapper - з overflow hidden - костиль (забрати overflow hidden і подивитися чому)*/}
                 <span className={s.pagesWrapper}>
                     {pages}
                     </span>
             </div>
+            <Container>
+                <h3>Total users count: &nbsp;
+                    <span>{props.totalUsersCount}</span>
+                </h3>
+            </Container>
+
             {props.users.map(user => (
                     <div className={s.userItem} key={user.id}>
                         <div className={s.avaAndUserInfo}>
