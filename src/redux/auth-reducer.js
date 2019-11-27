@@ -64,7 +64,7 @@ export const logOutAC = (userId, email, login, rememberMe, isAuth) => (
 export const setCaptchaUrl = (captchaURL) => ({type: SET_CAPTCHA_URL, captchaURL});
 
 export const getMyUserDataThunkCreator = () => (dispatch) => {
-    authAPI.getMyUserData().then(data => {
+    return authAPI.getMyUserData().then(data => {
         if (data.resultCode === 0) {
             let {id, login, email} = data.data;
             dispatch(setUserDataAC(id, login, email));

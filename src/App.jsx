@@ -24,7 +24,7 @@ const App = (props) => {
 
     useEffect(() => {
         initializeApp();
-    }, []);
+    }, [initialized]);
 
     if (!initialized) return <Preloader/>;
     else return (
@@ -45,7 +45,7 @@ const App = (props) => {
                     <Route exact path={`/profile`}
                            render={() => <ProfileContainer/>}
                     />
-                    <Route path={`/`}
+                    <Route exact path={`/`}
                            render={() => <ProfileContainer/>}
                     />
 
@@ -70,4 +70,4 @@ const mapStateToProps = (state) => ({
     initialized: state.app.initialized
 });
 
-export default compose(withRouter, connect(mapStateToProps, {initializeApp}))(App);
+export default compose(connect(mapStateToProps, {initializeApp}))(App);
