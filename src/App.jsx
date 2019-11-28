@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import './App.css';
 import {compose} from "redux";
 import {connect} from "react-redux";
-import {Route, withRouter} from "react-router-dom";
+import {Route} from "react-router-dom";
 
 import HeaderContainer from "./components/Header/HeaderContainer";
 import SideBarContainer from "./components/SideBar/SideBarContainer";

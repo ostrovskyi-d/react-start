@@ -4,13 +4,14 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import s from './ProfileStatus.module.scss';
 import {OutlinedInput} from "@material-ui/core";
+import {Input} from "semantic-ui-react";
 
 const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
         flexWrap: 'wrap',
         width: "310px",
-        background: "azure",
+        // background: "azure",
 
     },
     margin: {
@@ -59,8 +60,8 @@ const ProfileStatus = (props) => {
             {editMode
                 ? <div className={classes.root}>
                     <FormControl fullWidth className={classes.margin} variant="filled">
-                        <InputLabel htmlFor="filled-adornment-amount">{label}</InputLabel>
-                        <OutlinedInput
+                        {/*<InputLabel htmlFor="filled-adornment-amount">{label}</InputLabel>*/}
+                        <Input
                             autoFocus={true}
                             onBlur={disableEditMode}
                             id="filled-adornment-amount"
@@ -76,7 +77,7 @@ const ProfileStatus = (props) => {
                        onClick={props.statusEditEnabled
                            ? enableEditMode : undefined}>
                         <span>Status:</span>
-                        <span>{props.status}</span>
+                        <span  style={{borderTop: "1px solid gray"}}>{props.status}</span>
                     </p>
                 </div>
             }

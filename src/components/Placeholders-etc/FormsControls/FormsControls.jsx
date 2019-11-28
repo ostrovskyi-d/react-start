@@ -1,7 +1,7 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 import s from './renderTextArea.module.scss'
-import {Form, TextArea} from "semantic-ui-react";
+import {TextArea} from "semantic-ui-react";
 
 
 export const renderTextarea = ({input, type, label, meta: {error, warning, active, touched}, ...props}) => {
@@ -10,13 +10,13 @@ export const renderTextarea = ({input, type, label, meta: {error, warning, activ
     return (
         <div className={s.formControl}>
             <div className={s.formItemsWrapper}>
-                <Form>
+                <>
                     <TextArea
                         {...input}
                         className={(active && error) ? s.postInput : undefined}
                         label={(active || input.value) ? <b>Your post:</b> : 'Create your post'}
                     />
-                </Form>
+                </>
                 {active && (hasError || hasWarn)}
             </div>
         </div>

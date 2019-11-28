@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './ProfileInfo.module.scss'
 import UserAvatarPlaceholder from "../../Placeholders-etc/UserAvatarPlaceholder/UserAvatarPlaceholder";
 import ProfileStatus from "./ProfileStatus";
-import { InputFile } from 'semantic-ui-react-input-file'
+import {InputFile} from 'semantic-ui-react-input-file'
 
 const ProfileInfo = ( {status, userData, updateStatus} ) => {
     const {fullName, photos: {large}, userId, lookingForAJob} = userData;

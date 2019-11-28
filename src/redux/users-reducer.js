@@ -23,11 +23,10 @@ let initialState = {
 let usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case SHOW_MORE_USERS: {
-            console.log("SHOW MORE USERS");
-            debugger
+            const defaultUsersIncrement = 10;
             return {
                 ...state,
-                pageSize: Number(state.pageSize) + Number(state.pageSize)
+                pageSize: state.pageSize + defaultUsersIncrement
             };
         }
         case FOLLOW: {
