@@ -2,7 +2,7 @@ import {connect} from "react-redux";
 import {
     followThisUserThunkCreator,
     getMoreUsersThunkCreator,
-    getUsersThunkCreator,
+    requestUsers,
     toggleFollowingProgress,
     unFollowThisUserThunkCreator,
 } from "../../redux/users-reducer";
@@ -11,11 +11,18 @@ import UsersDumb from "./UsersDumb/UsersDumb";
 import Preloader from "../Placeholders-etc/Preloader/Preloader";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
+import {
+    getAllUsers,
+    getFetchingStatus, getFollowingInProgress,
+    getPageSize,
+    getRequiredPage,
+    getTotalUsersCount
+} from "../../redux/users-selectors";
 
 const UsersContainer = (props) => {
     const {
         pageSize,
-        currentPage,
+        requiredPage,
         getUsersThunkCreator,
         getMoreUsers,
         isFollowingInProgress,
@@ -28,7 +35,7 @@ const UsersContainer = (props) => {
 
     const changePage = (pageNumber) => getUsersThunkCreator(pageNumber, pageSize);
 
-    useEffect(() => getUsersThunkCreator(currentPage, pageSize), [currentPage, getUsersThunkCreator, pageSize]);
+    useEffect(() => getUsersThunkCreator(requiredPage, pageSize), [requiredPage, getUsersThunkCreator, pageSize]);
 
     return <>
         {isFetching
@@ -38,7 +45,7 @@ const UsersContainer = (props) => {
         <UsersDumb
             totalUsersCount={totalUsersCount}
             pageSize={pageSize}
-            currentPage={currentPage}
+            requiredPage={requiredPage}
             onChangePage={changePage}
             users={users}
             follow={followThisUserThunkCreator}
@@ -52,17 +59,17 @@ const UsersContainer = (props) => {
 
 let mapStateToProps = (state) => {
     return {
-        users: state.users.usersStore,
-        pageSize: state.users.pageSize,
-        totalUsersCount: state.users.totalUsersCount,
-        currentPage: state.users.currentPage,
-        isFetching: state.users.isFetching,
-        isFollowingInProgress: state.users.isFollowingInProgress,
+        users: getAllUsers(state),
+        pageSize: getPageSize(state),
+        totalUsersCount: getTotalUsersCount(state),
+        requiredPage: getRequiredPage(state),
+        isFetching: getFetchingStatus(state),
+        isFollowingInProgress: getFollowingInProgress(state),
     }
 };
 let mapDispatchToProps = {
     toggleFollowingProgress: toggleFollowingProgress,
-    getUsersThunkCreator: getUsersThunkCreator,
+    getUsersThunkCreator: requestUsers,
     followThisUserThunkCreator: followThisUserThunkCreator,
     unFollowThisUserThunkCreator: unFollowThisUserThunkCreator,
     getMoreUsers: getMoreUsersThunkCreator

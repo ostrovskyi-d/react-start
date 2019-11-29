@@ -14,7 +14,7 @@ let initialState = {
     usersStore: [],
     pageSize: 10,
     totalUsersCount: null,
-    currentPage: 1,
+    requiredPage: 1,
     isFetching: true,
     isFollowingInProgress: [],
 };
@@ -62,11 +62,10 @@ let usersReducer = (state = initialState, action) => {
         case CHANGE_PAGE: {
             return {
                 ...state,
-                currentPage: action.pageNumber
+                requiredPage: action.pageNumber
             }
         }
         case SET_TOTAL_USERS_COUNT: {
-
             return {
                 ...state,
                 totalUsersCount: action.count
@@ -105,13 +104,13 @@ export const toggleFollowingProgress = (isFollowingInProgress, userId) => ({
 });
 
 
-export const getUsersThunkCreator = (currentPage, pageSize) => (dispatch) => {
+export const requestUsers = (requiredPage, pageSize) => (dispatch) => {
     dispatch(toggleIsFetching(true));
-    usersAPI.getUsers(currentPage, pageSize).then(data => {
+    usersAPI.getUsers(requiredPage, pageSize).then(data => {
         dispatch(toggleIsFetching(false));
         dispatch(setUsers(data.items));
         dispatch(setTotalUsersCount(data.totalCount));
-        dispatch(changePage(currentPage))
+        dispatch(changePage(requiredPage))
     })
 };
 
