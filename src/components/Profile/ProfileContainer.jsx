@@ -14,7 +14,7 @@ const ProfileContainer = (props) => {
         if (!userId) userId = loggedInID;
         getUserProfile(userId);
         getStatus(userId);
-    }, []);
+    }, [getStatus, getUserProfile, loggedInID, params.userId]);
 
     return <MyProfile
         {...props}

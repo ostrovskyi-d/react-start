@@ -26,7 +26,8 @@ const useStyles = makeStyles({
 
 });
 
-const MyPosts = (props) => {
+const MyPosts = React.memo(props => {
+    console.log("My Posts Render");
 
     const addPost = (data) => {
         props.addPost(data.newPostBody);
@@ -52,7 +53,7 @@ const MyPosts = (props) => {
             </Item.Group>
         </Container>
     )
-};
+});
 
 const MyMaterialPostsForm = (props) => {
     const classes = useStyles();

@@ -8,18 +8,46 @@ export const getAllUsers = createSelector(
     (users) => users.filter(u => true)
 );
 
-export const getPageSize = (state) => {
+
+const getPageSizeSelector = (state) => {
     return state.users.pageSize
 };
-export const getTotalUsersCount = (state) => {
+export const getPageSize = createSelector(
+    getPageSizeSelector,
+    (pageSize) => pageSize
+);
+
+
+const getTotalUsersCountSelector = (state) => {
     return state.users.totalUsersCount
 };
-export const getRequiredPage = (state) => {
+export const getTotalUsersCount = createSelector(
+    getTotalUsersCountSelector,
+    (totalUsersCount) => totalUsersCount
+);
+
+
+const getRequiredPageSelector = (state) => {
     return state.users.requiredPage
 };
-export const getFetchingStatus = (state) => {
+export const getRequiredPage = createSelector(
+    getRequiredPageSelector,
+    (page) => page
+);
+
+const getFetchingStatusSelector = (state) => {
     return state.users.isFetching
 };
-export const getFollowingInProgress = (state) => {
+export const getFetchingStatus = createSelector(
+    getFetchingStatusSelector,
+    (isFetching) => isFetching
+);
+
+
+const getFollowingInProgressSelector = (state) => {
     return state.users.isFollowingInProgress
 };
+export const getFollowingInProgress = createSelector(
+    getFollowingInProgressSelector,
+    (isFollowingInProgress) => isFollowingInProgress
+);

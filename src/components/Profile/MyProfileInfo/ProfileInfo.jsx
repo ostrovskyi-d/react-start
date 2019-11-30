@@ -6,6 +6,7 @@ import {InputFile} from 'semantic-ui-react-input-file'
 
 const ProfileInfo = ( {status, userData, updateStatus} ) => {
     const {fullName, photos: {large}, userId, lookingForAJob} = userData;
+
     return (
         <section className={styles.profileInfoWrapper}>
             <div className={styles.card}>

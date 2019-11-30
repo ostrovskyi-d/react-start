@@ -1,4 +1,3 @@
-import {authAPI, loginAPI, securityAPI} from "../API/api";
 import {getMyUserDataThunkCreator} from "./auth-reducer";
 
 const INITIALIZED_SUCCESS = "INITIALIZED-SUCCESS";

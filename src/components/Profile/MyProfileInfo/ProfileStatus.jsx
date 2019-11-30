@@ -7,6 +7,7 @@ import {Input} from "semantic-ui-react";
 
 
 const ProfileStatus = (props) => {
+        
         const classes = useStyles();
 
         const [editMode, setEditMode] = useState(false);
