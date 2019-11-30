@@ -40,19 +40,19 @@ const UsersContainer = (props) => {
     return <>
         {isFetching
             ? <Preloader/>
-            : null
+            : <UsersDumb
+                totalUsersCount={totalUsersCount}
+                pageSize={pageSize}
+                requiredPage={requiredPage}
+                onChangePage={changePage}
+                users={users}
+                follow={followThisUserThunkCreator}
+                unfollow={unFollowThisUserThunkCreator}
+                isFollowingInProgress={isFollowingInProgress}
+                getMoreUsers={getMoreUsers}
+            />
         }
-        <UsersDumb
-            totalUsersCount={totalUsersCount}
-            pageSize={pageSize}
-            requiredPage={requiredPage}
-            onChangePage={changePage}
-            users={users}
-            follow={followThisUserThunkCreator}
-            unfollow={unFollowThisUserThunkCreator}
-            isFollowingInProgress={isFollowingInProgress}
-            getMoreUsers={getMoreUsers}
-        />
+
     </>;
 };
 

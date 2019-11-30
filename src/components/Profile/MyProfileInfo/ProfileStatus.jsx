@@ -1,11 +1,56 @@
 import React, {useEffect, useState} from "react";
 import {makeStyles} from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import s from './ProfileStatus.module.scss';
-import {OutlinedInput} from "@material-ui/core";
 import {Input} from "semantic-ui-react";
 
+
+
+const ProfileStatus = (props) => {
+        const classes = useStyles();
+
+        const [editMode, setEditMode] = useState(false);
+        const [statusText, setStatusText] = useState(props.status);
+
+        useEffect(() => {
+            setStatusText(props.status);
+        }, [props.status]);
+        const onStatusChange = (e) => {
+            setStatusText(e.target.value)
+        };
+        const enableEditMode = () => { 
+            setEditMode(true);
+        };
+        const disableEditMode = (e) => {
+                props.updateStatus(statusText);
+                setEditMode(false)
+        };
+
+        return (<div>
+            {editMode
+                ? <div className={classes.root}>
+                    <FormControl fullWidth className={classes.margin} variant="filled">
+                        <Input
+                            autoFocus={true}
+                            onBlur={disableEditMode}
+                            value={statusText}
+                            onChange={onStatusChange}
+                            placeholder={"Enter your status"}
+                        />
+                    </FormControl>
+                </div>
+                : <div style={{whiteSpace: "pre-wrap", display: "flex"}}>
+                    <p className={s.statusSpan}
+                       onClick={props.statusEditEnabled
+                           ? enableEditMode : undefined}>
+                        <span>Status:</span>
+                        <span  style={{borderTop: "1px solid gray"}}>{props.status}</span>
+                    </p>
+                </div>
+            }
+        </div>)
+    }
+;
 const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
@@ -29,60 +74,4 @@ const useStyles = makeStyles(theme => ({
 
     }
 }));
-
-const ProfileStatus = (props) => {
-        const classes = useStyles();
-        const [label, setLabel] = useState("Status");
-        const [editMode, setEditMode] = useState(false);
-        const [statusValue, setStatusValue] = useState(props.status);
-
-        useEffect(() => {
-            setStatusValue((prevState) => {
-                    return props.status
-            });
-        }, [props.status]);
-        const onStatusChange = (e) => {
-            setStatusValue(e.target.value)
-        };
-        const enableEditMode = () => {
-            setEditMode(true);
-        };
-        const disableEditMode = (e) => {
-            if (e.currentTarget.value) {
-                props.updateStatus(statusValue);
-                setEditMode(false)
-            } else {
-                setLabel("Empty status not working yet")
-            }
-        };
-
-        return (<div>
-            {editMode
-                ? <div className={classes.root}>
-                    <FormControl fullWidth className={classes.margin} variant="filled">
-                        {/*<InputLabel htmlFor="filled-adornment-amount">{label}</InputLabel>*/}
-                        <Input
-                            autoFocus={true}
-                            onBlur={disableEditMode}
-                            id="filled-adornment-amount"
-                            value={statusValue}
-                            onChange={onStatusChange}
-                            placeholder={"Enter your status"}
-                            // onKeyDown={}
-                        />
-                    </FormControl>
-                </div>
-                : <div style={{whiteSpace: "pre-wrap", display: "flex"}}>
-                    <p className={s.statusSpan}
-                       onClick={props.statusEditEnabled
-                           ? enableEditMode : undefined}>
-                        <span>Status:</span>
-                        <span  style={{borderTop: "1px solid gray"}}>{props.status}</span>
-                    </p>
-                </div>
-            }
-        </div>)
-    }
-;
-
 export default ProfileStatus;
