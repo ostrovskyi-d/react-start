@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./Contact.module.scss";
-import { NavLink } from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const Contact = props => {
     

@@ -1,12 +1,14 @@
-import {createSelector} from 'reselect';
 
-const getAllUsersSelector = (state) => {
+import {createSelector} from "reselect";
+
+const getAllUsers = (state) => {
     return state.users.usersStore
 };
-export const getAllUsers = createSelector(
-    getAllUsersSelector,
-    (users) => users.filter(u => true)
-);
+export const getAllUsersSelector = createSelector(getAllUsers, (users) => {
+    return users.filter(user => true)
+});
+
+
 
 
 const getPageSizeSelector = (state) => {

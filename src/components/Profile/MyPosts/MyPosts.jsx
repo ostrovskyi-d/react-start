@@ -5,7 +5,7 @@ import {Field, reduxForm} from "redux-form";
 import Button from "@material-ui/core/Button";
 
 import {makeStyles} from "@material-ui/styles";
-import {warn, validate} from "../../../common/validators/validators";
+import {validate, warn} from "../../../common/validators/validators";
 import {renderTextarea} from "../../Placeholders-etc/FormsControls/FormsControls";
 import {Container, Item} from "semantic-ui-react";
 
@@ -39,8 +39,8 @@ const MyPosts = React.memo(props => {
         id={p.id}
         likes={p.likes}
         text={p.postMessage}
-        addLike={props.addLike}
         key={p.id}
+        {...props}
     />);
 
     return (

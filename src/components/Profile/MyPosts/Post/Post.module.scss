@@ -4,4 +4,13 @@
   padding: 1.5em !important;
   font-size: 1.1em !important;
   background-color: white !important;
+  .buttons {
+
+    display: flex;
+    padding: 1em 0;
+    justify-content: space-between;
+    .removePostBtn {
+      display: inline-flex;
+    }
+  }
 }

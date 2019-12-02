@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600&display=swap&subset=latin-ext');
+
 $borderColor: #676767;
 $themeGreen: #21b7015c;
 $themeBlue: #0025ff8f;
 $themeBlueLighter: #93d2e491;
 $spinkit-size: 4em !default;
 $spinkit-spinner-color: #337ab7 !default;
-
+$ff: 'Prompt', sans-serif;
 
 
 .getUsersButton {
@@ -42,17 +43,36 @@ $spinkit-spinner-color: #337ab7 !default;
   border: none;
 
 }
+
 .userWrapper {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   flex-grow: 1;
+  font-family: $ff;
   //border: 1px solid;
+  .viewSettings {
+    display: inline-flex;
+    align-items: baseline;
+    & p {
+      margin:0 0.5em;
+    }
+    .choosePageSize {
+      width: min-content !important;
+      min-width: min-content !important;
+      display: flex !important;
+      align-items: center !important;
+      align-content: center !important;
+      justify-content: center !important;
+    }
+  }
+
+
   .pagesBlock {
     display: flex;
     margin-top: 1em;
 
-    span.pagesWrapper {
+    .pagesWrapper {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -118,6 +138,7 @@ $spinkit-spinner-color: #337ab7 !default;
       width: 156px;
       height: 156px;
       font-size: larger;
+
       .userAvaImg {
         display: flex;
         margin: 1em;
@@ -133,6 +154,7 @@ $spinkit-spinner-color: #337ab7 !default;
       flex-direction: column;
       padding: 1em;
       font-family: 'Quicksand', sans-serif;
+
       .nickName {
         display: flex;
         font-size: 2em;

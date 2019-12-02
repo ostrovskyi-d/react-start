@@ -70,6 +70,7 @@
   @extend .errorWrapper;
   .warning {
     @extend .error;
+    font-family: "Prompt", sans-serif;
     z-index: 1;
     background-color: rgba(255, 255, 0, 0.33);
   }

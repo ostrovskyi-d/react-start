@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import Header from "./Header";
 import {connect} from "react-redux";
-import {logOutThunkCreator, getMyUserDataThunkCreator} from "../../redux/auth-reducer";
+import {getMyUserDataThunkCreator, logOutThunkCreator} from "../../redux/auth-reducer";
 
 const HeaderContainer = (props) => {
     useEffect(() => {

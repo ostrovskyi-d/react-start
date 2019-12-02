@@ -34,12 +34,28 @@
   flex-wrap: wrap;
   flex-direction: column;
   flex-grow: 1;
+  font-family: "Prompt", sans-serif;
+}
+.userWrapper .viewSettings {
+  display: inline-flex;
+  align-items: baseline;
+}
+.userWrapper .viewSettings p {
+  margin: 0 0.5em;
+}
+.userWrapper .viewSettings .choosePageSize {
+  width: min-content !important;
+  min-width: min-content !important;
+  display: flex !important;
+  align-items: center !important;
+  align-content: center !important;
+  justify-content: center !important;
 }
 .userWrapper .pagesBlock {
   display: flex;
   margin-top: 1em;
 }
-.userWrapper .pagesBlock span.pagesWrapper {
+.userWrapper .pagesBlock .pagesWrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -50,20 +66,20 @@
   overflow: hidden;
   height: 42px;
 }
-.userWrapper .pagesBlock span.pagesWrapper .pageNumberItem {
+.userWrapper .pagesBlock .pagesWrapper .pageNumberItem {
   display: flex;
   margin: 0 0.3em;
   padding: 0.4em 0.7em;
   text-decoration: none;
   color: #4d4d4d;
 }
-.userWrapper .pagesBlock span.pagesWrapper .selectedPage {
+.userWrapper .pagesBlock .pagesWrapper .selectedPage {
   background-color: gray;
   color: white;
   text-decoration: none;
   border: 1px solid gray;
 }
-.userWrapper .pagesBlock span.pagesWrapper .selectedPage:hover {
+.userWrapper .pagesBlock .pagesWrapper .selectedPage:hover {
   text-decoration: none;
   cursor: default;
 }

@@ -8,6 +8,7 @@ const CHANGE_PAGE = "CHANGE-PAGE";
 const SET_TOTAL_USERS_COUNT = "SET-TOTAL-USERS-COUNT";
 const TOGGLE_IS_FETCHING = "TOGGLE-IS-FETCHING";
 const TOGGLE_FOLLOWING_PROGRESS = "TOGGLE-FOLLOWING-PROGRESS";
+const SET_PAGE_SIZE = "SET-PAGE-SIZE";
 
 
 let initialState = {
@@ -23,7 +24,7 @@ let initialState = {
 let usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case SHOW_MORE_USERS: {
-            const defaultUsersIncrement = 10;
+            const defaultUsersIncrement = 15;
             return {
                 ...state,
                 pageSize: state.pageSize + defaultUsersIncrement
@@ -85,23 +86,30 @@ let usersReducer = (state = initialState, action) => {
                     : state.isFollowingInProgress.filter(id => id !== action.userId)
             }
         }
+        case SET_PAGE_SIZE: {
+            return {
+                ...state,
+                pageSize: action.pageSize
+            }
+        }
         default:
             return state;
     }
 };
 
-export const showMoreUsers = () => ({type: SHOW_MORE_USERS});
-export const followSuccess = (userID) => ({type: FOLLOW, userID});
-export const unfollowSuccess = (userID) => ({type: UNFOLLOW, userID});
-export const setUsers = (usersStore) => ({type: SET_USERS, usersStore});
-export const changePage = (pageNumber) => ({type: CHANGE_PAGE, pageNumber});
-export const setTotalUsersCount = (count) => ({type: SET_TOTAL_USERS_COUNT, count});
-export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
+const showMoreUsers = () => ({type: SHOW_MORE_USERS});
+const followSuccess = (userID) => ({type: FOLLOW, userID});
+const unfollowSuccess = (userID) => ({type: UNFOLLOW, userID});
+const setUsers = (usersStore) => ({type: SET_USERS, usersStore});
+const changePage = (pageNumber) => ({type: CHANGE_PAGE, pageNumber});
+const setTotalUsersCount = (count) => ({type: SET_TOTAL_USERS_COUNT, count});
+const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
 export const toggleFollowingProgress = (isFollowingInProgress, userId) => ({
     type: TOGGLE_FOLLOWING_PROGRESS,
     isFollowingInProgress,
     userId
 });
+const setPageSize = (pageSize) => ({type: SET_PAGE_SIZE, pageSize});
 
 
 export const requestUsers = (requiredPage, pageSize) => (dispatch) => {
@@ -131,7 +139,9 @@ export const unFollowThisUserThunkCreator = (userId) => (dispatch) => {
 export const getMoreUsersThunkCreator = () => (dispatch) => {
     dispatch(showMoreUsers());
 };
-
+export const setPageSizeThunk = (pageSize) => (dispatch) => {
+    dispatch(setPageSize(pageSize))
+};
 
 
 export default usersReducer;

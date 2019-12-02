@@ -5,5 +5,13 @@
   font-size: 1.1em !important;
   background-color: white !important;
 }
+.postItem .buttons {
+  display: flex;
+  padding: 1em 0;
+  justify-content: space-between;
+}
+.postItem .buttons .removePostBtn {
+  display: inline-flex;
+}
 
 /*# sourceMappingURL=Post.module.css.map */
