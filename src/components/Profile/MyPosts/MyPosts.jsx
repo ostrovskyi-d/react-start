@@ -5,7 +5,7 @@ import {Field, reduxForm} from "redux-form";
 import Button from "@material-ui/core/Button";
 
 import {makeStyles} from "@material-ui/styles";
-import {validate, warn} from "../../../common/validators/validators";
+import {warn, validate} from "../../../common/validators/validators";
 import {renderTextarea} from "../../Placeholders-etc/FormsControls/FormsControls";
 import {Container, Item} from "semantic-ui-react";
 
@@ -26,8 +26,7 @@ const useStyles = makeStyles({
 
 });
 
-const MyPosts = React.memo(props => {
-    console.log("My Posts Render");
+const MyPosts = (props) => {
 
     const addPost = (data) => {
         props.addPost(data.newPostBody);
@@ -39,8 +38,8 @@ const MyPosts = React.memo(props => {
         id={p.id}
         likes={p.likes}
         text={p.postMessage}
+        addLike={props.addLike}
         key={p.id}
-        {...props}
     />);
 
     return (
@@ -53,7 +52,7 @@ const MyPosts = React.memo(props => {
             </Item.Group>
         </Container>
     )
-});
+};
 
 const MyMaterialPostsForm = (props) => {
     const classes = useStyles();
