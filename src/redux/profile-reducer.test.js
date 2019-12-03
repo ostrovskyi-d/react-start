@@ -1,4 +1,4 @@
-import profileReducer, {deletePost, deletePostThunk} from "./profile-reducer";
+import profileReducer, {addPostAC, deletePost} from "./profile-reducer";
 
 let state = {
     postsData: [
@@ -25,8 +25,19 @@ let state = {
     ],
 
 };
-it('posts length must be reduced', () => {
+test('posts length must be reduced', () => {
     let action = deletePost(1);
     let newState = profileReducer(state, action);
     expect(newState.postsData.length).toBe(3)
 });
+
+test('posts length must be increased', () => {
+    let action = addPostAC("example");
+    let newState = profileReducer(state, action);
+    expect(newState.postsData.length).toBe(5);
+});
+// test('post id must be incremented by 1' , () => {
+//     let action = addPostAC("example");
+//     let newState = profileReducer(state, action);
+//     expect(newState.postsData.length).toBe(5);
+// });

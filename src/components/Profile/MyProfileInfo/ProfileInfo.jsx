@@ -4,8 +4,18 @@ import UserAvatarPlaceholder from "../../Placeholders-etc/UserAvatarPlaceholder/
 import ProfileStatus from "./ProfileStatus";
 import {InputFile} from 'semantic-ui-react-input-file'
 
-const ProfileInfo = ( {status, userData, updateStatus} ) => {
-    const {fullName, photos: {large}, userId, lookingForAJob} = userData;
+const ProfileInfo = (props) => {
+    const {
+        status,
+        userData: {
+            fullName,
+            photos: {large},
+            userId,
+            lookingForAJob
+        },
+        updateStatus,
+        loggedInID
+    } = props;
 
     return (
         <section className={styles.profileInfoWrapper}>
@@ -19,9 +29,8 @@ const ProfileInfo = ( {status, userData, updateStatus} ) => {
                                 : <UserAvatarPlaceholder/>
                         }
                         <InputFile input={{id: 'input-control-id'}}/>
-
                         <div className={styles.status}>
-                            {userId === 4889
+                            {userId === loggedInID
                                 ? <ProfileStatus statusEditEnabled={true} updateStatus={updateStatus} status={status}/>
                                 : <ProfileStatus statusEditEnabled={false} status={status} updateStatus={updateStatus}/>
                             }

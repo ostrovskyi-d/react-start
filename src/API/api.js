@@ -10,19 +10,23 @@ const instance = axios.create({
 
 
 export const usersAPI = {
-    getUsers(requiredPage, pageSize) {
-        return instance.get(`users?page=${requiredPage}&count=${pageSize}`).then(response => response.data);
+    async getUsers(requiredPage, pageSize) {
+        const response = await instance.get(`users?page=${requiredPage}&count=${pageSize}`);
+        return response.data;
     },
 
-    unFollowUser(id) {
-        return instance.delete(`/follow/${id}`).then(response => response.data)
+    async unFollowUser(id) {
+        const response = await instance.delete(`/follow/${id}`);
+        return response.data;
     },
-    followUser(id){
-        return instance.post(`/follow/${id}`, {}).then(response => response.data)
+    async followUser(id) {
+        const response = await instance.post(`/follow/${id}`, {});
+        return response.data;
     },
-    getUserProfileById (userId) {
+
+    getUserProfileById(userId) {
         console.warn("Obsolete method. Please, use profileApi object.");
-        return profileAPI.getUserProfileById(userId)
+        return profileAPI.getUserProfileById(userId);
     },
 };
 export const profileAPI = {
@@ -33,7 +37,7 @@ export const profileAPI = {
         return instance.get(`/profile/status/${userId}`)
     },
     updateStatus(status) {
-        return instance.put(`profile/status/`, {status: status})
+        return instance.put(`profile/status/`, {status: status});
     },
     uploadPhoto(formData) {
         return instance.put(`profile/photo`, formData, {headers: {'Content-Type': 'multipart/form-data'}})
@@ -41,25 +45,26 @@ export const profileAPI = {
 };
 
 export const loginAPI = {
-    login (data) {
+    login(data) {
         return instance.post(`auth/login`, {
-            email : data.login,
+            email: data.login,
             password: data.password,
             rememberMe: data.rememberMe,
             captcha: data.captcha
-        })
+        });
     },
-    logOut () {
+    logOut() {
         return instance.delete(`auth/login`);
     }
 };
 export const authAPI = {
-    getMyUserData () {
-        return instance.get(`/auth/me`).then(response => response.data)
+    async getMyUserData() {
+        const response = await instance.get(`/auth/me`);
+        return response.data;
     },
 };
 export const securityAPI = {
-    getCaptchaUrl () {
+    getCaptchaUrl() {
         return instance.get(`security/get-captcha-url`)
     }
 };

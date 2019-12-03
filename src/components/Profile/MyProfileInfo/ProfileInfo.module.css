@@ -19,7 +19,7 @@
 }
 .profileInfoWrapper .card .userNameAvaContainer .userName {
   display: flex;
-  width: -webkit-fill-available;
+  width: 100%;
   justify-content: center;
   border: 1px solid;
   padding: 0.5em;

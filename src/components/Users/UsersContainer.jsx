@@ -37,7 +37,6 @@ const UsersContainer = (props) => {
             ? <Preloader/>
             : <UsersDumb
                 changePage={changePage}
-
                 {...props}
             />
         }
@@ -45,7 +44,7 @@ const UsersContainer = (props) => {
     </>;
 };
 
-
+// ------ Provided by selectors imports (reselect) -------
 let mapStateToProps = (state) => {
     return {
         users: getAllUsersSelector(state),
@@ -56,6 +55,7 @@ let mapStateToProps = (state) => {
         isFollowingInProgress: getFollowingInProgress(state),
     }
 };
+
 let mapDispatchToProps = {
     toggleFollowingProgress: toggleFollowingProgress,
     getUsersThunkCreator: requestUsers,

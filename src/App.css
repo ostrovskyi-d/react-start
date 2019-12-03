@@ -18,7 +18,7 @@ body {
   grid-template-columns: 280px 1fr;
   margin: 0 auto;
   padding: 0;
-  width: -webkit-fill-available;
+  width: 100%;
   height: auto;
 }
 

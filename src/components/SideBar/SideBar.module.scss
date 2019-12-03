@@ -27,7 +27,7 @@ aside {
 
       li.item {
         display: flex;
-        width: -webkit-fill-available;
+        width: 100%;
         color: white;
         cursor: pointer;
 
@@ -40,7 +40,7 @@ aside {
           font-weight: 200;
 
           color: inherit;
-          width: -webkit-fill-available;
+          width: 100%;
           padding: 1em;
           justify-content: center;
           text-decoration: none;

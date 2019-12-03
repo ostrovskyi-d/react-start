@@ -1,3 +1,7 @@
+.my_posts {
+  display: flex;
+  flex-direction: column-reverse;
+}
 .my_posts h3 {
   margin: 1em;
 }

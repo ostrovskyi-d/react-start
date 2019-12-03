@@ -40,12 +40,12 @@ let profileReducer = (state = initialState, action) => {
             if (action.newPostBody) return {
                 ...state,
                 postsData: [
+                    ...state.postsData,
                     {
-                        id: state.postsData.length + 1,
+                        id: state.postsData[state.postsData.length - 1].id + 1,
                         postMessage: action.newPostBody,
                         likes: 0
-                    },
-                    ...state.postsData
+                    }
                 ],
             };
             return state;

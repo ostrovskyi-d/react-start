@@ -48,7 +48,7 @@ const MyPosts = React.memo(props => {
             <div className={s.post_add}>
                 <NewPostReduxFormMaterial onSubmit={addPost}/>
             </div>
-            <Item.Group>
+            <Item.Group className={s.my_posts}>
                 {posts}
             </Item.Group>
         </Container>

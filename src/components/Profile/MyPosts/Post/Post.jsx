@@ -33,7 +33,6 @@ const Post = (props) => {
                                 size={"medium"}
                                 color={"red"}
                                 circular
-                                icon={"remove"}
                             >
                                 Remove
                             </Button>} basic size='small'>

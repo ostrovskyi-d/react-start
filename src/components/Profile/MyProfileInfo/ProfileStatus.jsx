@@ -5,9 +5,8 @@ import s from './ProfileStatus.module.scss';
 import {Input} from "semantic-ui-react";
 
 
-
 const ProfileStatus = (props) => {
-        
+
         const classes = useStyles();
 
         const [editMode, setEditMode] = useState(false);
@@ -19,12 +18,12 @@ const ProfileStatus = (props) => {
         const onStatusChange = (e) => {
             setStatusText(e.target.value)
         };
-        const enableEditMode = () => { 
+        const enableEditMode = () => {
             setEditMode(true);
         };
-        const disableEditMode = (e) => {
-                props.updateStatus(statusText);
-                setEditMode(false)
+        const disableEditMode = () => {
+            props.updateStatus(statusText);
+            setEditMode(false)
         };
 
         return (<div>
@@ -44,8 +43,8 @@ const ProfileStatus = (props) => {
                     <p className={s.statusSpan}
                        onClick={props.statusEditEnabled
                            ? enableEditMode : undefined}>
-                        <span>Status:</span>
-                        <span  style={{borderTop: "1px solid gray"}}>{props.status}</span>
+                        {/*<span>Status:</span>*/}
+                        <span style={{borderTop: "1px solid gray"}}>{props.status}</span>
                     </p>
                 </div>
             }

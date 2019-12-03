@@ -36,7 +36,7 @@ const SideBar = () => {
             </menu>
         </aside>
     )
-}
+};
 
 
 export default SideBar;
