@@ -1,14 +1,3 @@
-//h2 {
-//    justify-content: center;
-//    border-bottom: 1px solid;
-//    margin-block-end: 0;
-//    margin-block-start: 0;
-//    padding-block-start: 0;
-//    margin-inline-start: 0;
-//    padding-bottom: 0.83em;
-//    margin: 0 0.3em;
-//}
-
 .contact {
   display: flex;
   font-weight: 800;
@@ -21,7 +10,7 @@
     display: inline-flex;
     list-style: circle;
     width: fit-content;
-    // navlink > a
+
     a {
       display: flex;
       align-items: center;
@@ -29,7 +18,7 @@
       text-decoration: none;
       color: rgb(41, 41, 41);
       transition: .3s;
-        font-size: 1.2em;
+      font-size: 1.2em;
 
       .contact_avatar {
         display: flex;
@@ -58,18 +47,18 @@
 .active {
   padding-left: 2em;
 }
-.active a{
-    text-decoration: underline;
+
+.active a {
+  text-decoration: underline;
 }
 
 .active:before {
   content: '|';
-  font-size: 4em;
-  color: lawngreen;
-  font-weight: 300;
-  /* box-shadow: 0 0 0 0px black; */
-  /* text-shadow: 4px 0px 8px #00000087; */
-  color: dodgerblue
+  display: flex;
+  align-items: center;
+  font-size: 3em;
+  font-weight: 200;
+  color: #8080807a;
 }
 
 

@@ -9,15 +9,14 @@
   .contacts {
     display: flex;
     flex-direction: column;
-    /* flex-grow: 1; */
     align-items: center;
 
     h3 {
       display: flex;
       justify-content: center;
       border-bottom: 1px solid;
-      flex-grow: 1;
-      padding-bottom: 0.83em;
+      padding-bottom: 0.5em;
+      margin-top: 0.5em;
     }
 
     .contacts_items {
@@ -38,7 +37,7 @@
     .messages {
       display: flex;
       flex-direction: column;
-      width: -webkit-fill-available;
+      width: 100%;
       padding: 0.5em;
       background-color: #e0fff1;
       align-self: flex-start;

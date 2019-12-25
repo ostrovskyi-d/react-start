@@ -2,7 +2,7 @@ import {connect} from "react-redux";
 import {
     followThisUserThunkCreator,
     getMoreUsersThunkCreator,
-    requestUsers,
+    requestUsers, setPageSizeThunk,
     toggleFollowingProgress,
     unFollowThisUserThunkCreator,
 } from "../../redux/users-reducer";
@@ -13,48 +13,38 @@ import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 import {
     getAllUsers,
-    getFetchingStatus, getFollowingInProgress,
+    getFetchingStatus,
+    getFollowingInProgress,
     getPageSize,
     getRequiredPage,
     getTotalUsersCount
 } from "../../redux/users-selectors";
 
-const UsersContainer = (props) => {
+const UsersContainer = React.memo((props) => {
     const {
         pageSize,
         requiredPage,
         getUsersThunkCreator,
-        getMoreUsers,
-        isFollowingInProgress,
-        unFollowThisUserThunkCreator,
-        followThisUserThunkCreator,
-        users,
-        totalUsersCount,
         isFetching
     } = props;
 
     const changePage = (pageNumber) => getUsersThunkCreator(pageNumber, pageSize);
 
-    useEffect(() => getUsersThunkCreator(requiredPage, pageSize), [requiredPage, getUsersThunkCreator, pageSize]);
+    useEffect(() => {
+        getUsersThunkCreator(requiredPage, pageSize)
+    }, [requiredPage, getUsersThunkCreator, pageSize]);
 
     return <>
         {isFetching
             ? <Preloader/>
-            : null
+            : <UsersDumb
+                {...props}
+                changePage={changePage}
+            />
         }
-        <UsersDumb
-            totalUsersCount={totalUsersCount}
-            pageSize={pageSize}
-            requiredPage={requiredPage}
-            onChangePage={changePage}
-            users={users}
-            follow={followThisUserThunkCreator}
-            unfollow={unFollowThisUserThunkCreator}
-            isFollowingInProgress={isFollowingInProgress}
-            getMoreUsers={getMoreUsers}
-        />
+
     </>;
-};
+});
 
 
 let mapStateToProps = (state) => {
@@ -72,8 +62,8 @@ let mapDispatchToProps = {
     getUsersThunkCreator: requestUsers,
     followThisUserThunkCreator: followThisUserThunkCreator,
     unFollowThisUserThunkCreator: unFollowThisUserThunkCreator,
-    getMoreUsers: getMoreUsersThunkCreator
-
+    getMoreUsers: getMoreUsersThunkCreator,
+    setPageSize: setPageSizeThunk
 };
 
 export default compose(connect(mapStateToProps, mapDispatchToProps), withAuthRedirect)(UsersContainer);

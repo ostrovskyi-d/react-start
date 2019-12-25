@@ -1,55 +1,51 @@
+import {createSelector} from 'reselect';
 
-import {createSelector} from "reselect";
+export const getAllUsersSelector = (state) => {
 
-const getAllUsers = (state) => {
-    return state.users.usersStore
+  return state.users.usersStore;
 };
-export const getAllUsersSelector = createSelector(getAllUsers, (users) => {
-    return users.filter(user => true)
-});
-
-
-
+export const getAllUsers = createSelector(
+    getAllUsersSelector,
+    (users) => {
+      return users.filter(user => user);
+    });
 
 const getPageSizeSelector = (state) => {
-    return state.users.pageSize
+  return state.users.pageSize;
 };
 export const getPageSize = createSelector(
     getPageSizeSelector,
-    (pageSize) => pageSize
+    (pageSize) => pageSize,
 );
 
-
 const getTotalUsersCountSelector = (state) => {
-    return state.users.totalUsersCount
+  return state.users.totalUsersCount;
 };
 export const getTotalUsersCount = createSelector(
     getTotalUsersCountSelector,
-    (totalUsersCount) => totalUsersCount
+    (totalUsersCount) => totalUsersCount,
 );
 
-
 const getRequiredPageSelector = (state) => {
-    return state.users.requiredPage
+  return state.users.requiredPage;
 };
 export const getRequiredPage = createSelector(
     getRequiredPageSelector,
-    (page) => page
+    (page) => page,
 );
 
 const getFetchingStatusSelector = (state) => {
-    return state.users.isFetching
+  return state.users.isFetching;
 };
 export const getFetchingStatus = createSelector(
     getFetchingStatusSelector,
-    (isFetching) => isFetching
+    (isFetching) => isFetching,
 );
 
-
 const getFollowingInProgressSelector = (state) => {
-    return state.users.isFollowingInProgress
+  return state.users.isFollowingInProgress;
 };
 export const getFollowingInProgress = createSelector(
     getFollowingInProgressSelector,
-    (isFollowingInProgress) => isFollowingInProgress
+    (isFollowingInProgress) => isFollowingInProgress,
 );

@@ -27,10 +27,9 @@ const useStyles = makeStyles({
 });
 
 const MyPosts = (props) => {
-
     const addPost = (data) => {
         props.addPost(data.newPostBody);
-        //clear text field
+        // clear text field
         data.newPostBody = '';
     };
 
@@ -38,7 +37,9 @@ const MyPosts = (props) => {
         id={p.id}
         likes={p.likes}
         text={p.postMessage}
-        addLike={props.addLike}
+        addOneLike={props.addOneLike}
+        deletePost={props.deletePost}
+
         key={p.id}
     />);
 

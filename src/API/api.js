@@ -1,4 +1,4 @@
-import * as axios from 'axios'
+import * as axios from 'axios';
 
 const instance = axios.create({
     withCredentials: true,
@@ -10,15 +10,15 @@ const instance = axios.create({
 
 
 export const usersAPI = {
-    getUsers(requiredPage, pageSize) {
-        return instance.get(`users?page=${requiredPage}&count=${pageSize}`).then(response => response.data);
+    async getUsers(requiredPage, pageSize) {
+        return await instance.get(`users?page=${requiredPage}&count=${pageSize}`).then(response => response.data);
     },
 
-    unFollowUser(id) {
-        return instance.delete(`/follow/${id}`).then(response => response.data)
+    async unFollowUser(id) {
+        return await instance.delete(`/follow/${id}`).then(response => response.data)
     },
-    followUser(id){
-        return instance.post(`/follow/${id}`, {}).then(response => response.data)
+    async followUser(id){
+        return await instance.post(`/follow/${id}`, {}).then(response => response.data)
     },
     getUserProfileById (userId) {
         console.warn("Obsolete method. Please, use profileApi object.");
@@ -26,8 +26,8 @@ export const usersAPI = {
     },
 };
 export const profileAPI = {
-    getUserProfileById(userId) {
-        return instance.get(`/profile/${userId}`)
+    async getUserProfileById(userId) {
+        return await instance.get(`/profile/${userId}`);
     },
     getStatus(userId) {
         return instance.get(`/profile/status/${userId}`)
@@ -54,8 +54,8 @@ export const loginAPI = {
     }
 };
 export const authAPI = {
-    getMyUserData () {
-        return instance.get(`/auth/me`).then(response => response.data)
+    async getMyUserData () {
+        return await instance.get(`/auth/me`).then(response => response.data)
     },
 };
 export const securityAPI = {

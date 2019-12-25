@@ -1,7 +1,7 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 import s from './renderTextArea.module.scss'
-import {TextArea} from "semantic-ui-react";
+import {Form, TextArea} from "semantic-ui-react";
 
 
 export const renderTextarea = ({input, type, label, meta: {error, warning, active, touched}, ...props}) => {

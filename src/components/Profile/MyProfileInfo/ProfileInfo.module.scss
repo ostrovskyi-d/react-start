@@ -23,7 +23,7 @@
 
       .userName {
         display: flex;
-        width: -webkit-fill-available;
+        width: 100%;
         justify-content: center;
         border: 1px solid;
         padding: 0.5em;
@@ -49,6 +49,7 @@
           width: inherit;
           height: inherit;
         }
+
         .status {
           display: flex;
           flex-direction: column;
@@ -60,44 +61,75 @@
 
       }
     }
+
     .info {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-gap: 2rem;
+
       section.aboutUserContainer {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+        width: 300px;
         //margin: 0 1em;
 
         span.aboutHeading {
           display: flex;
           font-family: "Raleway", sans-serif;
-          padding: 12px 0;
           font-weight: bold;
           border-bottom: 1px solid gray;
-          margin: 10px 0;
           font-size: 16px;
-          margin-top: 0;
-          padding-top: 0;
+          margin: 0 0 10px;
+          padding: 0 0 12px;
         }
 
         div.details {
           display: flex;
           border-radius: 10px;
-          padding: 1.5em;
           flex-direction: column;
-          background-color: rgb(255, 255, 255);
           font-family: 'Prompt', sans-serif;
-          box-shadow: 0 0 7px 0 #0000002e;
-          width: max-content;
           height: 100%;
 
-          li {
-            padding: 3px;
-            list-style: circle;
-            color: #4d4d4d;
+          ul {
+            margin: 0;
+            padding: 0;
+
+            .details_list_item {
+              list-style: none;
+              color: #4d4d4d;
+              padding-bottom: 0.5em;
+              padding-top: 0.5em;
+              border-top: 3px solid;
+
+              .details_list_item_title {
+                font-size: 1.2em;
+
+                //display: flex;
+                //width: 250px;
+                //border: 3px solid #444c5a;
+                //border-radius: 50px;
+                //padding: 10px;
+              }
+
+              strong {
+                display: flex;
+                margin: 0.5em;
+                color: #777777;
+
+              }
+              .contact_buttons {
+                display: flex;
+                justify-content: center;
+              }
+              .contact_buttons * {
+                margin: 5px 5px;
+                font-size: 18px;
+
+              }
+            }
           }
+
         }
       }
 
@@ -109,13 +141,11 @@
         span.galleryHeading {
           display: flex;
           font-family: "Raleway", sans-serif;
-          padding: 12px 0;
           font-weight: bold;
           border-bottom: 1px solid gray;
-          margin: 10px 0;
           font-size: 16px;
-          margin-top: 0;
-          padding-top: 0;
+          margin: 0 0 10px;
+          padding: 0 0 12px;
         }
 
         .gallery {

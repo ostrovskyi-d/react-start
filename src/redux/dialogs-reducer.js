@@ -1,4 +1,4 @@
-const SEND_MESSAGE = "SEND-MESSAGE";
+const SEND_MESSAGE = "network/dialogs/SEND-MESSAGE";
 
 let initialState = {
     messagesData: [
@@ -12,7 +12,7 @@ let initialState = {
     contactsData: [
         {imgSrc: require(`./../images/100x100-1.png`), id: 1, name: 'Vasyl'},
         {imgSrc: require(`./../images/100x100-2.png`), id: 2, name: 'Vitalya'},
-        {imgSrc: require(`./../images/100x100-3.png`), id: 3, name: 'Eney'},
+        {imgSrc: require(`./../images/100x100-3.png`), id: 3, name: 'Petya'},
         {imgSrc: require(`./../images/100x100-4.png`), id: 4, name: 'Jason Born'},
         {imgSrc: require(`./../images/100x100-5.png`), id: 5, name: 'Morpheus'},
         {imgSrc: require(`./../images/100x100-6.png`), id: 6, name: 'Hulk'},

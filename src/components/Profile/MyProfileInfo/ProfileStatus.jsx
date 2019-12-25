@@ -44,7 +44,6 @@ const ProfileStatus = (props) => {
                     <p className={s.statusSpan}
                        onClick={props.statusEditEnabled
                            ? enableEditMode : undefined}>
-                        <span>Status:</span>
                         <span  style={{borderTop: "1px solid gray"}}>{props.status}</span>
                     </p>
                 </div>

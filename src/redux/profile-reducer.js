@@ -1,11 +1,11 @@
 import {profileAPI} from "../API/api";
 
-const ADD_POST = "ADD-POST";
-const ADD_ONE_LIKE = "ADD-ONE-LIKE";
-const SET_USER_PROFILE = "SET-USER-PROFILE";
-const GET_STATUS = "GET-STATUS";
-const UPDATE_STATUS = "UPDATE-STATUS";
-const DELETE_POST = "DELETE-POST";
+const ADD_POST          = "network/profile/ADD-POST";
+const ADD_ONE_LIKE      = "network/profile/ADD-ONE-LIKE";
+const SET_USER_PROFILE  = "network/profile/SET-USER-PROFILE";
+const GET_STATUS        = "network/profile/GET-STATUS";
+const UPDATE_STATUS     = "network/profile/UPDATE-STATUS";
+const DELETE_POST       = "network/profile/DELETE-POST";
 
 let initialState = {
     postsData: [
@@ -93,32 +93,29 @@ export const updateStatus = (status) => ({type: UPDATE_STATUS, status});
 export const addOneLike = (id) => (dispatch) => {
     dispatch(addOneLikeAC(id))
 };
-export const addPost = (newPostBody) => (dispatch) => {
+export const addPost = (newPostBody) =>  (dispatch) => {
     dispatch(addPostAC(newPostBody))
 };
 
-export const deletePostThunk = (id) => (dispatch) => {
+export const deletePostThunk = (id) =>  (dispatch) => {
     dispatch(deletePost(id));
 };
 
-export const getStatus = (userId) => (dispatch) => {
-    profileAPI.getStatus(userId).then(response => {
-        dispatch(updateStatus(response.data));
-    })
+export const getStatus = (userId) => async (dispatch) => {
+    let response = await profileAPI.getStatus(userId);
+    dispatch(updateStatus(response.data));
 };
 
-export const setStatus = (status) => (dispatch) => {
-    profileAPI.updateStatus(status).then(response => {
-        if (response.data.resultCode === 0) {
-            dispatch(updateStatus(status));
-        }
-    })
+export const setStatus = (status) => async (dispatch) => {
+    let response = await profileAPI.updateStatus(status);
+    if (response.data.resultCode === 0) {
+        dispatch(updateStatus(status));
+    }
 };
 
-export const getUserProfile = (userId) => (dispatch) => {
-    profileAPI.getUserProfileById(userId).then(response => {
-        dispatch(setUserProfileAC(response.data));
-    });
+export const getUserProfile = (userId) => async (dispatch) => {
+    let response = await profileAPI.getUserProfileById(userId);
+    dispatch(setUserProfileAC(response.data));
 };
 
 export default profileReducer;

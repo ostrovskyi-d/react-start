@@ -1,0 +1,63 @@
+.viewSettings {
+  display: inline-flex;
+  align-items: baseline;
+  & p {
+    margin:0 0.5em;
+  }
+  .choosePageSize {
+    width: min-content !important;
+    min-width: min-content !important;
+    display: flex !important;
+    align-items: center !important;
+    align-content: center !important;
+    justify-content: center !important;
+  }
+}
+.pagesBlock {
+  display: flex;
+  margin-top: 1em;
+
+  .pagesWrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: none;
+    margin: 1em;
+    justify-content: center;
+    padding: 0.1em;
+    overflow: hidden;
+    height: 42px;
+
+    .pageNumberItem {
+      display: flex;
+      margin: 0 0.3em;
+      padding: 0.4em 0.7em;
+      text-decoration: none;
+      color: #4d4d4d;
+    }
+
+    .selectedPage {
+      background-color: gray;
+      color: white;
+      text-decoration: none;
+      border: 1px solid gray;
+    }
+
+    .selectedPage:hover {
+      text-decoration: none;
+      cursor: default;
+    }
+  }
+
+  .pagesWrapper > a:hover {
+    cursor: pointer;
+    border-bottom: 1px solid gray;
+  }
+
+  .pagesWrapper > * {
+    padding: 0.4em 0.8em;
+    margin: 0.2em 0.3em;
+    font-family: 'Prompt', sans-serif;
+    cursor: pointer;
+  }
+}

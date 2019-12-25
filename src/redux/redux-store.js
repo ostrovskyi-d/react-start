@@ -14,7 +14,6 @@ let reducers = combineReducers({
     users: usersReducer,
     auth: authReducer,
     app: appReducer,
-    sidebar: sidebarReducer,
     form: formReducer
 });
 

@@ -1,14 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './Post.module.scss'
 import 'semantic-ui-css/semantic.min.css'
 import {Button, Header, Icon, Item, Label, Modal} from 'semantic-ui-react'
 
 // Have a bug with adding and removing check it
-const Post = (props) => {
+const Post = React.memo((props) => {
     const {text, likes, addOneLike, deletePost} = props;
-    const getId = () => {
-        addOneLike(props.id)
-    };
+
+    const getId = () => addOneLike(props.id);
     const onPostDelete = () => deletePost(props.id);
     return (
         <>
@@ -28,24 +27,26 @@ const Post = (props) => {
                                     {likes}
                                 </Label>
                             </Button>
-                            <Modal trigger={<Button
-                                className={styles.removePostBtn}
-                                size={"medium"}
-                                color={"red"}
-                                circular
-                                icon={"remove"}
+                            <Modal
+                                closeIcon
+                                trigger={
+                                    <Button
+                                        className={styles.removePostBtn}
+                                        size={"medium"}
+                                        color={"red"} circular>Remove
+                                    </Button>} basic size='small'
                             >
-                                Remove
-                            </Button>} basic size='small'>
-                                <Header icon='archive' content='Archive Old Messages'/>
+                                <Header icon='archive'
+                                        content='Delete this post?'/>
                                 <Modal.Content>
                                     <p>
-                                        Your inbox is getting full, would you like us to enable automatic
-                                        archiving of old messages?
+                                        This operation irreversible. You will not restore this post anymore. <br/>
+                                        <br/>
+                                        Are your really want to make that decision?
                                     </p>
                                 </Modal.Content>
                                 <Modal.Actions>
-                                    <Button basic color='red' inverted>
+                                    <Button negative basic color='red' inverted>
                                         <Icon name='remove'/> No
                                     </Button>
                                     <Button onClick={onPostDelete} color='green' inverted>
@@ -53,14 +54,13 @@ const Post = (props) => {
                                     </Button>
                                 </Modal.Actions>
                             </Modal>
-
                         </div>
                     </Item.Extra>
                 </Item.Content>
             </Item>
         </>
     )
-};
+});
 
 
 export default Post;
