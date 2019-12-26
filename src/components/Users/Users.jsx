@@ -50,21 +50,19 @@ const UsersDumb = (props) => {
                         <div className={s.buttons}>
                             <div className={s.followButtonWrapper}>
                                 {user.followed
-                                    ? <Button variant="contained"
-                                              color="primary"
-                                              disabled={isFollowingInProgress.some(id => id === user.id)}
-                                              loading={isFollowingInProgress.some(id => id === user.id)}
-                                              onClick={() => unFollowThisUserThunkCreator(user.id)}>
+                                    ? <Button
+                                        color='facebook'
+                                        disabled={isFollowingInProgress.some(id => id === user.id)}
+                                        loading={isFollowingInProgress.some(id => id === user.id)}
+                                        onClick={() => unFollowThisUserThunkCreator(user.id)}>
                                         Unfollow
-                                        {/*{isFollowingInProgress.some(id => id === user.id) ? <CircularProgress color={"inherit"} /> : "Unfollow"}*/}
                                     </Button>
-                                    : <Button variant="contained"
-                                              color="grey"
-                                              disabled={isFollowingInProgress.some(id => id === user.id)}
-                                              loading={isFollowingInProgress.some(id => id === user.id)}
-                                              onClick={() => followThisUserThunkCreator(user.id)}>
+                                    : <Button
+                                        color='facebook'
+                                        disabled={isFollowingInProgress.some(id => id === user.id)}
+                                        loading={isFollowingInProgress.some(id => id === user.id)}
+                                        onClick={() => followThisUserThunkCreator(user.id)}>
                                         Follow
-                                        {/*{isFollowingInProgress.some(id => id === user.id) ? <CircularProgress color={"inherit"}/> : "Follow"}*/}
                                     </Button>
                                 }
                             </div>
